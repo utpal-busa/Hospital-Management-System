@@ -1,46 +1,56 @@
-<Html>  
-    <head>   
-    <title>  
-    Registration Page  
-    </title>  
-    </head>  
-    <body bgcolor="Lightskyblue">  
-    <br>  
-    <br>  
-    <form action="/register" method="post">  
-      
-    <label> Firstname </label>         
-    <input type="text" name="firstname" size="15"/> <br> <br>  
-    <label> Middlename: </label>     
-    <input type="text" name="middlename" size="15"/> <br> <br>  
-    <label> Lastname: </label>         
-    <input type="text" name="lastname" size="15"/> <br> <br>  
-      
- <!--   <label>   
-    
-    Gender :  
-    </label><br>  
-    <input type="radio" name="male"/> Male <br>  
-    <input type="radio" name="female"/> Female <br>  
-    <input type="radio" name="other"/> Other  
-    <br>  
-    <br>  
-      
-    <label>   
-    Phone :  
-    </label>  
-    <input type="text" name="country code"  value="+91" size="2"/>   
-    <input type="text" name="phone" size="10"/> <br> <br>  
-    Email:  
-    <input type="email" id="email" name="email"/> <br>    
-    <br> <br>  
-    Password:  
-    <input type="Password" id="pass" name="pass"> <br>   
-    <br> <br>  
-    Re-type password:  
-    <input type="Password" id="repass" name="repass"> <br> <br>  
-  <!-- <input type="button" value="Submit"/>  -->
-    <input type="submit" value="submit" />
-    </form>  
-    </body>  
-    </Html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARU HOSPITAL</title>
+    <link rel="stylesheet" href="/index_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <!----- navbar section ----->
+    <section id="nav-bar">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="/logo.jpeg"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto pull-right">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">LOG IN</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <!----- home-page section ----->
+    <section id="home-page">
+        <div class="container text-center">
+            <h1 class="home-title">SARU <br> HOSPITAL</h1>
+            <div class="home-info">
+                <p>We are committed to offering the highest quality healthcare that prioritizes the needs and comfort of
+                    our patients and their families. We are providing accessible, equitable, and inclusive
+                    healthcare services that meet the diverse needs of our community. Our mission and vision guide every aspect of our hospital's
+                    operations, and we are dedicated to fulfilling them every day to improve the health and lives of
+                    those we serve.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
