@@ -1,24 +1,14 @@
 # IT314-G15 
 Hospital Management System
 
-contributions: 
+Front-End Contributions : 
 
-Dipak Baghel: Backend (registration)
+Utpal Busa: Frontend (Home Pages, Admin pages)
 
-Mayur Suthar: Frontend (receptionist page)
+Aryan Vagh: Frontend (Patient Pages)
 
-Utpal Busa: Frontend (admin page)
+Prince Barad: Frontend (Doctor Pages)
 
-Ramya Patel: Backend (database)
+Divyam Oza: Frontend (Receptionist Page)
 
-Jimi Patel: Backend (login page)
-
-Divyam Oza: Frontend (receptionist page)
-
-Vaidik Patel: Backend (scheduling)
-
-Aryan Patel: Backend (new registration mail) 
-
-Aryan Vagh: Frontend (doctor page)
-
-Prince Barad: Frontend (patient page)
+Mayur Suthar: Frontend (Receptionist Pages)
