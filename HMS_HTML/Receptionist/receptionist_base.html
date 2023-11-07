@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Receptionist-Page</title>
+    <script src="https://kit.fontawesome.com/cbb441a45f.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    
+    <link rel="stylesheet" href="D:\Codeforces_problems\css\rec_style.css">
+
+    
+</head>
+
+<body>
+
+<nav class="menu" tabindex="0">
+    <div class="smartphone-menu-trigger"></div>
+    <header class="avatar">
+        <img src="D:\Codeforces_problems\css\images\Receptionist_pic.png" style="width: 100px; border-radius: 50%; overflow: hidden; border: 4px solid #5bc995; box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2); margin-top: 70px;">
+        <h6 style="font-size: 18px; font-weight: bold; margin-top: 5px;">Receptionist</h6>
+    </header>
+    <ul>
+        <li tabindex="0" class="icon-dashboard">
+            <a style="color: white; text-decoration: none;" href="D:\Codeforces_problems\receptionist_folder\Receptionist_Pages\.html">
+                <span><i class="fas fa-duotone fa-gauge" style="--fa-primary-color: #f7f7f8;"></i> Dashboard</span>
+            </a>
+        </li>
+        <li tabindex="0" class="icon-customers"> <a style="color: white; text-decoration: none;" href="#"><span><i class="fas fa-user-doctor"></i> Doctor</span></a></li>
+        <li tabindex="0" class="icon-users"> <a style="color: white; text-decoration: none;" href="#"><span><i class="fas fa-hospital-user"></i> Patient</span></a></li>
+        
+        <li tabindex="0" class="icon-calendar">
+            <a style="color: white; text-decoration: none;" href="#">
+                <i class="fas fa-calendar-plus"></i>
+                <span>Appointment</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<main>
+
+    <!-- nav start -->
+    <div class="bs-example">
+    <nav class="navbar navbar-expand-md  navbar-dark fixed-top" style="background: #337AB7;">
+        <label class="logo" style="font-size: 30px; margin-right: 20px; font-weight: bold;"><i class="far fa-hospital me-3"></i>Care4You</label>
+
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+    <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#"><h6 style="font-size: 18px; font-weight: bold; margin-top: 5px;">Home</h6></a></li>
+        <li class="nav-item"><a class="nav-link" href="#"><h6 style="font-size: 18px; font-weight: bold; margin-top: 5px;">About</h6>
+        <li class="nav-item"><a class="nav-link" href="#"><h6 style="font-size: 18px; font-weight: bold; margin-top: 5px;">Services</h6>
+        <li class="nav-item"><a class="nav-link" href="#"><h6 style="font-size: 18px; font-weight: bold; margin-top: 5px;">Contact</h6>
+        <li class="nav-item"><a class="nav-link" href="#"><h6 style="font-size: 18px; font-weight: bold; margin-top: 5px;">Profile</h6>
+        <li class="nav-item"><a class="nav-link" href="#"><h6 style="font-size: 18px; font-weight: bold; margin-top: 5px;">Logout</h6>
+    </ul>
+</div>
+
+        </div>
+    </nav>
+    </div>
+    <!-- nav end -->
+
+    <br><br>
+
+    <!-- content start-->
+    {% block content %}
+
+    {% endblock content %}
+    <!-- content end-->
+
+</main>
+
+<footer>
+    <p>
+    <a id="ftr" href="#" class="fa fa-facebook"></a>
+    <a id="ftr" href="#" class="fa fa-whatsapp"></a>
+    <a id="ftr" href="#" class="fa fa-instagram"></a>
+    <a id="ftr" href="#" class="fa fa-twitter"></a>
+    </p>
+
+    <br>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+        <div style="color: #ffffff;" class="wow fadeInUp footer-copyright">
+            <p>Add some text<br>
+            Copyright &copy; HMS-Management</p>
+        </div>
+        </div>
+    </div>
+    </div>
+</footer>
+
+
+    </body>
+
+    </html>
