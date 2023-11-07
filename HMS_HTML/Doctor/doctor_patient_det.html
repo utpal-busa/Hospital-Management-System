@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Care4You Hospital</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="/HMS_Images/favicon.icon" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/HMS_Lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/HMS_Lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/HMS_Lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/HMS_CSS/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Admin All Employees Stylesheet -->
+    <link href="/HMS_CSS/patient_home_style.css" rel="stylesheet">
+
+    <style>
+        .Patient_det {
+            /* padding-top: 20px; */
+            margin-top: 0px;
+            width: 500px;
+            margin-left: 220px;
+            /* background-color: chartreuse; */
+            /* border-radius: 10px; */
+            /* border-style: dashed; */
+            text-align: center;
+        }
+
+        table,
+        th,
+        tr,
+        td {
+
+            border: 1px #06090f solid;
+            /* padding-left: 100px; */
+            border-collapse: collapse;
+            text-align: center;
+            background-color: #c8d7ed;
+            color: black;
+
+        }
+        /* th{
+            background-color: #94bdfc;
+        }
+        td{
+            background-color: #94bdfc
+        } */
+
+        table {
+            margin-left: 150px;
+            width: 700px;
+            background-color: #c8d7ed;
+        }
+
+        /* .container-fluid {
+            background-color: skyblue;
+        } */
+
+        tr:hover {
+            background-color: #c8d7ed;
+
+        }
+        
+
+        /* body {
+            background-color: #17ac41;
+        } */
+
+        .box
+        {
+            margin-left: 300px;
+            /* width: 100px; */
+            /* border: solid blue; */
+        }
+        body {
+            background-color: #e3eee6;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<!-- Spinner End -->
+
+<!-- Navbar Start -->
+<nav>
+  <input type="checkbox" id="check">
+  <label for="check" class="checkbtn">
+    <i class="fas fa-bars"></i>
+</label>
+<label class="logo"><i class="far fa-hospital me-3"></i>Care4You</label>
+<ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">Profile</a></li>
+</ul>
+</nav>
+<!-- Navbar End -->
+
+<!-- Side-bar Start -->
+<div class="side-bar">
+    <div class="side-bar-top">
+        <div class="side-bar-heading">
+            <p><b>Doctor</b></p>
+        </div>
+        <img class="pat" src="/HMS_Images/patient.jpg">
+        <p class="user"><b>USERNAME:</b> employee101</p>
+        <p class="user"><b>ID:</b> DOC101</p>
+    </div>
+    <div class="side-bar-bottom">
+        <ul>
+            <li><a href="/HMS_HTML/new_me.html">Me</a></li>
+            <!-- <li><a href="#">Edit Profile</a></li> -->
+            <li><a href="/HMS_HTML/new_doc_visited_pat.html">Visited Patients</a></li>
+            <li><a href="#">Search patient</a></li>
+            <li><a href="/HMS_HTML/new_doc_obs.html">Observation & Prescription</a></li>
+            <!-- <li><a href="#">View Employees</a></li> -->
+        </ul>
+    </div>
+</div>
+
+<br><br>
+<br>
+<br>
+<div class="box">
+    <div class="Patient_det">
+        <h1 style="text-align: center; font-style: italic;">Patient Details</h1>
+    </div>
+    <br><br>
+    <table>
+        <tr>
+            <th>Id</th>
+            <td>P101</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>abcd</td>
+        </tr>
+        <tr>
+            <th>Registration Date</th>
+            <td>24-24-2004</td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td>Male</td>
+        </tr>
+        <tr>
+            <th>blood group</th>
+            <td>B+</td>
+        </tr>
+        <tr>
+            <th>Email id</th>
+            <td>aeihf@gmail.com</td>
+        </tr>
+
+        <tr>
+            <th>MObile Number</th>
+            <td>9839764960</td>
+        </tr>
+
+        <tr>
+            <th>Adhar Number</th>
+            <td>23458765</td>
+        </tr>
+
+        <tr>
+            <th>City</th>
+            <td>eihfu</td>
+        </tr>
+        <tr>
+            <th>Last visiting Date</th>
+            <td>23-07-2023</td>
+        </tr>
+    </table>
+</div>
+<!-- Side-bar End -->
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
+    class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/HMS_Lib/wow/wow.min.js"></script>
+    <script src="/HMS_Lib/easing/easing.min.js"></script>
+    <script src="/HMS_Lib/waypoints/waypoints.min.js"></script>
+    <script src="/HMS_Lib/counterup/counterup.min.js"></script>
+    <script src="/HMS_Lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/HMS_Lib/tempusdominus/js/moment.min.js"></script>
+    <script src="/HMS_Lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="/HMS_Lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- HMS Javascript -->
+    <script src="/HMS_JS/main.js"></script>
+</body>
+</html>
