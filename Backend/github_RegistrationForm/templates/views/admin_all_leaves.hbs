@@ -27,8 +27,8 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/HMS_CSS/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Admin All Employees Stylesheet -->
-    <link href="/HMS_CSS/admin_all_emp_style.css" rel="stylesheet">
+    <!-- Admin All Leaves Stylesheet -->
+    <link href="/HMS_CSS/admin_all_leaves_style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -68,7 +68,8 @@
             <div class="side-bar-heading">
                 <p><b>Admin</b></p>
             </div>
-            <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
+            <div
+                class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
                 <i class="fa fa-user fa-3x"></i>
             </div>
             <p class="side-bar-top-info"><b>Name :</b> FName LName</p>
@@ -76,7 +77,7 @@
         </div>
         <div class="side-bar-bottom">
             <ul>
-               <li><a href="/admin_home">Dashboard</a></li>
+              <li><a href="/admin_home">Dashboard</a></li>
                 <li><a href="/admin_add_emp">Add Employee</a></li>
                 <li><a href="/admin_search_emp">Search Employee</a></li>
                 <li><a href="/admin_all_emp">All Employees</a></li>
@@ -86,16 +87,18 @@
     </div>
     <!-- Side-bar End -->
 
-    <!-- All Employees Dashboard Start -->
-    <div class="container-fluid all-emp-dash">
-        <div class="all-emp-heading d-flex justify-content-center wow fadeInUp">
-            <h1>All Employees</h1>
+    <!-- All Leaves Dashboard Start -->
+    <div class="container-fluid all-leaves-dash">
+        <div class="all-leaves-heading d-flex justify-content-center wow fadeInUp">
+            <h1>All Leaves</h1>
         </div>
-        <div class="all-emp-info d-inline-flex">
+        <div class="all-leaves-info d-inline-flex">
             <table class="table table-bordered">
                 <thead>
                     <tr class="table-secondary">
                         <th scope="col" class="text-center">No.</th>
+                        <th scope="col" class="text-center">ID</th>
+                        <th scope="col" class="text-center">Name</th>
                         <th scope="col" class="text-center">Role</th>
                         <th scope="col" class="text-center">Action</th>
                     </tr>
@@ -103,24 +106,45 @@
                 <tbody>
                     <tr>
                         <td class="tab-data">1</td>
+                        <td class="tab-data">E101</td>
+                        <td class="tab-data">Ranchhod Patel</td>
                         <td class="tab-data">Admin</td>
-                        <td><a href="/admin_all_admin" class="view-button btn">View</a></td>
+                        <td>
+                            <div class="mb-1 all-leaves-btn d-inline-flex">
+                                <button type="button" class="btn btn-primary m-lg-2">Approve</button>
+                                <button type="button" class="btn btn-danger m-lg-2">Disapprove</button>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="tab-data">2</td>
+                        <td class="tab-data">E202</td>
+                        <td class="tab-data">Ram Kumar</td>
                         <td class="tab-data">Doctor</td>
-                        <td><a href="/admin_all_doctor" class="view-button btn">View</a></td>
+                        <td>
+                            <div class="mb-1 all-leaves-btn d-inline-flex">
+                                <button type="button" class="btn btn-primary m-lg-2">Approve</button>
+                                <button type="button" class="btn btn-danger m-lg-2">Disapprove</button>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="tab-data">3</td>
+                        <td class="tab-data">E304</td>
+                        <td class="tab-data">Ghanshyam Patel</td>
                         <td class="tab-data">Receptionist</td>
-                        <td><a href="/admin_all_recep" class="view-button btn">View</a></td>
+                        <td>
+                            <div class="mb-1 all-leaves-btn d-inline-flex">
+                                <button type="button" class="btn btn-primary m-lg-2">Approve</button>
+                                <button type="button" class="btn btn-danger m-lg-2">Disapprove</button>
+                            </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <!-- All Employees Dashboard End -->
+    <!-- All Leaves Dashboard End -->
 
     <!-- Back to Top -->
     <a href="/HMS_HTML/Home/hms_index.html" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i

@@ -27,8 +27,8 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/HMS_CSS/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Admin All Employees Stylesheet -->
-    <link href="/HMS_CSS/admin_all_emp_style.css" rel="stylesheet">
+    <!-- Admin All Admins Stylesheet -->
+    <link href="/HMS_CSS/admin_all_admin_style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -76,7 +76,7 @@
         </div>
         <div class="side-bar-bottom">
             <ul>
-               <li><a href="/admin_home">Dashboard</a></li>
+              <li><a href="/admin_home">Dashboard</a></li>
                 <li><a href="/admin_add_emp">Add Employee</a></li>
                 <li><a href="/admin_search_emp">Search Employee</a></li>
                 <li><a href="/admin_all_emp">All Employees</a></li>
@@ -86,41 +86,51 @@
     </div>
     <!-- Side-bar End -->
 
-    <!-- All Employees Dashboard Start -->
-    <div class="container-fluid all-emp-dash">
-        <div class="all-emp-heading d-flex justify-content-center wow fadeInUp">
-            <h1>All Employees</h1>
+    <!-- All Admins Dashboard Start -->
+    <div class="container-fluid all-admin-dash">
+        <div class="all-admin-heading d-flex justify-content-center wow fadeInUp">
+            <h1>All Admins</h1>
         </div>
-        <div class="all-emp-info d-inline-flex">
+        <div class="all-admin-info d-inline-flex">
             <table class="table table-bordered">
                 <thead>
                     <tr class="table-secondary">
                         <th scope="col" class="text-center">No.</th>
-                        <th scope="col" class="text-center">Role</th>
+                        <th scope="col" class="text-center">ID</th>
+                        <th scope="col" class="text-center">Name</th>
                         <th scope="col" class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td class="tab-data">1</td>
-                        <td class="tab-data">Admin</td>
-                        <td><a href="/admin_all_admin" class="view-button btn">View</a></td>
+                        <td class="tab-data">E101</td>
+                        <td class="tab-data">Ranchhod Patel</td>
+                        <td><a href="/admin_emp_details" class="view-button btn">View</a></td>
                     </tr>
                     <tr>
                         <td class="tab-data">2</td>
-                        <td class="tab-data">Doctor</td>
-                        <td><a href="/admin_all_doctor" class="view-button btn">View</a></td>
+                        <td class="tab-data">E102</td>
+                        <td class="tab-data">Ram Kumar</td>
+                        <td><a href="/admin_emp_details" class="view-button btn">View</a></td>
                     </tr>
                     <tr>
                         <td class="tab-data">3</td>
-                        <td class="tab-data">Receptionist</td>
-                        <td><a href="/admin_all_recep" class="view-button btn">View</a></td>
+                        <td class="tab-data">E103</td>
+                        <td class="tab-data">Madhav Dhameliya</td>
+                        <td><a href="/admin_emp_details" class="view-button btn">View</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data">4</td>
+                        <td class="tab-data">E104</td>
+                        <td class="tab-data">Ghanshyam Patel</td>
+                        <td><a href="/admin_emp_details" class="view-button btn">View</a></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <!-- All Employees Dashboard End -->
+    <!-- All Admins Dashboard End -->
 
     <!-- Back to Top -->
     <a href="/HMS_HTML/Home/hms_index.html" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i

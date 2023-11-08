@@ -27,8 +27,8 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/HMS_CSS/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Admin All Employees Stylesheet -->
-    <link href="/HMS_CSS/admin_all_emp_style.css" rel="stylesheet">
+    <!-- Admin Add Employee Stylesheet -->
+    <link href="/HMS_CSS/admin_add_emp_style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -86,45 +86,94 @@
     </div>
     <!-- Side-bar End -->
 
-    <!-- All Employees Dashboard Start -->
-    <div class="container-fluid all-emp-dash">
-        <div class="all-emp-heading d-flex justify-content-center wow fadeInUp">
-            <h1>All Employees</h1>
+    <!-- Add Employee Dashboard Start -->
+    <div class="container-fluid add-emp-dash">
+        <div class="add-emp-heading d-flex justify-content-start mx-auto wow fadeInUp">
+            <h1>Add New Employee</h1>
         </div>
-        <div class="all-emp-info d-inline-flex">
-            <table class="table table-bordered">
-                <thead>
-                    <tr class="table-secondary">
-                        <th scope="col" class="text-center">No.</th>
-                        <th scope="col" class="text-center">Role</th>
-                        <th scope="col" class="text-center">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="tab-data">1</td>
-                        <td class="tab-data">Admin</td>
-                        <td><a href="/admin_all_admin" class="view-button btn">View</a></td>
-                    </tr>
-                    <tr>
-                        <td class="tab-data">2</td>
-                        <td class="tab-data">Doctor</td>
-                        <td><a href="/admin_all_doctor" class="view-button btn">View</a></td>
-                    </tr>
-                    <tr>
-                        <td class="tab-data">3</td>
-                        <td class="tab-data">Receptionist</td>
-                        <td><a href="/admin_all_recep" class="view-button btn">View</a></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="add-emp-info d-inline-flex">
+            <form>
+                <div class="mb-3">
+                  <label class="form-label">Name</label>
+                  <div class="row g-3">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" id="first_name" placeholder="First Name" required>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" class="form-control" id="middle_name" placeholder="Middle Name" required>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" class="form-control" id="last_name" placeholder="Last Name" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Birthdate</label>
+                    <input type="date" class="form-control" id="birthdate" placeholder="dd-mm-yy" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Gender</label>
+                    <select id="gender" class="form-select" required>
+                    <option selected>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter Email" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mobile No.</label>
+                    <input type="tel" class="form-control" id="mobile" placeholder="Enter Mobile No." required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Aadhar No.</label>
+                    <input type="text" class="form-control" id="aadhar" placeholder="Enter Aadhar No." required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Country</label>
+                    <input type="text" class="form-control" id="country" placeholder="Enter Country" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">State</label>
+                    <input type="text" class="form-control" id="state" placeholder="Enter State" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" placeholder="Enter City" required>
+                </div>
+                <div class="form mb-3">
+                    <label class="form-label">Address</label>
+                    <textarea class="form-control" id="address" style="height: 100px"  required>Enter Your Address</textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Role</label>
+                    <select id="role" class="form-select" required>
+                    <option selected>Doctor</option>
+                    <option>Receptionist</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Qualification</label>
+                    <input type="text" class="form-control" id="qualification" placeholder="Enter Qualification" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Specialization</label>
+                    <input type="text" class="form-control" id="specialization" placeholder="Enter Specialization" required>
+                </div>
+                <div class="mb-3 add-emp-btn d-inline-flex">
+                    <button type="submit" class="btn btn-primary m-lg-2">Submit</button>
+                    <button type="button" class="btn btn-danger m-lg-2">Clear</button>
+                </div>
+              </form>
         </div>
     </div>
-    <!-- All Employees Dashboard End -->
+    <!-- Add Employee Dashboard End -->
 
     <!-- Back to Top -->
     <a href="/HMS_HTML/Home/hms_index.html" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
-            class="bi bi-arrow-up"></i></a>
+        class="bi bi-arrow-up"></i></a>
 
 
     <!-- JavaScript Libraries -->
