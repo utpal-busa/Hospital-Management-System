@@ -1,4 +1,4 @@
-/********** Admin All Employees CSS **********/
+/********** Admin Add Employee CSS **********/
 :root {
     --primary: #0463FA;
     --light: #EFF5FF;
@@ -135,15 +135,30 @@
     margin: 15px 5px;
 }
 
-.cent h1{
-    font-size: 500%;
-    text-align: center;
-    padding-top: 20%;
-    padding-left: 20%;
+
+/*** Add Employee Dashboard ***/
+.add-emp-dash {
+    height: 100%;
+    padding-left: 250px;
+    padding-top: 100px;
+    padding-bottom: 25px;
 }
 
-.cent h2{
-    color: red;
-    text-align: center;
-    padding-left: 20%;
+.add-emp-heading {
+    margin: 20px 0;
+    padding-left: 350px;
+}
+
+.add-emp-info {
+    color: black;
+    padding-left: 200px;
+}
+
+.add-emp-btn {
+    padding-left: 225px;
+}
+
+.add-emp-info button:hover {
+    /* padding-left: 225px; */
+    color: var(--dark) !important;
 }

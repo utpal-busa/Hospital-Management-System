@@ -27,8 +27,8 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/HMS_CSS/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Admin Home Stylesheet -->
-    <link href="/HMS_CSS/admin_home_style.css" rel="stylesheet">
+    <!-- Admin Employee Details Stylesheet -->
+    <link href="/HMS_CSS/admin_emp_details_style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -40,7 +40,6 @@
         </div>
     </div>
     <!-- Spinner End -->
-    
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-primary navbar-light fixed-top p-0" data-wow-delay="0.1s">
@@ -69,8 +68,7 @@
             <div class="side-bar-heading">
                 <p><b>Admin</b></p>
             </div>
-            <div
-                class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
+            <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
                 <i class="fa fa-user fa-3x"></i>
             </div>
             <p class="side-bar-top-info"><b>Name :</b> FName LName</p>
@@ -78,7 +76,7 @@
         </div>
         <div class="side-bar-bottom">
             <ul>
-                <li><a href="/admin_home">Dashboard</a></li>
+             <li><a href="/admin_home">Dashboard</a></li>
                 <li><a href="/admin_add_emp">Add Employee</a></li>
                 <li><a href="/admin_search_emp">Search Employee</a></li>
                 <li><a href="/admin_all_emp">All Employees</a></li>
@@ -88,63 +86,84 @@
     </div>
     <!-- Side-bar End -->
 
-    <!-- Admin Home Dashboard Start -->
-    <div class="container-fluid home-dash">
-        <div class="home-heading d-flex justify-content-center wow fadeInUp">
-            <h1>Welcom <span>FName LName</span>! <br> Let's Get Started!</h1>
+    <!-- Employee Details Dashboard Start -->
+    <div class="container-fluid emp-details-dash">
+        <div class="emp-details-heading d-flex justify-content-center wow fadeInUp">
+            <h1>Employee Details</h1>
         </div>
-        <div class="container-xxl home-info py-5">
-            <div class="container">
-                <div class="row g-3">
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="home-info-item bg-light rounded h-100">
-                            <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                                style="width: 65px; height: 65px;">
-                                <i class="fa fa-users text-primary fs-4"></i>
-                            </div>
-                            <h4 class="mb-3">Employees</h4>
-                            <p class="mb-4">51</p>
-                            <a class="btn" href="/HMS_HTML/Admin/admin_all_emp.html"><i class="fa fa-plus text-primary me-3"></i>View All</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="home-info-item bg-light rounded h-100">
-                            <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                                style="width: 65px; height: 65px;">
-                                <i class="fa fa-user-md text-primary fs-4"></i>
-                            </div>
-                            <h4 class="mb-3">Doctors</h4>
-                            <p class="mb-4">11</p>
-                            <a class="btn" href="/HMS_HTML/Admin/admin_all_doctor.html"><i class="fa fa-plus text-primary me-3"></i>View All</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="home-info-item bg-light rounded h-100">
-                            <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                                style="width: 65px; height: 65px;">
-                                <i class="fa fa-user-plus text-primary fs-4"></i>
-                            </div>
-                            <h4 class="mb-3">Patients</h4>
-                            <p class="mb-4">1001</p>
-                            <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>View All</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="home-info-item bg-light rounded h-100">
-                            <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                                style="width: 65px; height: 65px;">
-                                <i class="fa fa-rupee-sign text-primary fs-4"></i>
-                            </div>
-                            <h4 class="mb-3">Cunsulting Fees</h4>
-                            <p class="mb-4">Rs. 500</p>
-                            <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>View Fees</a>
-                        </div>
-                    </div>
-                </div>
+        <div class="emp-details-info">
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <tr>
+                        <td class="tab-data fw-bold">Name</td>
+                        <td class="tab-data">FName MName LName</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data fw-bold">ID</td>
+                        <td class="tab-data">E101</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data fw-bold">Birthdate</td>
+                        <td class="tab-data">dd-mm-yy</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data fw-bold">Gender</td>
+                        <td class="tab-data">Male</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data fw-bold">Email Address</td>
+                        <td class="tab-data">emp@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data fw-bold">Mobile No.</td>
+                        <td class="tab-data">0123456789</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data fw-bold">Aadhar No.</td>
+                        <td class="tab-data">1234 4567 7890</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data fw-bold">Country</td>
+                        <td class="tab-data">India</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data fw-bold">State</td>
+                        <td class="tab-data">Gujarat</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data fw-bold">City</td>
+                        <td class="tab-data">Gandhinagar</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data fw-bold">Address</td>
+                        <td class="tab-data">Address</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data fw-bold">Role</td>
+                        <td class="tab-data">Admin</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data fw-bold">Qualification</td>
+                        <td class="tab-data">Qualification</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data fw-bold">Specialization</td>
+                        <td class="tab-data">Specialization</td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data fw-bold">Joining Date</td>
+                        <td class="tab-data">dd-mm-yy</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <div class="mb-3 emp-details-btn d-inline-flex">
+                <button type="submit" class="btn btn-primary m-lg-2">Edit</button>
+                <button type="button" class="btn btn-danger m-lg-2">Delete</button>
             </div>
         </div>
     </div>
-    <!-- Admin Home Dashboard End -->
+    <!-- Employee Details Dashboard End -->
 
     <!-- Back to Top -->
     <a href="/HMS_HTML/Home/hms_index.html" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i

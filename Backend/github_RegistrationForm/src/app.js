@@ -33,8 +33,76 @@ app.get("/", (req, res) => {
   res.render('index')
 })
 
+app.get("/admin_add_emp", (req, res) => {
+  res.render('admin_add_emp')
+})
+
+app.get("/admin_all_admin", (req, res) => {
+  res.render('admin_all_admin')
+})
+
+app.get("/admin_all_doctor", (req, res) => {
+  res.render('admin_all_doctor')
+})
+
 app.get("/admin_all_emp", (req, res) => {
   res.render('admin_all_emp')
+})
+
+app.get("/admin_all_leaves", (req, res) => {
+  res.render('admin_all_leaves')
+})
+
+app.get("/admin_all_recep", (req, res) => {
+  res.render('admin_all_recep')
+})
+
+app.get("/admin_emp_details", (req, res) => {
+  res.render('admin_emp_details')
+})
+
+app.get("/new_doc_patient_det", (req, res) => {
+  res.render('new_doc_patient_det')
+})
+
+
+app.get("/admin_home", (req, res) => {
+  res.render('admin_home')
+})
+
+app.get("/admin_search_emp", (req, res) => {
+  res.render('admin_search_emp')
+})
+app.get("/prescription", (req, res) => {
+  res.render('prescription')
+})
+
+app.get("/view_appointment", (req, res) => {
+  res.render('view_appointment')
+})
+
+app.get("/patient_appointment", (req, res) => {
+  res.render('patient_appointment')
+})
+
+app.get("/view_prescription",(req, res) => {
+  res.render('view_prescription')
+})
+
+app.get("/patient_home", (req, res) => {
+  res.render('patient_home')
+})
+
+app.get("/new_me", (req, res) => {
+  res.render('new_me')
+})
+
+app.get("/new_doc_visited_pat", (req, res) => {
+  res.render('new_doc_visited_pat')
+})
+
+app.get("/new_doc_obs", (req, res) => {
+  res.render('new_doc_obs')
 })
 
 app.get("/temp_dashboard", auth, (req, res) => {
@@ -42,8 +110,8 @@ app.get("/temp_dashboard", auth, (req, res) => {
   res.render('temp_dashboard')
 })
 
-app.get("/register", (req, res) => {
-  res.render('register')
+app.get("/Register_new", (req, res) => {
+  res.render('Register_new')
 })
 
 app.get("/reset-password/:id/:token", (req, res) => {
@@ -55,7 +123,7 @@ app.get("/ForgotPassword", (req, res) => {
 })
 
 app.get("/login", (req, res) => {
-  res.render('login')
+  res.render('Login_new')
 })
 
 app.get("/logout", auth, async (req, res) => {
@@ -184,7 +252,7 @@ app.post("/register", async (req, res) => {
     if (req.body.password == req.body.confirmPassword) {
 
       const registeredPatient = new Patient({
-        FullName: req.body.fullname,
+        Name: req.body.Name,
         Email: req.body.Email,
         Phone: req.body.Phone,
         Password: req.body.password,
@@ -192,17 +260,24 @@ app.post("/register", async (req, res) => {
         AddressLine1: req.body.AddressLine1,
         AddressLine2: req.body.AddressLine2,
         AddressPostalCode: req.body.AddressPostalCode,
-        Gender: req.body.gender,
-        Role: req.body.role
+        Gender: req.body.Gender,
+        BloodGroup : req.body.blood_group,
+        Role: "Patient"
       })
 
-
+       // console.log(req.body.password);
       const token = await registeredPatient.generateAuthToken();
 
       //res.cookie("jwt", token, { expires: new Date(Date.now() + 300000), httponly: true })
       ///console.log(cookie) --> Ye karna ho to chatgpt kar lo
-
-      const finalNakho = await registeredPatient.save();
+      try{
+        await registeredPatient.save();
+      }
+      catch(err)
+      {
+        console.log(err);
+      }
+      //const finalNakho = await registeredPatient.save();
       res.status(400).send('<script>alert("Registered successfully"); window.location = "/"</script>');
       //res.status(201).render('login')
     }
@@ -230,7 +305,7 @@ app.post("/login", async (req, res) => {
     }
     const isMatch = await bcrypt.compare(password, useremail.Password)
     const token = await useremail.generateAuthToken();
-    res.cookie("jwt", token, { expires: new Date(Date.now() + 30000), httponly: true })
+    res.cookie("jwt", token, { expires: new Date(Date.now() + 30000000), httponly: true })
     //console.log(token)
    
     if (isMatch) {
@@ -238,10 +313,13 @@ app.post("/login", async (req, res) => {
       if (useremail.Role == "Admin") {
         res.render('admin_home')
       }
-      else {
+
+     else  if(useremail.Role=="Doctor")
+       {
         res.render('new_doc_home')
       }
-
+     else 
+         res.render('patient_home',{user:useremail})
       // console.log(`this is cookie ${req.cookies.jwt}`);
     }
     else {

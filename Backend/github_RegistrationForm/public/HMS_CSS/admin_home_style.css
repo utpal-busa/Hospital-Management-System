@@ -1,4 +1,4 @@
-/********** Admin All Employees CSS **********/
+/********** Admin Home CSS **********/
 :root {
     --primary: #0463FA;
     --light: #EFF5FF;
@@ -86,6 +86,7 @@
     height: 100%;
     float: left;
     position: fixed;
+    /* z-index: 1; */
 }
 
 .side-bar-top {
@@ -135,15 +136,53 @@
     margin: 15px 5px;
 }
 
-.cent h1{
-    font-size: 500%;
-    text-align: center;
-    padding-top: 20%;
-    padding-left: 20%;
+
+/*** Admin Home Dashboard ***/
+.home-dash {
+    height: 523px;
 }
 
-.cent h2{
-    color: red;
+.home-heading {
+    font-size: 35px;
+    color: black;
+    padding-top: 120px;
     text-align: center;
-    padding-left: 20%;
+    padding-left: 250px !important;
+}
+
+.home-heading span {
+    color: orange;
+}
+
+.home-info {
+    padding-left: 300px;
+}
+
+.home-info-item {
+    transition: .5s;
+    width: 80%;
+    padding: 30px 50px;
+}
+
+.home-info-item:hover {
+    margin-top: -10px;
+    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .08);
+    padding: 30px 40px;
+}
+
+.home-info-item .btn {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    background: #FFFFFF;
+    border-radius: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: .5s;
+    color: var(--primary);
+}
+
+.home-info-item:hover .btn {
+    width: 140px;
 }

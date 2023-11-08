@@ -1,4 +1,4 @@
-/********** Admin All Employees CSS **********/
+/********** Admin All Leaves CSS **********/
 :root {
     --primary: #0463FA;
     --light: #EFF5FF;
@@ -135,15 +135,41 @@
     margin: 15px 5px;
 }
 
-.cent h1{
-    font-size: 500%;
-    text-align: center;
-    padding-top: 20%;
-    padding-left: 20%;
+
+/*** All Leaves Dashboard ***/
+.all-leaves-dash {
+    height: 500px;
 }
 
-.cent h2{
-    color: red;
+.all-leaves-heading {
+    margin: 20px 0;
+    padding-left: 210px;
+    padding-top: 100px;
+}
+
+.all-leaves-info {
+    padding-left: 400px;
+    padding-top: 20px;
+    color: black;
+    font-weight:400;
+}
+
+.all-leaves-info table {
+    height: 235px;
+    width: 800px;
+    color: black;
+}
+
+.tab-data{
+    padding-top: 20px !important;
     text-align: center;
-    padding-left: 20%;
+}
+
+.all-leaves-btn
+{
+    margin-left: 70px;
+}
+
+.all-leaves-info button:hover {
+    color: var(--dark) !important;
 }

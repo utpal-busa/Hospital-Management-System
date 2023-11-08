@@ -1,4 +1,4 @@
-/********** Admin All Employees CSS **********/
+/********** Admin Employee Details CSS **********/
 :root {
     --primary: #0463FA;
     --light: #EFF5FF;
@@ -135,15 +135,42 @@
     margin: 15px 5px;
 }
 
-.cent h1{
-    font-size: 500%;
-    text-align: center;
-    padding-top: 20%;
-    padding-left: 20%;
+
+/*** Employee Details Dashboard ***/
+.emp-details-dash {
+    height: 500px;
 }
 
-.cent h2{
-    color: red;
+.emp-details-heading {
+    margin: 20px 0;
+    padding-left: 210px;
+    padding-top: 100px;
+}
+
+.emp-details-info {
+    padding-left: 400px;
+    padding-top: 20px;
+    color: black;
+    font-weight: 400;
+}
+
+.emp-details-info table {
+    height: 700px !important;
+    width: 800px;
+    color: black;
+}
+
+.tab-data{
+    padding-top: 10px !important;
     text-align: center;
-    padding-left: 20%;
+    color: black;
+}
+
+.emp-details-btn {
+    padding-left: 300px;
+}
+
+.emp-details-info button:hover {
+    /* padding-left: 225px; */
+    color: var(--dark) !important;
 }

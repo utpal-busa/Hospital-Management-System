@@ -27,8 +27,8 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/HMS_CSS/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Admin Home Stylesheet -->
-    <link href="/HMS_CSS/admin_home_style.css" rel="stylesheet">
+    <!-- Admin All Doctors Stylesheet -->
+    <link href="/HMS_CSS/admin_all_doctor_style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -40,7 +40,6 @@
         </div>
     </div>
     <!-- Spinner End -->
-    
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-primary navbar-light fixed-top p-0" data-wow-delay="0.1s">
@@ -69,8 +68,7 @@
             <div class="side-bar-heading">
                 <p><b>Admin</b></p>
             </div>
-            <div
-                class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
+            <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
                 <i class="fa fa-user fa-3x"></i>
             </div>
             <p class="side-bar-top-info"><b>Name :</b> FName LName</p>
@@ -78,7 +76,7 @@
         </div>
         <div class="side-bar-bottom">
             <ul>
-                <li><a href="/admin_home">Dashboard</a></li>
+               <li><a href="/admin_home">Dashboard</a></li>
                 <li><a href="/admin_add_emp">Add Employee</a></li>
                 <li><a href="/admin_search_emp">Search Employee</a></li>
                 <li><a href="/admin_all_emp">All Employees</a></li>
@@ -88,63 +86,51 @@
     </div>
     <!-- Side-bar End -->
 
-    <!-- Admin Home Dashboard Start -->
-    <div class="container-fluid home-dash">
-        <div class="home-heading d-flex justify-content-center wow fadeInUp">
-            <h1>Welcom <span>FName LName</span>! <br> Let's Get Started!</h1>
+    <!-- All Doctors Dashboard Start -->
+    <div class="container-fluid all-doctor-dash">
+        <div class="all-doctor-heading d-flex justify-content-center wow fadeInUp">
+            <h1>All Doctors</h1>
         </div>
-        <div class="container-xxl home-info py-5">
-            <div class="container">
-                <div class="row g-3">
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="home-info-item bg-light rounded h-100">
-                            <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                                style="width: 65px; height: 65px;">
-                                <i class="fa fa-users text-primary fs-4"></i>
-                            </div>
-                            <h4 class="mb-3">Employees</h4>
-                            <p class="mb-4">51</p>
-                            <a class="btn" href="/HMS_HTML/Admin/admin_all_emp.html"><i class="fa fa-plus text-primary me-3"></i>View All</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="home-info-item bg-light rounded h-100">
-                            <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                                style="width: 65px; height: 65px;">
-                                <i class="fa fa-user-md text-primary fs-4"></i>
-                            </div>
-                            <h4 class="mb-3">Doctors</h4>
-                            <p class="mb-4">11</p>
-                            <a class="btn" href="/HMS_HTML/Admin/admin_all_doctor.html"><i class="fa fa-plus text-primary me-3"></i>View All</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="home-info-item bg-light rounded h-100">
-                            <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                                style="width: 65px; height: 65px;">
-                                <i class="fa fa-user-plus text-primary fs-4"></i>
-                            </div>
-                            <h4 class="mb-3">Patients</h4>
-                            <p class="mb-4">1001</p>
-                            <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>View All</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="home-info-item bg-light rounded h-100">
-                            <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                                style="width: 65px; height: 65px;">
-                                <i class="fa fa-rupee-sign text-primary fs-4"></i>
-                            </div>
-                            <h4 class="mb-3">Cunsulting Fees</h4>
-                            <p class="mb-4">Rs. 500</p>
-                            <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>View Fees</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="all-doctor-info d-inline-flex">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="table-secondary">
+                        <th scope="col" class="text-center">No.</th>
+                        <th scope="col" class="text-center">ID</th>
+                        <th scope="col" class="text-center">Name</th>
+                        <th scope="col" class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tab-data">1</td>
+                        <td class="tab-data">E201</td>
+                        <td class="tab-data">Ranchhod Patel</td>
+                        <td><a href="/admin_emp_details" class="view-button btn">View</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data">2</td>
+                        <td class="tab-data">E202</td>
+                        <td class="tab-data">Ram Kumar</td>
+                        <td><a href="/admin_emp_details" class="view-button btn">View</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data">3</td>
+                        <td class="tab-data">E203</td>
+                        <td class="tab-data">Madhav Dhameliya</td>
+                        <td><a href="/admin_emp_details" class="view-button btn">View</a></td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data">4</td>
+                        <td class="tab-data">E204</td>
+                        <td class="tab-data">Ghanshyam Patel</td>
+                        <td><a href="/admin_emp_details" class="view-button btn">View</a></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <!-- Admin Home Dashboard End -->
+    <!-- All Doctors Dashboard End -->
 
     <!-- Back to Top -->
     <a href="/HMS_HTML/Home/hms_index.html" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i

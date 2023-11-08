@@ -1,4 +1,4 @@
-/********** Admin All Employees CSS **********/
+/********** Admin Search Employee CSS **********/
 :root {
     --primary: #0463FA;
     --light: #EFF5FF;
@@ -135,15 +135,44 @@
     margin: 15px 5px;
 }
 
-.cent h1{
-    font-size: 500%;
-    text-align: center;
-    padding-top: 20%;
-    padding-left: 20%;
+
+/*** Search Employee Dashboard ***/
+.search-emp-dash {
+    height: 500px;
+    /* margin-bottom: 30px !important; */
 }
 
-.cent h2{
-    color: red;
-    text-align: center;
-    padding-left: 20%;
+.search-emp-heading {
+    margin: 20px 0;
+    margin-left: 250px !important;
+    padding-top: 100px;
+}
+
+.search-emp-opt {
+    width: 700px;
+    margin: 10px;
+    margin-left: 435px;
+    background: rgb(239, 239, 239);
+    color: black;
+    border: 1px solid rgb(14, 139, 255);
+    border-radius: 7px;
+}
+
+.search-emp-opt-heading {
+    height: 50px;
+    padding: 10px 20px;
+    font-size: large;
+    background: rgb(188, 189, 189);
+}
+
+.search-emp-opt-info {
+    padding: 20px 20px;
+}
+
+.search-emp-opt-btn {
+    padding-left: 270px;
+}
+
+.search-emp-opt button:hover {
+    color: var(--dark);
 }

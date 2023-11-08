@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 const patientSchema = new mongoose.Schema({
-    FullName: {
+    Name: {
         type: String,
         required: true
     },
@@ -20,6 +20,10 @@ const patientSchema = new mongoose.Schema({
         required: true
     },
     Gender: {
+        type: String,
+        required: true
+    },
+    BloodGroup: {
         type: String,
         required: true
     },
