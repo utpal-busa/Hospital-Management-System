@@ -9,6 +9,6 @@ Aryan Vagh: Frontend (Patient Pages)
 
 Prince Barad: Frontend (Doctor Pages)
 
-Divyam Oza: Frontend (Receptionist Page)
+Divyam Oza: Frontend (Receptionist and Patient Page)
 
 Mayur Suthar: Frontend (Receptionist Pages)
