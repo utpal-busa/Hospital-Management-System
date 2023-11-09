@@ -96,3 +96,39 @@
     
 })(jQuery);
 
+// main.js
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     // Get the table body element
+//     const tableBody = document.getElementById('appointmentTableBody');
+  
+//     // Retrieve the appointments data from the backend (you can use a global variable or fetch API)
+//     const appointments = getAppointmentData(); // Update this line accordingly
+  
+//     // Loop through the appointments and populate the table dynamically
+//     appointments.forEach((appointment) => {
+//       const row = tableBody.insertRow();
+//       row.innerHTML = `
+//         <td>${appointment.SrNo}</td>
+//         <td>${appointment.Doctor}</td>
+//         <td>${appointment.AppointmentDate}</td>
+//         <td>${appointment.TimeSlot}</td>
+//         <td>${appointment.DoctorFee}</td>
+//         <td><a class="action-button" href="#">Edit</a></td>
+//       `;
+//     });
+//   });
+  
+//   // You need a function to fetch appointment data from the backend, using AJAX or fetch API
+//   function getAppointmentData() {
+//     // Implement fetching data from the backend and return the array of appointments
+//     // Example using fetch API:
+//     return fetch('/api/appointments')
+//       .then((response) => response.json())
+//       .then((data) => data.appointments)
+//       .catch((error) => {
+//         console.error('Error fetching appointment data:', error);
+//         return [];
+//       });
+//   }
+  
