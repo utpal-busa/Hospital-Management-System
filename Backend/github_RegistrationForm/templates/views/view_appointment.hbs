@@ -71,7 +71,7 @@
     <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
       <i class="fa fa-user-plus fa-3x"></i>
     </div>
-    <p class="side-bar-top-info"><b>Name :</b> FName LName</p>
+    <p class="side-bar-top-info"><b>Name :</b> {{user.Email}} </p>
     <p class="side-bar-top-info"><b>Id :</b> E101</p>
   </div>
   <div class="side-bar-bottom">
@@ -102,22 +102,16 @@
     </thead>
     <tbody>
       <!-- Replace the following rows with data from your server-side code -->
+       {{#each appointments}}
       <tr>
         <td>1</td>
-        <td>Dr. Smith</td>
-        <td>2023-11-15</td>
-        <td>10:00 AM</td>
+        <td>{{this.Doctor}}</td>
+        <td>{{this.AppointmentDate}}</td>
+        <td>{{this.AppointmentTime}}</td>
         <td>$100</td>
         <td><a class="action-button" href="#">Edit</a></td>
       </tr>
-      <tr>
-        <td>2</td>
-        <td>Dr. Jones</td>
-        <td>2023-11-16</td>
-        <td>2:00 PM</td>
-        <td>$150</td>
-        <td><a class="action-button" href="#">Edit</a></td>
-      </tr>
+      {{/each}}
       <!-- Add more rows for other appointments as needed -->
     </tbody>
   </table>

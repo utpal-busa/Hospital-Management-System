@@ -14,6 +14,7 @@ const infoCodes = verifier.infoCodes;
 // const cheerio = require('cheerio'); 
 require("./db/conn")
 const Patient = require("./models/register")
+const Appointment=require("./models/appoi")
 const { error, log } = require('console')
 const port = process.env.PORT || 3000
 
@@ -77,8 +78,22 @@ app.get("/prescription", (req, res) => {
   res.render('prescription')
 })
 
-app.get("/view_appointment", (req, res) => {
-  res.render('view_appointment')
+app.get("/view_appointment",async (req, res) => {
+  
+  const token = req.cookies.jwt;
+  const verifyUser = jwt.verify(token,process.env.SECRET_KEY)
+  // console.log(verifyUser)
+   const user = await Patient.findOne({_id:verifyUser._id})
+ 
+  const patientName  = user.Name;
+  console.log(patientName)
+  //const user=req.user;
+  //console.log(req.user.Email);
+  // Use Mongoose to find appointments by patient name
+  const appointments = await Appointment.find({ Patient: patientName });
+  
+  
+  res.render('view_appointment',{appointments,user})
 })
 
 app.get("/patient_appointment", (req, res) => {
@@ -137,7 +152,7 @@ app.get("/logout", auth, async (req, res) => {
 
 
     //for multiple device
-
+   
     req.user.tokens = []
     res.clearCookie("jwt");
     console.log('logout successfully')
@@ -298,7 +313,7 @@ app.post("/login", async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    const useremail = await Patient.findOne({ Email: email })
+     const useremail = await Patient.findOne({ Email: email })
     if (!useremail) {
       // User with the specified email was not found
       return res.status(400).send('<script>alert("Invalid login details."); window.location = "/login";</script>');
@@ -320,7 +335,7 @@ app.post("/login", async (req, res) => {
       }
      else 
          res.render('patient_home',{user:useremail})
-      // console.log(`this is cookie ${req.cookies.jwt}`);
+       console.log(`this is cookie ${req.cookies.jwt}`);
     }
     else {
       console.log('ok')
@@ -333,6 +348,29 @@ app.post("/login", async (req, res) => {
     console.log(err)
   }
 })
+
+app.post("/appointment", async (req, res) => {
+    
+  const newAppointment = new Appointment({
+    Doctor : req.body.doctor,
+    Patient: req.body.name,
+    AppointmentDate: req.body.date,
+    Phone: req.body.phone,
+    AppointmentTime: req.body.time,
+  })
+ 
+  try{
+    await newAppointment.save();
+  }
+  catch(err)
+  {
+    console.log(err);
+  }
+
+  res.status(400).send('<script>alert("Booked successfully"); window.location = "/patient_appointment"</script>');
+  
+})
+
 
 app.listen(port, () => {
   console.log(`Listening to port number ${port}`)
