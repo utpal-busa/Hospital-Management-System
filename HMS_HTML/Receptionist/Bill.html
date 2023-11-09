@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/cbb441a45f.js" crossorigin="anonymous"></script>
+
+    <title>Medical Billing Invoice</title>
+    <style>
+        body {
+            font-family: 'Heebo', sans-serif;
+            font-size: 12pt;
+            margin: 0;
+            padding: 0;
+
+            background-size: cover;
+            background-color: rgb(193, 220, 214);
+            /* Adjust the background size as needed */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            border: 2px solid #2D6CA8;
+            background-color: #ffff;
+            /* background-image: url('https://img.freepik.com/premium-vector/doctor-medical-service-hospital-icons_18591-6198.jpg?w=740'); */
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .bg-image {
+            width: 50%;
+            height: 40%;
+            position: absolute;
+            transform: translate(45%, 65%);
+            opacity: 0.25;
+        }
+
+        h1 {
+            font-size: 30px;
+            /* Increased heading font size */
+            text-align: center;
+            background-color: #2D6CA8;
+            color: white;
+            padding: 10px;
+            margin: 0;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .invoice-details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .patient-info,
+        .physician-info {
+            background: #2D6CA8;
+            border: 1px solid #1e1b1b;
+            padding: 10px;
+            border-radius: 15px;
+            width: 45%;
+        }
+
+        .info-box {
+            background: #ffffff;
+            padding: 10px;
+            border: 1px solid #1e1b1b;
+            border-radius: 15px;
+        }
+
+        .info-box h2 {
+            font-size: 15px;
+            /* Set font size to 15 */
+            font-weight: bold;
+            /* Make text bold */
+            margin: 0;
+            color: #2D6CA8;
+            /* Set text color to blue */
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .table th,
+        .table td {
+            border: 1px solid #2D6CA8;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #2D6CA8;
+            color: white;
+            font-size: 17px;
+            /* Set table heading font size to 17 */
+        }
+
+        .button.print-button {
+            display: inline-block;
+            /* align-items: center; */
+            justify-content: center;
+            padding: 10px 20px;
+            background-color: #2D6CA8;
+            color: white;
+            text-decoration: none;
+            border: none;
+            margin-top: 20px;
+            /* Add margin for spacing */
+            border-radius: 5px;
+        }
+
+
+        .button:hover {
+            background-color: #2D6CA8;
+        }
+
+        .footer {
+            text-align: center;
+            background-color: #2D6CA8;
+            color: white;
+            padding: 40px;
+            /* Increased footer size */
+            margin-top: 20px;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .invoice-table {
+            margin-top: 20px;
+        }
+
+        .invoice-table th {
+            background-color: #2D6CA8;
+            color: white;
+            font-size: 17px;
+            /* Set table heading font size to 17 */
+        }
+
+        /* Style for the new invoice table */
+
+        table.invoice-table {
+            margin: 0;
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table.invoice-table thead {
+            background-color: #bbccd1;
+        }
+
+        table.invoice-table th {
+            padding: 10px;
+            text-align: left;
+            font-size: 17px;
+            /* Set table heading font size to 17 */
+            font-weight: 600;
+            border-bottom: 2px solid #4f85b3;
+        }
+
+        table.invoice-table td {
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Style for table header row */
+        table.invoice-table thead tr th:first-child {
+            width: 25%;
+        }
+
+        table.invoice-table thead tr th:nth-child(2) {
+            width: 25%;
+        }
+
+        table.invoice-table thead tr th:nth-child(3) {
+            width: 25%;
+        }
+
+        table.invoice-table thead tr th:nth-child(4) {
+            width: 25%;
+        }
+
+
+
+        /* Style for table data rows */
+        table.invoice-table tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* Apply Heebo font to the table */
+        table.invoice-table,
+        table.invoice-table th,
+        table.invoice-table td {
+            font-family: 'Heebo', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="https://www.seniormotif.com/wp-content/uploads/2013/11/Medical-symbol.jpg" class="bg-image" alt="">
+        <h1>MEDICAL BILLING INVOICE</h1>
+        <div class="invoice-details">
+            <div class="patient-info">
+                <div class="info-box">
+                    <h2>Patient Information</h2>
+                    <p>Kemba Harris</p>
+                    <p>(555) 595-5999</p>
+                    <p>11 Rosewood Drive,</p>
+                    <p>Collingwood, NY 33580</p>
+                </div>
+            </div>
+            <div class="physician-info">
+                <div class="info-box">
+                    <h2>Physician Information</h2>
+                    <p>Dr. Alanah Gomez</p>
+                    <p>(555) 505-5000</p>
+                    <p>102 Trope Street,</p>
+                    <p>New York, NY 45568</p>
+                </div>
+            </div>
+        </div>
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>Invoice Number</th>
+                    <th>Patient ID</th>
+                    <th>Date</th>
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>12245</td>
+                    <td id="patient-id-display"></td> <!-- Add Patient ID here -->
+                    <td id="current-date"> <!-- The date will be set here -->
+                    </td>
+                    <td>$1,902.05</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Check Up</td>
+                    <td>Full body checkup</td>
+                    <td>$745.00</td>
+                </tr>
+                <tr>
+                    <td>Laboratory</td>
+                    <td>Blood test</td>
+                    <td>$1800.00</td>
+                </tr>
+                <tr>
+                    <td>A</td>
+                    <td><!-- Add Amount here --></td>
+                    <td>$1,902.05</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td><!-- Add Tax Rate here --></td>
+                    <td>$0.00</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td><!-- Add Final Amount here --></td>
+                    <td>$1,902.05</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="attributes">
+            <div class="attribute">
+                <span>Amount</span>
+                <span>$1,902.05</span>
+            </div>
+            <div class="attribute">
+                <span>Tax Rate</span>
+                <span>$0.00</span>
+            </div>
+            <div class="attribute">
+                <span>Total Amount</span>
+                <span id="total-amount"></span>
+            </div>
+        </div>
+        <br><br><br><br>
+        <a class="button print-button" href="#" onclick="printInvoice()">Print</a>
+
+
+        <p class="footer">
+            <i class="fa-duotone fa-hospital fa-xl"></i> Care4You
+            <br>
+            For more information or concerns, visit www.concordiahill.com or email us at invoices@concordiahill.com
+        </p>
+    </div>
+</body>
+
+<script>
+    // Function to get the current date and set it in the "Date" column
+    function setCurrentDate() {
+        const currentDate = new Date();
+        const currentDateString = currentDate.toLocaleDateString();
+        document.getElementById('current-date').textContent = currentDateString;
+    }
+
+    // Set the current date when the page loads
+    window.onload = function () {
+        setCurrentDate();
+    }
+
+    // Function to print the invoice
+    function printInvoice() {
+        // Hide the print button when printing
+        const printButton = document.querySelector('.print-button');
+        if (printButton) {
+            printButton.style.display = 'none';
+        }
+
+        // Print the invoice
+        window.print();
+
+        // Show the print button after printing
+        if (printButton) {
+            printButton.style.display = 'block';
+        }
+    }
+</script>
+<script>
+    // Function to extract the patient ID from the URL query parameter
+    function getPatientIdFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get("patientId");
+    }
+
+    // Get the patient ID and display it in an element with a specific ID (e.g., "patient-id-display")
+    const patientId = getPatientIdFromUrl();
+    if (patientId) {
+        document.getElementById("patient-id-display").textContent = patientId;
+    }
+</script>
+<script>
+    // Function to calculate the Total Amount in the invoice table
+    function calculateTotalAmount() {
+        // Get all the rows in the invoice table body
+        const rows = document.querySelectorAll('.invoice-table tbody tr');
+
+        // Initialize total amount
+        let totalAmount = 0;
+
+        // Iterate through each row
+        rows.forEach(row => {
+            // Get the amount from the third column of the row
+            const amount = parseFloat(row.cells[2].textContent.replace('$', '').trim()) || 0;
+
+            // Add the amount to the total
+            totalAmount += amount;
+        });
+
+        // Display the total amount in the Total Amount column of the invoice table
+        document.getElementById('total-amount').textContent = `$${totalAmount.toFixed(2)}`;
+    }
+
+    // Call the calculateTotalAmount function when the page loads
+    window.onload = function () {
+        calculateTotalAmount();
+    };
+</script>
+
+
+
+</html>
