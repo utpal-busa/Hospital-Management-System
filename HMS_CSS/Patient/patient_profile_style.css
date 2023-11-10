@@ -5,6 +5,19 @@
   --dark: #1B2C51;
 }
 
+.edit-profile-btn {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  margin-left: 200px;
+  margin-right: 200px;
+  background-color: #0463FA;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .fw-medium {
   font-weight: 500 !important;
 }
