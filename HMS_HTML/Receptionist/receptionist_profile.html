@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Care4You Hospital</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="HMS_Lib/animate/animate.min.css" rel="stylesheet">
+    <link href="HMS_Lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="HMS_Lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="D:\Billing_Page\Impact\assets\css\bootPfile.css" rel="stylesheet">
+
+    <!-- Admin Add Employee Stylesheet -->
+    <link href="D:\Billing_Page\Impact\assets\css\patient_profile.css" rel="stylesheet">
+</head>
+
+<body>
+    
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-primary navbar-light fixed-top p-0" data-wow-delay="0.1s">
+        <a href="HMS_HTML/hms_index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h1 class="m-0 text-white"><i class="far fa-hospital me-3"></i>Care4You</h1>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="HMS_HTML/hms_index.html" class="nav-item nav-link">Home</a>
+                <a href="HMS_HTML/about.html" class="nav-item nav-link">About Us</a>
+                <a href="HMS_HTML/service.html" class="nav-item nav-link">Services</a>
+                <a href="HMS_HTML/contact.html" class="nav-item nav-link">Contact Us</a>
+                <a href="#" class="nav-item nav-link">Profile</a>
+                <a href="HMS_HTML/hms_index.html" class="nav-item nav-link">Log Out</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Side-bar Start -->
+    <div class="container-fluid side-bar">
+        <div class="side-bar-top ">
+            <div class="side-bar-heading">
+                <p><b>Receptionist</b></p>
+            </div>
+            <div
+                class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
+                <i class="fa fa-user-plus fa-3x"></i>
+            </div>
+            <p class="side-bar-top-info"><b>Name :</b> FName LName</p>
+            <p class="side-bar-top-info"><b>Id :</b> E101</p>
+        </div>
+        <div class="side-bar-bottom">
+            <ul>
+                <li><a href="patient_home.html">Dashboard</a></li>
+                <li><a href="patient_appointment.html">Schedule Appointment</a></li>
+                <li><a href="view_appointment.html">Generate Bill</a></li>
+                <li><a href="view_prescription.html">Apply for leave</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Side-bar End -->
+    <!--Add things here -->
+    <div class="profile-box">
+        <h2>Profile</h2>
+        <h5>Personal Information</h5>
+        <div class="profile-info">
+            <div class="info-item">
+                <label for="name">Receptionist's Name:</label>
+                <span>FName LName</span>
+            </div>
+            <div class="info-item no-edit">
+                <label for="name">Receptionist's ID:</label>
+                <span>4554</span>
+            </div>
+
+
+            <div class="info-item">
+                <label for="EmailID">Email-ID:</label>
+                <span>example@gmail.com</span>
+            </div>
+
+            <div class="info-item">
+                <label for="phone">Mobile Number:</label>
+                <span>123-456-7890</span>
+            </div>
+
+            <br>
+            <h5>Qualification</h5>
+            <div class="info-item">
+                <label for="Edubackground">Educational background:</label>
+                <span>Completed Diploma in Front Office from XYZ college in year 2019</span>
+            </div>
+            <br>
+            <h5>Work History</h5>
+            <div class="info-item">
+                <label for="WorkExperience">Work Experience:</label>
+                <span>Work as front desk receptionist at PWQ Multispecialist Hospital for 4 years of duration and
+                    working in Care4You Hospital since 2021.</span>
+            </div>
+            <h5>Abilities</h5>
+            <div class="info-item">
+                <label for="Abilities">Working Abilities:</label>
+                <span>Proficient in multitasking within a fast-paced environment, utilizing strong communication skills
+                    to manage various tasks and adeptly handle specific software for efficient administrative
+                    operations</span>
+            </div>
+
+            <button class="edit-save-btn edit-profile-btn" onclick="toggleEdit()">Edit Profile</button>
+            <button class="edit-save-btn save-profile-btn" style="display: none;" onclick="saveProfile()">Save</button>
+
+        </div>
+    </div>
+
+    <!-- okay-->
+
+    <!-- Back to Top -->
+    <a href="HMS_HTML/hms_index.html" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
+            class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="HMS_Lib/wow/wow.min.js"></script>
+    <script src="HMS_Lib/easing/easing.min.js"></script>
+    <script src="HMS_Lib/waypoints/waypoints.min.js"></script>
+    <script src="HMS_Lib/counterup/counterup.min.js"></script>
+    <script src="HMS_Lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="HMS_Lib/tempusdominus/js/moment.min.js"></script>
+    <script src="HMS_Lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="HMS_Lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script>
+        function toggleEdit() {
+            const infoItems = document.querySelectorAll('.info-item span');
+            const saveBtn = document.querySelector('.save-profile-btn');
+
+            infoItems.forEach(item => {
+                if (!item.parentElement.classList.contains('no-edit')) {
+                    item.contentEditable = true;
+                    item.style.border = '1px solid #fff';
+                    item.style.padding = '3px';
+                }
+            });
+
+            document.querySelector('.edit-profile-btn').style.display = 'none';
+            saveBtn.style.display = 'block';
+        }
+
+        function saveProfile() {
+            const infoItems = document.querySelectorAll('.info-item span');
+            const saveBtn = document.querySelector('.save-profile-btn');
+
+            infoItems.forEach(item => {
+                item.contentEditable = false;
+                item.style.border = 'none';
+                item.style.padding = '0';
+            });
+
+            saveBtn.style.display = 'none';
+            document.querySelector('.edit-profile-btn').style.display = 'block';
+
+            infoItems.forEach(item => {
+                console.log(item.textContent);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const receptionistID = document.querySelector('.no-edit span');
+            receptionistID.addEventListener('click', function () {
+                alert('Receptionist-ID cannot be edited!');
+            });
+        });
+    </script>
+
+    <!-- HMS Javascript -->
+    <script src="HMS_JS/main.js"></script>
+</body>
