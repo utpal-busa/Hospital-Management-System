@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Care4You Hospital</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
+  rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="HMS_Lib/animate/animate.min.css" rel="stylesheet">
+  <link href="HMS_Lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="HMS_Lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="HMS_CSS/bootstrap.min.css" rel="stylesheet">
+
+  <!-- View Appointment Stylesheet -->
+  <link href="HMS_CSS/receptionist_dashboard_style.css" rel="stylesheet">
+
+  <!--Bar Graph-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bar_graph_style.css">
+</head>
+
+<body>
+  <!-- Spinner Start -->
+  <div id="spinner"
+  class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+  <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<!-- Spinner End -->
+
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg bg-primary navbar-light fixed-top p-0" data-wow-delay="0.1s">
+  <a href="HMS_HTML/hms_index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+    <h1 class="m-0 text-white"><i class="far fa-hospital me-3"></i>Care4You</h1>
+  </a>
+  <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto p-4 p-lg-0">
+      <a href="HMS_HTML/hms_index.html" class="nav-item nav-link">Home</a>
+      <a href="HMS_HTML/about.html" class="nav-item nav-link">About Us</a>
+      <a href="HMS_HTML/service.html" class="nav-item nav-link">Services</a>
+      <a href="HMS_HTML/contact.html" class="nav-item nav-link">Contact Us</a>
+      <a href="#" class="nav-item nav-link">Profile</a>
+      <a href="HMS_HTML/hms_index.html" class="nav-item nav-link">Log Out</a>
+    </div>
+  </div>
+</nav>
+<!-- Navbar End -->
+
+<!-- Side-bar Start -->
+<div class="container-fluid side-bar">
+  <div class="side-bar-top ">
+    <div class="side-bar-heading">
+      <p><b>Patient</b></p>
+    </div>
+    <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
+      <i class="fa fa-user-plus fa-3x"></i>
+    </div>
+    <p class="side-bar-top-info"><b>Name :</b> FName LName</p>
+    <p class="side-bar-top-info"><b>Id :</b> E101</p>
+  </div>
+  <div class="side-bar-bottom">
+    <ul>
+      <li><a href="patient_home.html">Dashboard</a></li>
+      <li><a href="patient_appointment.html">Book Appointment</a></li>
+      <li><a href="view_appointment.html">View and Edit Appointment</a></li>
+      <li><a href="view_prescription.html">View Prescriptions</a></li>
+      <li><a href="#">View Medical History</a></li>
+    </ul>
+  </div>
+</div>
+<!-- Side-bar End -->
+
+<!-- Receptionist Dashboard -->
+<div class="dashboard-container">
+  <div class="dashboard-content">
+    <!-- First Row -->
+    <div class="dashboard-row">
+      <div class="dashboard-box">
+        <h3>Booked Appointments</h3>
+        <p id="bookedAppointments">120</p>
+      </div>
+      <div class="dashboard-box">
+        <h3>Ongoing Appointments</h3>
+        <p id="ongoingAppointments">30</p>
+      </div>
+      <div class="dashboard-box">
+        <h3>Rescheduled Appointments</h3>
+        <p id="rescheduledAppointments">15</p>
+      </div>
+      <div class="dashboard-box">
+        <h3>Cancelled Appointments</h3>
+        <p id="cancelledAppointments">10</p>
+      </div>
+    </div>
+
+    <!-- Second Row -->
+    <div class="dashboard-row">
+      <div class="dashboard-box2">
+        <h3>Online Patient Registrations</h3>
+        <p id="onlineRegistrations">50</p>
+      </div>
+      <div class="dashboard-box2">
+        <h3>Offline Patient Registrations</h3>
+        <p id="offlineRegistrations">30</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Back to Top -->
+<a href="HMS_HTML/hms_index.html" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
+  class="bi bi-arrow-up"></i></a>
+
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="HMS_Lib/wow/wow.min.js"></script>
+  <script src="HMS_Lib/easing/easing.min.js"></script>
+  <script src="HMS_Lib/waypoints/waypoints.min.js"></script>
+  <script src="HMS_Lib/counterup/counterup.min.js"></script>
+  <script src="HMS_Lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="HMS_Lib/tempusdominus/js/moment.min.js"></script>
+  <script src="HMS_Lib/tempusdominus/js/moment-timezone.min.js"></script>
+  <script src="HMS_Lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+  <!-- HMS Javascript -->
+  <script src="HMS_JS/main.js"></script>
+</body>
