@@ -115,11 +115,12 @@
 </label>
 <label class="logo"><i class="far fa-hospital me-3"></i>Care4You</label>
 <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#">Profile</a></li>
+     <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/service">Services</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="doc_profile">Profile</a></li>
+    <li><a href="/logout">Log Out</a></li>
 </ul>
 </nav>
 <!-- Navbar End -->
@@ -131,16 +132,16 @@
             <p><b>Doctor</b></p>
         </div>
         <img class="pat" src="/HMS_Images/patient.jpg">
-        <p class="user"><b>USERNAME:</b> employee101</p>
-        <p class="user"><b>ID:</b> DOC101</p>
+        <p class="user"><b>USERNAME:</b> {{user.Name}}</p>
+        <p class="user"><b>ID:</b> {{user.ID}}</p>
     </div>
     <div class="side-bar-bottom">
-        <ul>
-            <li><a href="/HMS_HTML/new_me.html">Me</a></li>
+          <ul>
+            <li><a href="/new_me">Me</a></li>
             <!-- <li><a href="#">Edit Profile</a></li> -->
-            <li><a href="/HMS_HTML/new_doc_visited_pat.html">Visited Patients</a></li>
+            <li><a href="/doc_pat_vis">Visited Patients</a></li>
             <li><a href="#">Search patient</a></li>
-            <li><a href="/HMS_HTML/new_doc_obs.html">Observation & Prescription</a></li>
+            <li><a href="/new_doc_obs">Observation & Prescription</a></li>
             <!-- <li><a href="#">View Employees</a></li> -->
         </ul>
     </div>
@@ -165,62 +166,77 @@
     <script src="/HMS_Lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 <br><br><br><br>
     <div class="box">
+        <form action="/submitPrescription" method="post">
         <div class="obs">
             <p style="text-align: center; font-style: italic;">Observation & Prescription</p>
         </div>
         <hr>
         <div class="ent">Enter Patient id:</div>
         
-        <textarea  class="txt" id="" cols="20" rows="1" placeholder="Enter patient id here"></textarea>
+        <textarea  class="txt" name="ID" id="ID" cols="20"   rows="1" placeholder="Enter patient id here" style="width: 200px;"></textarea>
         <br>
+         
         <br>
+         <div class="ent">Enter Doctor Name:</div>
+        
+        <textarea  class="txt" name="Doctor" id="Doctor" cols="20" rows="1" placeholder="Enter Doctor Name here" style="width: 200px;"></textarea>
+
+         <br>
+         
+        <br>  
+         <label class="ent" >Enter Date:</label>
+      <input class="txt" type="date" id="AppointmentDate" name="AppointmentDate" style="width: 200px;"required>   
+
+      <br>
+      <br>
+
         <div class="sym1">Symptoms:
-            <div class="Note1">*NOTE: use # for separation </div>
+            <div class="Note1">*NOTE: use , for separation </div>
         </div> 
-        <textarea class="sym" name="" id="" cols="50" rows="3" placeholder="eg: #fever #headache #bodypain"></textarea>
+        <textarea class="sym" name="Symptoms" id="Symptoms" cols="50" rows="3" placeholder="eg: #fever #headache #bodypain" style="width:300px;"></textarea>
         <br>
+
         <br>
         <div class="dig">Diagnosis:</div> 
-        <textarea  class="dig1" name="" id="" cols="50" rows="3" placeholder="eg. Malaria"></textarea>
+        <textarea  class="dig1" name="Diagnoses" id="Diagnoses" cols="50" rows="3" placeholder="eg. Malaria" style="width: 300px;"></textarea>
         <br>
         <br>
         <div class="med">Medinice and Dosage:    
             <div class="Note">*NOTE: use @ to mention dose in a day</div>
         </div> 
-        <textarea class="med1" name="" id="" cols="50" rows="3" placeholder="#paracetamol@2"></textarea>
+        <textarea class="med1" name="Medicines" id="Medicines" cols="50" rows="3" placeholder="#paracetamol@2" style="width: 300px;"></textarea>
         <br>
         <br>
         <div class="do">Do's:</div> 
-        <textarea class="do1" name="" id="" cols="50" rows="3" placeholder="eg. #do1#do2"></textarea>
+        <textarea class="do1" name="Dos" id="Dos" cols="50" rows="3" placeholder="eg. #do1#do2" style="width: 300px;"></textarea>
 
         <br>
         <br>
         <div class="ndo">Not Do's:</div> 
-        <textarea class="ndo1" name="" id="" cols="50" rows="3" placeholder="eg. #notdo1#notdo2"></textarea>
+        <textarea class="ndo1" name="NotDos" id="NotDos" cols="50" rows="3" placeholder="eg. #notdo1#notdo2" style="width: 300px;"></textarea>
 
         <br>
         <br>
         <div class="inv ">Investigations:</div> 
-        <textarea class="inv1" name="" id="" cols="50" rows="3" placeholder=""></textarea>
+        <textarea class="inv1" name="Investigations" id="Investigations" cols="50" rows="3" placeholder="" style="width: 300px;"></textarea>
 
         <br>
         <br>
         <div class="date">Follow up date:</div> 
-        <textarea class="date1" type="date" name="" id="" cols="20" rows="1" placeholder=""></textarea>
-
-        <br>
-        <br>
-        <div class="fee">Fees:</div> 
-        <textarea type="number" class="fee1" name="" id="" cols="20" rows="1" placeholder=""></textarea>
+        {{!-- <textarea class="date1" type="date" name="FollowUpDate" id="FollowUpDate" cols="20" rows="1" placeholder="" style="width: 150px;"></textarea> --}}
+        {{!-- <label class="ent"  for="dob">Enter Date:</label> --}}
+      <input class="txt" type="date" id="FollowUpDate" name="FollowUpDate" style="width: 200px;"required>   
 
     </div>
     
-<br>
-    <button class="sub">Submit</button>
+<br> 
+    
+    <button class="sub" style="width: 100px; height: 40px;">Submit</button>
+    </form>
 <br>
 <br>    
     <!-- HMS Javascript -->
-    <script src="/HMS_JS/main.js"></script>
+    <script src="/main.js"></script>
 
     <br>
     <br>

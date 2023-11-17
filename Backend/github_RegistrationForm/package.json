@@ -19,11 +19,13 @@
     "email-validator": "^2.0.4",
     "email-verify": "^0.2.1",
     "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
     "hbs": "^4.2.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.5.2",
     "nodemailer": "^6.9.6",
     "phone-number-validator": "^1.0.0",
+    "short-unique-id": "^5.0.3",
     "vite-plugin-rewrite-all": "^1.0.1"
   }
 }

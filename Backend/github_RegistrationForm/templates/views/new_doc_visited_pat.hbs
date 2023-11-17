@@ -97,11 +97,12 @@
 </label>
 <label class="logo"><i class="far fa-hospital me-3"></i>Care4You</label>
 <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#">Profile</a></li>
+      <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/service">Services</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="doc_profile">Profile</a></li>
+    <li><a href="/logout">Log Out</a></li>
 </ul>
 </nav>
 <!-- Navbar End -->
@@ -113,16 +114,16 @@
             <p><b>Doctor</b></p>
         </div>
         <img class="pat" src="/HMS_Images/patient.jpg">
-        <p class="user"><b>USERNAME:</b> employee101</p>
-        <p class="user"><b>ID:</b> DOC101</p>
+        <p class="user"><b>USERNAME:</b> {{user.Name}}</p>
+        <p class="user"><b>ID:</b> {{user.ID}}</p>
     </div>
     <div class="side-bar-bottom">
-        <ul>
-            <li><a href="/HMS_HTML/new_me.html">Me</a></li>
+          <ul>
+            <li><a href="/new_me">Me</a></li>
             <!-- <li><a href="#">Edit Profile</a></li> -->
-            <li><a href="/HMS_HTML/new_doc_visited_pat.html">Visited Patients</a></li>
+            <li><a href="/doc_pat_vis">Visited Patients</a></li>
             <li><a href="#">Search patient</a></li>
-            <li><a href="/HMS_HTML/new_doc_obs.html">Observation & Prescription</a></li>
+            <li><a href="/new_doc_obs">Observation & Prescription</a></li>
             <!-- <li><a href="#">View Employees</a></li> -->
         </ul>
     </div>
@@ -140,38 +141,27 @@
     <tr>
         <th>Patien-Id</th>
         <th>Name</th>
-        <th>Birthdate</th>
         <th>Date</th>
         <!-- <th>Blood Group</th> -->
         <th>Patient Details</th>
     </tr>
-
+       {{#each appointments}}
     <tr>
-        <td>P101</td>
-        <td>abcd 1</td>
-        <td>25-05-2004</td>
-        <td>25-05-2023</td>
+        <td>{{this.ID}}</td>
+        <td>{{this.Patient}}</td>
+        <td>{{this.AppointmentDate}}</td>
         <!-- <td>AB</td> -->
-        <td><a href="/HMS_HTML//new_doc_patient_det.html">View</a></td>
+            <form action="/viewPatientDetails" method="post" style="display: flex; align-items: center;">
+            <input type="hidden" name="ID" value="{{this.ID}}">
+            <input type="hidden" name="AppointmentDate" value="{{this.AppointmentDate}}">
+             <input type="hidden" name="Doctor" value="{{this.Doctor}}">
+            <td> <button  type="submit"  style="margin-top: -10px; padding: 2px 8px; font-size: 12px;">View</button></td>
+            </form>
+        {{!-- <td><a href="/new_doc_patient_det">View</a></td> --}}
     </tr>
 
-    <tr>
-        <td>P102</td>
-        <td>abcd 2</td>
-        <td>25-05-2003</td>
-        <td>25-03-2023</td>
-        <!-- <td>AB</td> -->
-        <td><a href="/HMS_HTML//new_doc_patient_det.html">View</a></td>
-    </tr>
+      {{/each}}
 
-    <tr>
-        <td>P103</td>
-        <td>abcd 3</td>
-        <td>25-05-2002</td>
-        <td>25-05-2022</td>
-        <!-- <td>AB</td> -->
-        <td><a href="/HMS_HTML//new_doc_patient_det.html">View</a></td>
-    </tr>
 </table>
 <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
     class="bi bi-arrow-up"></i></a>
@@ -190,6 +180,6 @@
     <script src="/HMS_Lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- HMS Javascript -->
-    <script src="/HMS_JS/main.js"></script>
+    <script src="/main.js"></script>
 </body>
 </html>

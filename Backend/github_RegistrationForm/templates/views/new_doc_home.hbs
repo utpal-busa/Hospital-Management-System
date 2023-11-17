@@ -30,7 +30,7 @@
     <link href="./bootstrap.min.css" rel="stylesheet">
 
     <!-- Admin All Employees Stylesheet -->
-    <link href="./patient_home_style.css" rel="stylesheet">
+    <link href="/HMS_CSS/patient_home_style.css" rel="stylesheet">
 
     <style>
         
@@ -80,11 +80,12 @@
 </label>
 <label class="logo"><i class="far fa-hospital me-3"></i>Care4You</label>
 <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#">Profile</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/service">Services</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="doc_profile">Profile</a></li>
+    <li><a href="/logout">Log Out</a></li>
 </ul>
 </nav>
 <!-- Navbar End -->
@@ -96,16 +97,16 @@
             <p><b>Doctor</b></p>
         </div>
         <img class="pat" src="/HMS_Images/patient.jpg">
-        <p class="user"><b>USERNAME:</b> employee101</p>
-        <p class="user"><b>ID:</b> DOC101</p>
+        <p class="user"><b>USERNAME:</b> {{user.Name}}</p>
+        <p class="user"><b>ID:</b> {{user.ID}}</p>
     </div>
     <div class="side-bar-bottom">
         <ul>
-            <li><a href="/HMS_HTML/new_me.html">Me</a></li>
+            <li><a href="/new_me">Me</a></li>
             <!-- <li><a href="#">Edit Profile</a></li> -->
-            <li><a href="/HMS_HTML/new_doc_visited_pat.html">Visited Patients</a></li>
+            <li><a href="/doc_pat_vis">Visited Patients</a></li>
             <li><a href="#">Search patient</a></li>
-            <li><a href="/HMS_HTML/new_doc_obs.html">Observation & Prescription</a></li>
+            <li><a href="/new_doc_obs">Observation & Prescription</a></li>
             <!-- <li><a href="#">View Employees</a></li> -->
         </ul>
     </div>
