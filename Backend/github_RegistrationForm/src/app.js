@@ -20,10 +20,14 @@ const infoCodes = verifier.infoCodes;
 // const cheerio = require('cheerio'); 
 require("./db/conn")
 const Patient = require("./models/register")
+<<<<<<< HEAD
 const Appointment = require("./models/appoi")
 const Leave=require("./models/leaves")
 const Prescription = require("./models/prescreption")
 
+=======
+const Appointment=require("./models/appoi")
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
 const { error, log } = require('console')
 const port = process.env.PORT || 3000
 
@@ -47,6 +51,7 @@ app.get("/", (req, res) => {
   res.render('index')
 })
 
+<<<<<<< HEAD
 app.get("/receptionist_base",auth_recep,async(req,res)=>{
   res.render('receptionist_base',{user:req.user})
 })
@@ -224,6 +229,92 @@ app.get("/new_doc_obs", auth_doctor,(req, res) => {
 
 app.get("/doc_pat_vis",auth_doctor,(req,res)=>{
   res.render('doc_pat_vis',{user:req.user})
+=======
+app.get("/admin_add_emp", (req, res) => {
+  res.render('admin_add_emp')
+})
+
+app.get("/admin_all_admin", (req, res) => {
+  res.render('admin_all_admin')
+})
+
+app.get("/admin_all_doctor", (req, res) => {
+  res.render('admin_all_doctor')
+})
+
+app.get("/admin_all_emp", (req, res) => {
+  res.render('admin_all_emp')
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
+})
+
+app.get("/admin_all_leaves", (req, res) => {
+  res.render('admin_all_leaves')
+})
+
+app.get("/admin_all_recep", (req, res) => {
+  res.render('admin_all_recep')
+})
+
+app.get("/admin_emp_details", (req, res) => {
+  res.render('admin_emp_details')
+})
+
+app.get("/new_doc_patient_det", (req, res) => {
+  res.render('new_doc_patient_det')
+})
+
+
+app.get("/admin_home", (req, res) => {
+  res.render('admin_home')
+})
+
+app.get("/admin_search_emp", (req, res) => {
+  res.render('admin_search_emp')
+})
+app.get("/prescription", (req, res) => {
+  res.render('prescription')
+})
+
+app.get("/view_appointment",async (req, res) => {
+  
+  const token = req.cookies.jwt;
+  const verifyUser = jwt.verify(token,process.env.SECRET_KEY)
+  // console.log(verifyUser)
+   const user = await Patient.findOne({_id:verifyUser._id})
+ 
+  const patientName  = user.Name;
+  console.log(patientName)
+  //const user=req.user;
+  //console.log(req.user.Email);
+  // Use Mongoose to find appointments by patient name
+  const appointments = await Appointment.find({ Patient: patientName });
+  
+  
+  res.render('view_appointment',{appointments,user})
+})
+
+app.get("/patient_appointment", (req, res) => {
+  res.render('patient_appointment')
+})
+
+app.get("/view_prescription",(req, res) => {
+  res.render('view_prescription')
+})
+
+app.get("/patient_home", (req, res) => {
+  res.render('patient_home')
+})
+
+app.get("/new_me", (req, res) => {
+  res.render('new_me')
+})
+
+app.get("/new_doc_visited_pat", (req, res) => {
+  res.render('new_doc_visited_pat')
+})
+
+app.get("/new_doc_obs", (req, res) => {
+  res.render('new_doc_obs')
 })
 
 app.get("/temp_dashboard", auth, (req, res) => {
@@ -231,7 +322,11 @@ app.get("/temp_dashboard", auth, (req, res) => {
   res.render('temp_dashboard')
 })
 
+<<<<<<< HEAD
 app.get("/Register_new",auth_login, (req, res) => {
+=======
+app.get("/Register_new", (req, res) => {
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
   res.render('Register_new')
 })
 
@@ -252,11 +347,16 @@ app.get("/ForgotPassword", (req, res) => {
   res.render('ForgotPassword')
 })
 
+<<<<<<< HEAD
 app.get("/contact", (req, res) => {
   res.render('contact')
 })
 app.get("/about", (req, res) => {
   res.render('about')
+=======
+app.get("/login", (req, res) => {
+  res.render('Login_new')
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
 })
 
 app.get("/service", (req, res) => {
@@ -300,7 +400,7 @@ app.get("/logout", auth, async (req, res) => {
 
 
     //for multiple device
-
+   
     req.user.tokens = []
     res.clearCookie("jwt");
     console.log('logout successfully')
@@ -624,6 +724,7 @@ app.post("/register", async (req, res) => {
         AddressLine2: req.body.AddressLine2,
         AddressPostalCode: req.body.AddressPostalCode,
         Gender: req.body.Gender,
+<<<<<<< HEAD
         BloodGroup: req.body.blood_group,
         Role: "Patient",
         ID: uidWithTimestamp,
@@ -631,10 +732,18 @@ app.post("/register", async (req, res) => {
       })
 
       // console.log(req.body.password);
+=======
+        BloodGroup : req.body.blood_group,
+        Role: "Patient"
+      })
+
+       // console.log(req.body.password);
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
       const token = await registeredPatient.generateAuthToken();
 
       //res.cookie("jwt", token, { expires: new Date(Date.now() + 300000), httponly: true })
       ///console.log(cookie) --> Ye karna ho to chatgpt kar lo
+<<<<<<< HEAD
       try {
         await registeredPatient.save();
 
@@ -679,6 +788,17 @@ app.post("/register", async (req, res) => {
       }
       //const finalNakho = await registeredPatient.save();
   //    res.status(400).send('<script>alert("Registered successfully"); window.location = "/"</script>');
+=======
+      try{
+        await registeredPatient.save();
+      }
+      catch(err)
+      {
+        console.log(err);
+      }
+      //const finalNakho = await registeredPatient.save();
+      res.status(400).send('<script>alert("Registered successfully"); window.location = "/"</script>');
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
       //res.status(201).render('login')
     }
     else {
@@ -698,7 +818,11 @@ app.post("/login",async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
+<<<<<<< HEAD
     const useremail = await Patient.findOne({ Email: email ,confirmed:"True"})
+=======
+     const useremail = await Patient.findOne({ Email: email })
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
     if (!useremail) {
       // User with the specified email was not found
       return res.status(400).send('<script>alert("Invalid login details."); window.location = "/login";</script>');
@@ -711,6 +835,7 @@ app.post("/login",async (req, res) => {
     if (isMatch) {
 
       if (useremail.Role == "Admin") {
+<<<<<<< HEAD
         res.redirect('admin_home');
       }
 
@@ -723,6 +848,18 @@ app.post("/login",async (req, res) => {
       else
         res.redirect('patient_home')
       //  console.log(`this is cookie ${req.cookies.jwt}`);
+=======
+        res.render('admin_home')
+      }
+
+     else  if(useremail.Role=="Doctor")
+       {
+        res.render('new_doc_home')
+      }
+     else 
+         res.render('patient_home',{user:useremail})
+       console.log(`this is cookie ${req.cookies.jwt}`);
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
     }
     else {
       console.log('ok')
@@ -737,6 +874,7 @@ app.post("/login",async (req, res) => {
 })
 
 app.post("/appointment", async (req, res) => {
+<<<<<<< HEAD
 
   const newAppointment = new Appointment({
     Doctor: req.body.doctor,
@@ -751,10 +889,27 @@ app.post("/appointment", async (req, res) => {
     await newAppointment.save();
   }
   catch (err) {
+=======
+    
+  const newAppointment = new Appointment({
+    Doctor : req.body.doctor,
+    Patient: req.body.name,
+    AppointmentDate: req.body.date,
+    Phone: req.body.phone,
+    AppointmentTime: req.body.time,
+  })
+ 
+  try{
+    await newAppointment.save();
+  }
+  catch(err)
+  {
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
     console.log(err);
   }
 
   res.status(400).send('<script>alert("Booked successfully"); window.location = "/patient_appointment"</script>');
+<<<<<<< HEAD
 
 })
 
@@ -1124,6 +1279,12 @@ newLeaveEntry.save();
 res.status(400).send('<script>alert("Applied successfully."); window.location = "/receptionist_leave";</script>');
 
 })
+=======
+  
+})
+
+
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
 app.listen(port, () => {
   console.log(`Listening to port number ${port}`)
 })

@@ -25,6 +25,7 @@
   z-index: 99;
 }
 
+<<<<<<< HEAD
 .auto-index 
 { counter-reset: Serial;  /* Display the counter */
 }
@@ -34,6 +35,8 @@
   counter-increment: Serial;      /* Increment the Serial counter */
   content:  counter(Serial); /* Display the counter */
 }
+=======
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
 
 /*** Spinner ***/
 #spinner {

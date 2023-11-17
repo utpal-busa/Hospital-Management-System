@@ -51,12 +51,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
+<<<<<<< HEAD
                  <a href="index" class="nav-item nav-link">Home</a>
       <a href="about" class="nav-item nav-link">About Us</a>
       <a href="service" class="nav-item nav-link">Services</a>
       <a href="contact" class="nav-item nav-link">Contact Us</a>
       <a href="admin_profile" class="nav-item nav-link">Profile</a>
       <a href="logout" class="nav-item nav-link">Log Out</a>
+=======
+                <a href="/HMS_HTML/Home/hms_index.html" class="nav-item nav-link">Home</a>
+                <a href="/HMS_HTML/Home/about.html" class="nav-item nav-link">About Us</a>
+                <a href="/HMS_HTML/Home/service.html" class="nav-item nav-link">Services</a>
+                <a href="/HMS_HTML/Home/contact.html" class="nav-item nav-link">Contact Us</a>
+                <a href="/HMS_HTML/Admin/admin_emp_details.html" class="nav-item nav-link">Profile</a>
+                <a href="/logout" class="nav-item nav-link">Log Out</a>
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
             </div>
         </div>
     </nav>
@@ -72,8 +81,13 @@
                 class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
                 <i class="fa fa-user fa-3x"></i>
             </div>
+<<<<<<< HEAD
             <p class="side-bar-top-info"><b>Name :</b> {{user.Name}}</p>
             <p class="side-bar-top-info"><b>Id :</b> {{user.ID}}</p>
+=======
+            <p class="side-bar-top-info"><b>Name :</b> FName LName</p>
+            <p class="side-bar-top-info"><b>Id :</b> E101</p>
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
         </div>
         <div class="side-bar-bottom">
             <ul>
@@ -99,13 +113,18 @@
                         <th scope="col" class="text-center">No.</th>
                         <th scope="col" class="text-center">ID</th>
                         <th scope="col" class="text-center">Name</th>
+<<<<<<< HEAD
                         <th scope="col" class="text-center">StartDate</th>
                         <th scope="col" class="text-center">EndDate</th>
                         <th scope="col" class="text-center">Reason</th>
+=======
+                        <th scope="col" class="text-center">Role</th>
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
                         <th scope="col" class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
+<<<<<<< HEAD
                    
                 {{#each pendingLeaves}}
                    
@@ -136,6 +155,44 @@
                         </tr>
 
                 {{/each}}
+=======
+                    <tr>
+                        <td class="tab-data">1</td>
+                        <td class="tab-data">E101</td>
+                        <td class="tab-data">Ranchhod Patel</td>
+                        <td class="tab-data">Admin</td>
+                        <td>
+                            <div class="mb-1 all-leaves-btn d-inline-flex">
+                                <button type="button" class="btn btn-primary m-lg-2">Approve</button>
+                                <button type="button" class="btn btn-danger m-lg-2">Disapprove</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data">2</td>
+                        <td class="tab-data">E202</td>
+                        <td class="tab-data">Ram Kumar</td>
+                        <td class="tab-data">Doctor</td>
+                        <td>
+                            <div class="mb-1 all-leaves-btn d-inline-flex">
+                                <button type="button" class="btn btn-primary m-lg-2">Approve</button>
+                                <button type="button" class="btn btn-danger m-lg-2">Disapprove</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data">3</td>
+                        <td class="tab-data">E304</td>
+                        <td class="tab-data">Ghanshyam Patel</td>
+                        <td class="tab-data">Receptionist</td>
+                        <td>
+                            <div class="mb-1 all-leaves-btn d-inline-flex">
+                                <button type="button" class="btn btn-primary m-lg-2">Approve</button>
+                                <button type="button" class="btn btn-danger m-lg-2">Disapprove</button>
+                            </div>
+                        </td>
+                    </tr>
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
                 </tbody>
             </table>
         </div>

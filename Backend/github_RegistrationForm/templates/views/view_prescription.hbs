@@ -51,11 +51,19 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav ms-auto p-4 p-lg-0">
+<<<<<<< HEAD
        <a href="/" class="nav-item nav-link ">Home</a>
                 <a href="/about" class="nav-item nav-link">About Us</a>
                 <a href="/service" class="nav-item nav-link">Services</a>
                 <a href="contact" class="nav-item nav-link">Contact Us</a>
       <a href="patient_profile" class="nav-item nav-link">Profile</a>
+=======
+      <a href="HMS_HTML/hms_index.html" class="nav-item nav-link">Home</a>
+      <a href="HMS_HTML/about.html" class="nav-item nav-link">About Us</a>
+      <a href="HMS_HTML/service.html" class="nav-item nav-link">Services</a>
+      <a href="HMS_HTML/contact.html" class="nav-item nav-link">Contact Us</a>
+      <a href="#" class="nav-item nav-link">Profile</a>
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
       <a href="/logout" class="nav-item nav-link">Log Out</a>
     </div>
   </div>
@@ -71,8 +79,13 @@
     <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
       <i class="fa fa-user-plus fa-3x"></i>
     </div>
+<<<<<<< HEAD
     <p class="side-bar-top-info"><b>Name :</b> {{user.Name}}</p>
     <p class="side-bar-top-info"><b>Id :</b> {{user.ID}}</p>
+=======
+    <p class="side-bar-top-info"><b>Name :</b> FName LName</p>
+    <p class="side-bar-top-info"><b>Id :</b> E101</p>
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
   </div>
   <div class="side-bar-bottom">
     <ul>
@@ -80,7 +93,11 @@
       <li><a href="patient_appointment">Book Appointment</a></li>
       <li><a href="view_appointment">View and Edit Appointment</a></li>
       <li><a href="view_prescription">View Prescriptions</a></li>
+<<<<<<< HEAD
       
+=======
+      <li><a href="HMS_HTML/admin_all_leaves.html">View Medical History</a></li>
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
     </ul>
   </div>
 </div>
@@ -89,17 +106,27 @@
 <div class="abc">
   <h2>Prescriptions</h2>
   <div class="appointment-list">
+<<<<<<< HEAD
     <table class="auto-index">
+=======
+    <table>
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
     <thead>
       <tr>
         <th>Sr No.</th>
         <th>Doctor</th>
         <th>Appointment Date</th>
+<<<<<<< HEAD
+=======
+        <th>Time Slot</th>
+        <th>Doctor's Fee</th>
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <!-- Replace the following rows with data from your server-side code -->
+<<<<<<< HEAD
        {{#each prescriptions}}
       <tr>
 
@@ -118,6 +145,24 @@
         {{!-- <td><a class="action-button" href="/prescription">View Prescriptions</a></td> --}}
       </tr>
         {{/each}}
+=======
+      <tr>
+        <td>1</td>
+        <td>Dr. Smith</td>
+        <td>2023-11-15</td>
+        <td>10:00 AM</td>
+        <td>$100</td>
+        <td><a class="action-button" href="/prescription">View Prescriptions</a></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Dr. Jones</td>
+        <td>2023-11-16</td>
+        <td>2:00 PM</td>
+        <td>$150</td>
+        <td><a class="action-button" href="/prescription">View Prescriptions</a></td>
+      </tr>
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
       <!-- Add more rows for other appointments as needed -->
     </tbody>
   </table>
@@ -143,6 +188,7 @@
 
   <!-- HMS Javascript -->
   <script src="HMS_JS/main.js"></script>
+<<<<<<< HEAD
  <script>
     // Custom helper function to maintain a counter
     var counter = 1;
@@ -150,4 +196,6 @@
         return counter++;
     });
 </script>
+=======
+>>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
 </body>
