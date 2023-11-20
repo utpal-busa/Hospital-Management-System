@@ -1,4 +1,4 @@
-/********** Admin Home CSS **********/
+/********** Admin Employee Details CSS **********/
 :root {
     --primary: #0463FA;
     --light: #EFF5FF;
@@ -86,7 +86,6 @@
     height: 100%;
     float: left;
     position: fixed;
-    /* z-index: 1; */
 }
 
 .side-bar-top {
@@ -94,7 +93,7 @@
     background: rgb(23, 72, 250);
     color: black;
     padding: 35px 13px;
-    margin-top: 20px;
+    margin-top: 55px;
 }
 
 .side-bar-heading {
@@ -137,52 +136,41 @@
 }
 
 
-/*** Admin Home Dashboard ***/
-.home-dash {
-    height: 523px;
+/*** Employee Details Dashboard ***/
+.emp-details-dash {
+    height: 500px;
 }
 
-.home-heading {
-    font-size: 35px;
+.emp-details-heading {
+    margin: 20px 0;
+    padding-left: 210px;
+    padding-top: 100px;
+}
+
+.emp-details-info {
+    padding-left: 400px;
+    padding-top: 20px;
     color: black;
-    padding-top: 60px;
+    font-weight: 400;
+}
+
+.emp-details-info table {
+    height: 700px !important;
+    width: 800px;
+    color: black;
+}
+
+.tab-data{
+    padding-top: 10px !important;
     text-align: center;
-    padding-left: 250px !important;
+    color: black;
 }
 
-.home-heading span {
-    color: orange;
-}
-
-.home-info {
+.emp-details-btn {
     padding-left: 300px;
 }
 
-.home-info-item {
-    transition: .5s;
-    width: 80%;
-    padding: 30px 50px;
-}
-
-.home-info-item:hover {
-    margin-top: -10px;
-    box-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .08);
-    padding: 30px 40px;
-}
-
-.home-info-item .btn {
-    width: 40px;
-    height: 40px;
-    display: inline-flex;
-    align-items: center;
-    background: #FFFFFF;
-    border-radius: 40px;
-    white-space: nowrap;
-    overflow: hidden;
-    transition: .5s;
-    color: var(--primary);
-}
-
-.home-info-item:hover .btn {
-    width: 140px;
+.emp-details-info button:hover {
+    /* padding-left: 225px; */
+    color: var(--dark) !important;
 }
