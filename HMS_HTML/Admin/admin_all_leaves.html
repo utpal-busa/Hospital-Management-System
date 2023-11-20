@@ -27,8 +27,8 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/HMS_CSS/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Admin Home Stylesheet -->
-    <link href="/HMS_CSS/Admin/admin_home_style.css" rel="stylesheet">
+    <!-- Admin All Leaves Stylesheet -->
+    <link href="/HMS_CSS/Admin/admin_all_leaves_style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -40,38 +40,6 @@
         </div>
     </div>
     <!-- Spinner End -->
-
-
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-light p-0 wow fadeIn" data-wow-delay="0.1s">
-        <div class="row gx-0 d-none d-lg-flex">
-            <div class="col-lg-7 px-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
-                    <small class="fa fa-map-marker-alt text-primary me-2"></small>
-                    <small>Gandhinagar, Gujarat, India</small>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center py-3">
-                    <small class="far fa-clock text-primary me-2"></small>
-                    <small>Mon - Sat : 09.00 AM - 09.00 PM</small>
-                </div>
-            </div>
-            <div class="col-lg-5 px-5 text-end">
-                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
-                    <small class="fa fa-phone-alt text-primary me-2"></small>
-                    <small>+91 0123456789</small>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center">
-                    <a class="btn btn-sm-square rounded-circle bg-white text-primary me-1" href=""><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-sm-square rounded-circle bg-white text-primary me-1" href=""><i
-                            class="fab fa-twitter"></i></a>
-                    <a class="btn btn-sm-square rounded-circle bg-white text-primary me-0" href=""><i
-                            class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-primary navbar-light fixed-top p-0" data-wow-delay="0.1s">
@@ -119,63 +87,64 @@
     </div>
     <!-- Side-bar End -->
 
-    <!-- Admin Home Dashboard Start -->
-    <div class="container-fluid home-dash">
-        <div class="home-heading d-flex justify-content-center wow fadeInUp">
-            <h1>Welcom <span>FName LName</span>! <br> Let's Get Started!</h1>
+    <!-- All Leaves Dashboard Start -->
+    <div class="container-fluid all-leaves-dash">
+        <div class="all-leaves-heading d-flex justify-content-center wow fadeInUp">
+            <h1>All Leaves</h1>
         </div>
-        <div class="container-xxl home-info py-5">
-            <div class="container">
-                <div class="row g-3">
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="home-info-item bg-light rounded h-100">
-                            <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                                style="width: 65px; height: 65px;">
-                                <i class="fa fa-users text-primary fs-4"></i>
+        <div class="all-leaves-info d-inline-flex">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="table-secondary">
+                        <th scope="col" class="text-center">No.</th>
+                        <th scope="col" class="text-center">ID</th>
+                        <th scope="col" class="text-center">Name</th>
+                        <th scope="col" class="text-center">Role</th>
+                        <th scope="col" class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tab-data">1</td>
+                        <td class="tab-data">E101</td>
+                        <td class="tab-data">Ranchhod Patel</td>
+                        <td class="tab-data">Admin</td>
+                        <td>
+                            <div class="mb-1 all-leaves-btn d-inline-flex">
+                                <button type="button" class="btn btn-primary m-lg-2">Approve</button>
+                                <button type="button" class="btn btn-danger m-lg-2">Disapprove</button>
                             </div>
-                            <h4 class="mb-3">Employees</h4>
-                            <p class="mb-4">51</p>
-                            <a class="btn" href="/HMS_HTML/Admin/admin_all_emp.html"><i class="fa fa-plus text-primary me-3"></i>View All</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="home-info-item bg-light rounded h-100">
-                            <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                                style="width: 65px; height: 65px;">
-                                <i class="fa fa-user-md text-primary fs-4"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data">2</td>
+                        <td class="tab-data">E202</td>
+                        <td class="tab-data">Ram Kumar</td>
+                        <td class="tab-data">Doctor</td>
+                        <td>
+                            <div class="mb-1 all-leaves-btn d-inline-flex">
+                                <button type="button" class="btn btn-primary m-lg-2">Approve</button>
+                                <button type="button" class="btn btn-danger m-lg-2">Disapprove</button>
                             </div>
-                            <h4 class="mb-3">Doctors</h4>
-                            <p class="mb-4">11</p>
-                            <a class="btn" href="/HMS_HTML/Admin/admin_all_doctor.html"><i class="fa fa-plus text-primary me-3"></i>View All</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="home-info-item bg-light rounded h-100">
-                            <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                                style="width: 65px; height: 65px;">
-                                <i class="fa fa-user-plus text-primary fs-4"></i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tab-data">3</td>
+                        <td class="tab-data">E304</td>
+                        <td class="tab-data">Ghanshyam Patel</td>
+                        <td class="tab-data">Receptionist</td>
+                        <td>
+                            <div class="mb-1 all-leaves-btn d-inline-flex">
+                                <button type="button" class="btn btn-primary m-lg-2">Approve</button>
+                                <button type="button" class="btn btn-danger m-lg-2">Disapprove</button>
                             </div>
-                            <h4 class="mb-3">Patients</h4>
-                            <p class="mb-4">1001</p>
-                            <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>View All</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="home-info-item bg-light rounded h-100">
-                            <div class="d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                                style="width: 65px; height: 65px;">
-                                <i class="fa fa-rupee-sign text-primary fs-4"></i>
-                            </div>
-                            <h4 class="mb-3">Cunsulting Fees</h4>
-                            <p class="mb-4">Rs. 500</p>
-                            <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>View Fees</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <!-- Admin Home Dashboard End -->
+    <!-- All Leaves Dashboard End -->
 
     <!-- Back to Top -->
     <a href="/HMS_HTML/Home/hms_index.html" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
