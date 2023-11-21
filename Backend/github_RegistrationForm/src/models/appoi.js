@@ -12,10 +12,10 @@ const AppointmentSchema = new mongoose.Schema({
         required: true
     },
     AppointmentDate: {
-        type: Date,
+        type: String,
         required: true
     },
-    Phone: {
+    ID: {
         type: String,
         required:true 
     },
@@ -23,6 +23,10 @@ const AppointmentSchema = new mongoose.Schema({
         type:String,
         required: true
     },
+    Visited: {
+        type:String,
+        required:true
+    }
 })
 
 

@@ -47,6 +47,37 @@ const patientSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    ID: {
+        type:String,
+        required: true
+    },
+    confirmed:{
+        type: String,
+        required:true
+        
+    },
+    // leaveRequest:[{
+    //     reason: {
+    //         type: String,
+    //         required: 'true'
+    //     },
+    //     startDate: {
+    //         type: String,
+    //         required: 'true'
+    //     },
+    //     endDate: {
+    //         type: String,
+    //         required: 'true'
+    //     },
+    //     status: {
+    //         type: String,
+    //         required: 'true'
+    //     },
+    //     ID: {
+    //         type: String,
+    //         required: 'true'
+    //     }  
+    // }],
     tokens: [{
         token: {
             type: String,

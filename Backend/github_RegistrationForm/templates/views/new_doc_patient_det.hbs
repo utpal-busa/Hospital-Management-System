@@ -114,11 +114,12 @@
 </label>
 <label class="logo"><i class="far fa-hospital me-3"></i>Care4You</label>
 <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#">Profile</a></li>
+     <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/service">Services</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="doc_profile">Profile</a></li>
+    <li><a href="/logout">Log Out</a></li>
 </ul>
 </nav>
 <!-- Navbar End -->
@@ -130,16 +131,16 @@
             <p><b>Doctor</b></p>
         </div>
         <img class="pat" src="/HMS_Images/patient.jpg">
-        <p class="user"><b>USERNAME:</b> employee101</p>
-        <p class="user"><b>ID:</b> DOC101</p>
+        <p class="user"><b>USERNAME:</b> {{user2.Name}}</p>
+        <p class="user"><b>ID:</b> {{user2.ID}}</p>
     </div>
     <div class="side-bar-bottom">
-        <ul>
-            <li><a href="/HMS_HTML/new_me.html">Me</a></li>
+          <ul>
+            <li><a href="/new_me">Me</a></li>
             <!-- <li><a href="#">Edit Profile</a></li> -->
-            <li><a href="/HMS_HTML/new_doc_visited_pat.html">Visited Patients</a></li>
+            <li><a href="/doc_pat_vis">Visited Patients</a></li>
             <li><a href="#">Search patient</a></li>
-            <li><a href="/HMS_HTML/new_doc_obs.html">Observation & Prescription</a></li>
+            <li><a href="/new_doc_obs">Observation & Prescription</a></li>
             <!-- <li><a href="#">View Employees</a></li> -->
         </ul>
     </div>
@@ -156,46 +157,37 @@
     <table>
         <tr>
             <th>Id</th>
-            <td>P101</td>
+            <td>{{user.ID}}</td>
         </tr>
         <tr>
             <th>Name</th>
-            <td>abcd</td>
-        </tr>
-        <tr>
-            <th>Registration Date</th>
-            <td>24-24-2004</td>
+            <td>{{user.Name}}</td>
         </tr>
         <tr>
             <th>Gender</th>
-            <td>Male</td>
+            <td>{{user.Gender}}</td>
         </tr>
         <tr>
             <th>blood group</th>
-            <td>B+</td>
+            <td>{{user.BloodGroup}}</td>
         </tr>
         <tr>
             <th>Email id</th>
-            <td>aeihf@gmail.com</td>
+            <td>{{user.Email}}</td>
         </tr>
 
         <tr>
             <th>MObile Number</th>
-            <td>9839764960</td>
+            <td>{{user.Phone}}</td>
         </tr>
 
-        <tr>
-            <th>Adhar Number</th>
-            <td>23458765</td>
-        </tr>
-
-        <tr>
+        {{!-- <tr>
             <th>City</th>
             <td>eihfu</td>
-        </tr>
+        </tr> --}}
         <tr>
-            <th>Last visiting Date</th>
-            <td>23-07-2023</td>
+            <th>Follow up Date</th>
+            <td>{{prescription.FollowUpDate}}</td>
         </tr>
     </table>
 </div>
