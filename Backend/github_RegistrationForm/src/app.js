@@ -11,11 +11,6 @@ const validator = require("email-validator");
 const verifier = require('email-verify');
 const cookieParser = require('cookie-parser');
 const auth = require('./middleware/auth')
-const auth_admin=require('./middleware/auth_admin')
-const auth_doctor=require('./middleware/auth_doctor')
-const auth_patient=require('./middleware/auth_patient')
-const auth_recep=require('./middleware/auth_recep')
-const auth_login=require('./middleware/auth_login')
 const infoCodes = verifier.infoCodes;
 // const cheerio = require('cheerio'); 
 require("./db/conn")
@@ -47,19 +42,7 @@ app.get("/", (req, res) => {
   res.render('index')
 })
 
-app.get("/receptionist_base",auth_recep,async(req,res)=>{
-  res.render('receptionist_base',{user:req.user})
-})
-
-app.get("/recep_profile",auth_recep,async(req,res)=>{
-  const token = req.cookies.jwt;
-  const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
-  // console.log(verifyUser)
-  const user = await Patient.findOne({ _id: verifyUser._id })
-  console.log(user.Name)
-  res.render("recep_profile",{user})
-})
-app.get("/rec_notification",auth_recep,async (req,res)=>{
+app.get("/rec_notification",async (req,res)=>{
 
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
@@ -67,66 +50,64 @@ app.get("/rec_notification",auth_recep,async (req,res)=>{
   const user = await Patient.findOne({ _id: verifyUser._id })
 
   const leavesForEmployee = await Leave.find({ ID: user.ID });
-  res.render('rec_notification',{leavesForEmployee,user})
+  res.render('rec_notification',{leavesForEmployee})
 })
-app.get("/recep_register",auth_recep,(req,res)=>{
-  res.render('recep_register',{user:req.user})
+app.get("/recep_register",(req,res)=>{
+  res.render('recep_register')
 })
-app.get("/admin_add_emp", auth_admin,(req, res) => {
-  res.render('admin_add_emp',{user:req.user})
-})
-
-app.get("/admin_all_admin",  auth_admin,(req, res) => {
- // console.log("k")
-  res.render('admin_all_admin',{user:req.user})
+app.get("/admin_add_emp", (req, res) => {
+  res.render('admin_add_emp')
 })
 
-app.get("/admin_all_doctor", auth_admin, (req, res) => {
-  res.render('admin_all_doctor',{user:req.user})
+app.get("/admin_all_admin", (req, res) => {
+  res.render('admin_all_admin')
 })
 
-app.get("/admin_all_emp",  auth_admin,(req, res) => {
-  res.render('admin_all_emp',{user:req.user})
+app.get("/admin_all_doctor", (req, res) => {
+  res.render('admin_all_doctor')
 })
 
-app.get("/admin_all_leaves", auth_admin, async(req, res) => {
+app.get("/admin_all_emp", (req, res) => {
+  res.render('admin_all_emp')
+})
+
+app.get("/admin_all_leaves", async(req, res) => {
 
   const pendingLeaves = await Leave.find({ Approve: 'Pending' });
  // console.log(pendingLeaves[0].ID)
 
-  res.render('admin_all_leaves',{pendingLeaves,user:req.user})
+  res.render('admin_all_leaves',{pendingLeaves})
 })
 
-app.get("/admin_all_recep", auth_admin, (req, res) => {
-  res.render('admin_all_recep',{user:req.user})
+app.get("/admin_all_recep", (req, res) => {
+  res.render('admin_all_recep')
 })
 
-app.get("/admin_emp_details",  auth_admin,(req, res) => {
-  res.render('admin_emp_details',{user:req.user})
+app.get("/admin_emp_details", (req, res) => {
+  res.render('admin_emp_details')
 })
 
-app.get("/new_doc_patient_det",auth_doctor, (req, res) => {
-  res.render('new_doc_patient_det',{user:req.user})
+app.get("/new_doc_patient_det", (req, res) => {
+  res.render('new_doc_patient_det')
 })
 
 
-app.get("/admin_home", auth_admin,(req, res) => {
- // console.log(req.user)
-  res.render('admin_home',{user:req.user})
+app.get("/admin_home", (req, res) => {
+  res.render('admin_home')
 })
 
-app.get("/admin_search_emp", auth_admin, (req, res) => {
-  res.render('admin_search_emp',{user:req.user})
+app.get("/admin_search_emp", (req, res) => {
+  res.render('admin_search_emp')
 })
-app.get("/prescription",auth_patient, (req, res) => {
-  res.render('prescription',{user:req.user})
-})
-
-app.get("/recep_view_edit_appointment",auth_recep,(req,res)=>{
-    res.render('recep_view_edit_appointment',{user:req.user})
+app.get("/prescription", (req, res) => {
+  res.render('prescription')
 })
 
-app.get("/view_appointment",auth_patient, async (req, res) => {
+app.get("/recep_view_edit_appointment",(req,res)=>{
+    res.render('recep_view_edit_appointment')
+})
+
+app.get("/view_appointment", async (req, res) => {
 
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
@@ -144,11 +125,11 @@ app.get("/view_appointment",auth_patient, async (req, res) => {
   res.render('view_appointment', { appointments, user })
 })
 
-app.get("/patient_appointment",auth_patient, (req, res) => {
-  res.render('patient_appointment',{user:req.user})
+app.get("/patient_appointment", (req, res) => {
+  res.render('patient_appointment')
 })
 
-app.get("/view_prescription",auth_patient,async (req, res) => {
+app.get("/view_prescription",async (req, res) => {
    
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
@@ -160,7 +141,7 @@ app.get("/view_prescription",auth_patient,async (req, res) => {
   Prescription.find({ ID: patientID })
   .exec()
   .then((prescriptions) => {
-    res.render('view_prescription',{prescriptions,user})
+    res.render('view_prescription',{prescriptions})
       // Do something with the found prescriptions
   })
   .catch((err) => {
@@ -170,68 +151,42 @@ app.get("/view_prescription",auth_patient,async (req, res) => {
   
 })
 
-app.get("/editProfile",auth,(req,res)=>{
+app.get("/editProfile",(req,res)=>{
   res.render('editProfile')
 })
-
-app.get("/admin_profile",auth_admin,async(req,res)=>{
-  const token = req.cookies.jwt;
-  const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
-  // console.log(verifyUser)
-  const user = await Patient.findOne({ _id: verifyUser._id })
-  console.log(user.Name)
-  res.render("admin_profile",{user})
+app.get("/patient_home", (req, res) => {
+  res.render('patient_home')
 })
 
-app.get("/doc_profile",auth_doctor,async (req,res)=>{
-  const token = req.cookies.jwt;
-  const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
-  // console.log(verifyUser)
-  const user = await Patient.findOne({ _id: verifyUser._id })
-  console.log(user.Name)
-  res.render("doc_profile",{user})
-
+app.get("/receptionist_leave", (req, res) => {
+  res.render('receptionist_leave')
 })
 
-app.get("/patient_home",auth_patient, (req, res) => {
-  res.render('patient_home',{user:req.user})
-})
-
-app.get("/new_doc_home",auth_doctor, (req, res) => {
-  res.render('new_doc_home',{user:req.user})
-})
-
-
-app.get("/receptionist_leave", auth_recep,(req, res) => {
-  res.render('receptionist_leave',{user:req.user})
-})
-
-app.get("/new_me", auth_doctor,(req, res) => {
+app.get("/new_me", (req, res) => {
   res.render('new_me')
 })
 
-app.get("/new_doc_visited_pat",auth_doctor, (req, res) => {
-  res.render('new_doc_visited_pat',{user:req.user})
+app.get("/new_doc_visited_pat", (req, res) => {
+  res.render('new_doc_visited_pat')
 })
 
-app.get("/patient_visit",auth_recep,async (req,res)=>{
-  res.render('patient_visit',{user:req.user})
+app.get("/patient_visit",async (req,res)=>{
+  res.render('patient_visit')
 })
 
-app.get("/new_doc_obs", auth_doctor,(req, res) => {
-  res.render('new_doc_obs',{user:req.user})
+app.get("/new_doc_obs", (req, res) => {
+  res.render('new_doc_obs')
 })
 
-app.get("/doc_pat_vis",auth_doctor,(req,res)=>{
-  res.render('doc_pat_vis',{user:req.user})
+app.get("/doc_pat_vis",(req,res)=>{
+  res.render('doc_pat_vis')
 })
-
 app.get("/temp_dashboard", auth, (req, res) => {
   console.log(`this is cookie ${req.cookies.jwt}`);
   res.render('temp_dashboard')
 })
 
-app.get("/Register_new",auth_login, (req, res) => {
+app.get("/Register_new", (req, res) => {
   res.render('Register_new')
 })
 
@@ -263,21 +218,18 @@ app.get("/service", (req, res) => {
   res.render('service')
 })
 
-app.get("/book_slot",auth_patient, (req, res) => {
-  res.render('book_slot',{user:req.user})
+app.get("/book_slot", (req, res) => {
+  res.render('book_slot')
 })
-app.get("/receptionist_book_app", auth_recep,(req, res) => {
-  res.render('receptionist_book_app',{user:req.user})
+app.get("/receptionist_book_app", (req, res) => {
+  res.render('receptionist_book_app')
 })
 
-app.get("/login",auth_login, (req, res) => {
+app.get("/login", (req, res) => {
   res.render('Login_new')
 })
 
-app.get("/index",(req,res)=>{
-  res.render('index')
-})
-app.get("/patient_profile",auth_patient,async (req, res) => {
+app.get("/patient_profile",async (req, res) => {
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
   // console.log(verifyUser)
@@ -286,8 +238,8 @@ app.get("/patient_profile",auth_patient,async (req, res) => {
   res.render("patient_profile",{user})
 })
 
-app.get("/Bill",auth_recep, (req, res) => {
-  res.render("Bill",)
+app.get("/Bill", (req, res) => {
+  res.render("Bill")
 })
 app.get("/logout", auth, async (req, res) => {
   try {
@@ -306,11 +258,7 @@ app.get("/logout", auth, async (req, res) => {
     console.log('logout successfully')
 
     await req.user.save();
-
-    
-
-    // Redirect to another page (optional)
-    res.redirect('/index');
+    res.render('index')
   } catch (error) {
     res.status(500).send(error)
   }
@@ -443,7 +391,7 @@ app.post("/recep_register",async (req,res)=>{
               from: 'pradipatarsingh82@gmail.com',
               to: req.body.Email,
               subject: 'Email Confirmation',
-              text: `http://baghel.onrender.com/confirm-email/${user._id}/${token}`
+              text: `http://localhost:3000/confirm-email/${user._id}/${token}`
             };
       
             transporter.sendMail(mailOptions, function (error, info) {
@@ -497,24 +445,23 @@ app.post("/deleteAppointment",async(req,res)=>{
 })
 
 app.post("/approve",async(req,res)=>{
-  let  leavesForEmployee = await Leave.findOne({ ID: req.body.ID,StartDate:req.body.StartDate,EndDate:req.body.EndDate,Approve:"Pending" });
+  let  leavesForEmployee = await Leave.findOne({ ID: req.body.ID,StartDate:req.body.StartDate,EndDate:req.body.EndDate });
  leavesForEmployee.Approve="Approved";
 
  leavesForEmployee.save();
- 
- //console.log(leavesForEmployee)
- res.redirect('admin_all_leaves')
+
+ res.render('admin_all_leaves')
 
 
 })
 
 app.post("/disapprove",async(req,res)=>{
-  let  leavesForEmployee = await Leave.findOne({ ID: req.body.ID,StartDate:req.body.StartDate,EndDate:req.body.EndDate,Approve:"Pending" });
+  let  leavesForEmployee = await Leave.findOne({ ID: req.body.ID,StartDate:req.body.StartDate,EndDate:req.body.EndDate });
  leavesForEmployee.Approve="Disapproved";
 
  leavesForEmployee.save();
  
- res.redirect('admin_all_leaves')
+ res.render('admin_all_leaves')
 
 
 })
@@ -552,7 +499,7 @@ app.post("/ForgotPassword", (req, res) => {
         from: 'pradipatarsingh82@gmail.com',
         to: req.body.email,
         subject: 'Reset Password',
-        text: `http://baghel.onrender.com/reset-password/${user._id}/${token}`
+        text: `http://localhost:3000/reset-password/${user._id}/${token}`
       };
 
       transporter.sendMail(mailOptions, function (error, info) {
@@ -658,7 +605,7 @@ app.post("/register", async (req, res) => {
               from: 'pradipatarsingh82@gmail.com',
               to: req.body.Email,
               subject: 'Email Confirmation',
-              text: `http://baghel.onrender.com/confirm-email/${user._id}/${token}`
+              text: `http://localhost:3000/confirm-email/${user._id}/${token}`
             };
       
             transporter.sendMail(mailOptions, function (error, info) {
@@ -693,7 +640,7 @@ app.post("/register", async (req, res) => {
   }
 })
 
-app.post("/login",async (req, res) => {
+app.post("/login", async (req, res) => {
   try {
     const email = req.body.email;
     const password = req.body.password;
@@ -711,17 +658,17 @@ app.post("/login",async (req, res) => {
     if (isMatch) {
 
       if (useremail.Role == "Admin") {
-        res.redirect('admin_home');
+        res.render('admin_home')
       }
 
       else if (useremail.Role == "Doctor") {
-        res.redirect('new_doc_home')
+        res.render('new_doc_home')
        // res.render('new_doc_home')
       }
       else if (useremail.Role == "Receptionist")
-        res.redirect('receptionist_base')
+        res.render('receptionist_base')
       else
-        res.redirect('patient_home')
+        res.render('patient_home', { user: useremail })
       //  console.log(`this is cookie ${req.cookies.jwt}`);
     }
     else {
@@ -827,11 +774,6 @@ app.post('/submitPrescription', async (req, res) => {
 
 app.post("/view_prescription",async(req,res)=>{
     
-  
-  const token = req.cookies.jwt;
-  const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
-  // console.log(verifyUser)
-  const user = await Patient.findOne({ _id: verifyUser._id })
 
   const prescription = await Prescription.findOne({
     ID: req.body.ID,
@@ -841,15 +783,10 @@ app.post("/view_prescription",async(req,res)=>{
 
 //.log(prescription.ID)
 
-res.render('prescription',{prescription,user})
+res.render('prescription',{prescription})
 })
 app.post("/showslots", async (req, res) => {
-  
 
-  const token = req.cookies.jwt;
-  const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
-  // console.log(verifyUser)
-  const user = await Patient.findOne({ _id: verifyUser._id })
   const date = req.body.date;
   //  date=date.toDateString();
   //  console.log(date);
@@ -875,7 +812,7 @@ app.post("/showslots", async (req, res) => {
     res.status(400).send('<script>alert("No Slots are available on this date"); window.location = "/patient_appointment"</script>');
   }
   else {
-    res.render('book_slot', { availableSlots, date, doctor ,user})
+    res.render('book_slot', { availableSlots, date, doctor })
   }
 
 })
@@ -888,10 +825,6 @@ app.post("/recep_showslots", async (req, res) => {
 
   const date = req.body.date;
   //  date=date.toDateString();
-  const token = req.cookies.jwt;
-  const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
-  // console.log(verifyUser)
-  const user = await Patient.findOne({ _id: verifyUser._id })
   //  console.log(date);
   const doctor = req.body.doctor;
 
@@ -915,7 +848,7 @@ app.post("/recep_showslots", async (req, res) => {
     res.status(400).send('<script>alert("No Slots are available on this date"); window.location = "/receptionist_book_app"</script>');
   }
   else {
-    res.render('recep_book_slot', { availableSlots, date, doctor,user })
+    res.render('recep_book_slot', { availableSlots, date, doctor })
   }
 
 })
@@ -959,17 +892,13 @@ res.status(400).send('<script>alert("Updated successfully"); window.location = "
 });
 
 app.post("/doc_pat_vis",async (req,res)=>{
-  
-  const token = req.cookies.jwt;
-  const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
-  // console.log(verifyUser)
-  const user = await Patient.findOne({ _id: verifyUser._id })
+
   Appointment.find({ Doctor: req.body.doctorName, AppointmentDate: req.body.appointmentDate })
   .exec()
   .then((appointments) => {
     // Do something with the found appointments
     console.log(appointments);
-    res.render('new_doc_visited_pat',{appointments,user})
+    res.render('new_doc_visited_pat',{appointments})
   })
   .catch((err) => {
     console.error(err);
@@ -981,18 +910,13 @@ app.post("/doc_pat_vis",async (req,res)=>{
 })
 
 app.post("/admin_all_emp",async(req,res)=>{
-  // console.log(req.bod y.role)
-  
-  const token = req.cookies.jwt;
-  const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
-  // console.log(verifyUser)
-  const user = await Patient.findOne({ _id: verifyUser._id })
+  // console.log(req.body.role)
  await Patient.find({ Role:req.body.role})
   .exec()
   .then((patients) => {
     // Do something with the found patients
     // console.log(patients);
-    res.render('admin_all_admin',{role:req.body.role,patients,user})
+    res.render('admin_all_admin',{role:req.body.role,patients})
   })
   .catch((error) => {
     console.error(error);
@@ -1003,13 +927,8 @@ app.post("/admin_all_emp",async(req,res)=>{
 app.post("/admin_view_profile",async(req,res)=>{
   const ID=req.body.ID;
   const user=await Patient.findOne({ID:ID})
-   
-
-  const token = req.cookies.jwt;
-  const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
-  // console.log(verifyUser)
-  const user2 = await Patient.findOne({ _id: verifyUser._id })
-    res.render('admin_view_profile',{user,user2})
+ 
+    res.render('admin_view_profile',{user})
 })
 app.post("/editProfile",async(req,res)=>{
   // console.log(req.body.role)
@@ -1076,17 +995,14 @@ app.post("/viewPatientDetails",async (req,res)=>{
 
   const  user = await Patient.findOne({ ID: req.body.ID })
  
-  const token = req.cookies.jwt;
-  const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
-  // console.log(verifyUser)
-  const user2 = await Patient.findOne({ _id: verifyUser._id })
+ 
   const prescription = await Prescription.findOne({
     ID: req.body.ID,
     AppointmentDate: req.body.AppointmentDate,
     Doctor: req.body.Doctor
 });
    console.log(prescription.ID)
-  res.render('new_doc_patient_det',{user,prescription,user2})
+  res.render('new_doc_patient_det',{user,prescription})
 
  
 })
@@ -1095,12 +1011,8 @@ app.post("/viewPatientDetails",async (req,res)=>{
 app.post("/recep_view_edit_appointment", async (req,res)=>{
   const date=req.body.Date;
   const allAppointmentsForDate = await Appointment.find({ AppointmentDate: date });
-  const token = req.cookies.jwt;
-  const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
-  // console.log(verifyUser)
-  const user = await Patient.findOne({ _id: verifyUser._id })
 
-  res.render('recep_view_table',{allAppointmentsForDate,user})
+  res.render('recep_view_table',{allAppointmentsForDate})
 })
 
 app.post("/receptionist_leave",async(req,res)=>{
