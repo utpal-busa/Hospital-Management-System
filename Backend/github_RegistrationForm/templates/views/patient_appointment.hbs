@@ -51,11 +51,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav ms-auto p-4 p-lg-0">
-      <a href="HMS_HTML/hms_index.html" class="nav-item nav-link">Home</a>
-      <a href="HMS_HTML/about.html" class="nav-item nav-link">About Us</a>
-      <a href="HMS_HTML/service.html" class="nav-item nav-link">Services</a>
-      <a href="HMS_HTML/contact.html" class="nav-item nav-link">Contact Us</a>
-      <a href="#" class="nav-item nav-link">Profile</a>
+     <a href="/" class="nav-item nav-link ">Home</a>
+                <a href="/about" class="nav-item nav-link">About Us</a>
+                <a href="/service" class="nav-item nav-link">Services</a>
+                <a href="contact" class="nav-item nav-link">Contact Us</a>
+      <a href="patient_profile" class="nav-item nav-link">Profile</a>
       <a href="/logout" class="nav-item nav-link">Log Out</a>
     </div>
   </div>
@@ -71,8 +71,8 @@
     <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
       <i class="fa fa-user fa-3x"></i>
     </div>
-    <p class="side-bar-top-info"><b>Name :</b> FName LName</p>
-    <p class="side-bar-top-info"><b>Id :</b> E101</p>
+    <p class="side-bar-top-info"><b>Name :</b>{{user.Name}}</p>
+    <p class="side-bar-top-info"><b>Id :</b> {{user.ID}}</p>
   </div>
   <div class="side-bar-bottom">
     <ul>
@@ -80,7 +80,7 @@
       <li><a href="patient_appointment">Book Appointment</a></li>
       <li><a href="view_appointment">View and Edit Appointment</a></li>
       <li><a href="view_prescription">View Prescriptions</a></li>
-      <li><a href="HMS_HTML/admin_all_leaves.html">View Medical History</a></li>
+      {{!-- <li><a href="HMS_HTML/admin_all_leaves.html">View Medical History</a></li> --}}
     </ul>
   </div>
 </div>
@@ -88,23 +88,23 @@
 
 <div class="appointment-form">
   <h2>Book Appointment</h2>
- <form action="/appointment" method="post">
-    <div class="form-group">
+ <form action="/showslots" method="post">
+    {{!-- <div class="form-group">
       <label for="name">Patient's Name:</label>
       <input type="text" id="name" name="name" required>
     </div>
 
     <div class="form-group">
-      <label for="phone">Phone Number:</label>
-      <input type="tel" id="phone" name="phone" required>
-    </div>
+      <label for="ID">Patient's ID:</label>
+      <input type="tel" id="ID" name="ID" required>
+    </div> --}}
 
     <div class="form-group">
       <label for="doctor">Select Doctor:</label>
       <select id="doctor" name="doctor" required>
-        <option value="dr_smith">Dr. Smith</option>
-        <option value="dr_jones">Dr. Jones</option>
-        <option value="dr_doe">Dr. Doe</option>
+        <option value="Dr.Smith">Dr.Smith</option>
+        <option value="Dr.Jones">Dr.Jones</option>
+        <option value="Dr.Doe">Dr.Doe</option>
       </select>
     </div>
 
@@ -113,18 +113,18 @@
       <input type="date" id="date" name="date" required>
     </div>
 
-    <div class="form-group">
+    {{!-- <div class="form-group">
       <label for="time">Select Time Slot:</label>
       <select id="time" name="time" required>
-        <option value="9:00 AM">9:00 AM</option>
+        <option value="9:00 AM-9:30 AM">9:00 AM-9:30 AM</option>
         <option value="10:00 AM">10:00 AM</option>
         <option value="2:00 PM">2:00 PM</option>
         <option value="3:00 PM">3:00 PM</option>
       </select>
-    </div>
+    </div> --}}
 
 
-    <button type="submit">Book Appointment</button>
+    <button type="submit">Show Available Slots</button>
   </form>
 </div>
 

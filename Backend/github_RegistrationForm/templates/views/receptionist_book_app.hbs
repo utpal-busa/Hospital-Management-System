@@ -28,7 +28,7 @@
   <link href="HMS_CSS/bootstrap.min.css" rel="stylesheet">
 
   <!-- Admin Add Employee Stylesheet -->
-  <link href="HMS_CSS/patient_home_style.css" rel="stylesheet">
+  <link href="HMS_CSS/patient_appointment_style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -51,12 +51,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav ms-auto p-4 p-lg-0">
-    <a href="/" class="nav-item nav-link ">Home</a>
-                <a href="/about" class="nav-item nav-link">About Us</a>
-                <a href="/service" class="nav-item nav-link">Services</a>
-                <a href="contact" class="nav-item nav-link">Contact Us</a>
-      <a href="patient_profile" class="nav-item nav-link">Profile</a>
-      <a href="/logout" class="nav-item nav-link">Log Out</a>
+     <a href="index" class="nav-item nav-link">Home</a>
+      <a href="about" class="nav-item nav-link">About Us</a>
+      <a href="service" class="nav-item nav-link">Services</a>
+      <a href="contact" class="nav-item nav-link">Contact Us</a>
+      <a href="recep_profile" class="nav-item nav-link">Profile</a>
+        <a href="rec_notification" class="nav-item nav-link">Notification</a>
+      <a href="logout" class="nav-item nav-link">Log Out</a>
     </div>
   </div>
 </nav>
@@ -66,29 +67,69 @@
 <div class="container-fluid side-bar">
   <div class="side-bar-top ">
     <div class="side-bar-heading">
-      <p><b>Patient</b></p>
+      <p><b>Receptionist</b></p>
     </div>
     <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
       <i class="fa fa-user fa-3x"></i>
     </div>
-    <p class="side-bar-top-info"><b>Name :</b> {{user.Name}} </p>
+    <p class="side-bar-top-info"><b>Name :</b> {{user.Name}}</p>
     <p class="side-bar-top-info"><b>Id :</b> {{user.ID}}</p>
   </div>
   <div class="side-bar-bottom">
-    <ul>
-      <li><a href="patient_home">Dashboard</a></li>
-      <li><a href="patient_appointment">Book Appointment</a></li>
-      <li><a href="view_appointment">View and Edit Appointment</a></li>
-      <li><a href="view_prescription">View Prescriptions</a></li>
-      {{!-- <li><a href="HMS_HTML/admin_all_leaves.html">View Medical History</a></li> --}}
+     <ul>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="receptionist_book_app">Book Appointment</a></li>
+      <li><a href="Bill">Generate Bill</a></li>
+      <li><a href="patient_visit">Update Patient Visit</a></li>
+      <li><a href="receptionist_leave">Apply for leave</a></li>
+      <li><a href="recep_view_edit_appointment">View and Edit Appointment</a></li>
+      
     </ul>
   </div>
 </div>
 <!-- Side-bar End -->
 
-<div class="cent">
-  <h1>Welcome!</h1>
-  <h2>Aryan Vagh</h2>
+<div class="appointment-form">
+  <h2>Book Appointment</h2>
+ <form action="/recep_showslots" method="post">
+    {{!-- <div class="form-group">
+      <label for="name">Patient's Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="ID">Patient's ID:</label>
+      <input type="tel" id="ID" name="ID" required>
+    </div> --}}
+
+    <div class="form-group">
+      <label for="doctor">Select Doctor:</label>
+      <select id="doctor" name="doctor" required>
+        <option value="Dr.Smith">Dr.Smith</option>
+        <option value="Dr.Jones">Dr.Jones</option>
+        <option value="Dr.Doe">Dr.Doe</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="date">Appointment Date:</label>
+      <input type="date" id="date" name="date" required>
+    </div>
+
+    {{!-- <div class="form-group">
+      <label for="time">Select Time Slot:</label>
+      <select id="time" name="time" required>
+        <option value="9:00 AM-9:30 AM">9:00 AM-9:30 AM</option>
+        <option value="10:00 AM">10:00 AM</option>
+        <option value="2:00 PM">2:00 PM</option>
+        <option value="3:00 PM">3:00 PM</option>
+      </select>
+    </div> --}}
+
+
+    <button type="submit">Show Available Slots</button>
+     <a href="recep_register" class="new-patient-link">New Patient?</a>
+  </form>
 </div>
 
 <!-- Back to Top -->

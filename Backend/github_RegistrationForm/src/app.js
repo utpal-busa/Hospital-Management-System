@@ -110,23 +110,9 @@ app.get("/new_doc_patient_det",auth_doctor, (req, res) => {
 })
 
 
-app.get("/admin_home", auth_admin,async (req, res) => {
-
-
-  const countEntries = async (model, role) => {
-    try {
-        const count = await model.countDocuments({ Role: role });
-        return count;
-    } catch (error) {
-        console.error(`Error counting ${role}s:`, error);
-    }
-};
-
-const patientCount = await countEntries(Patient, 'Patient');
-const doctorCount = await countEntries(Patient, 'Doctor');
-const recepCount = await countEntries(Patient, 'Receptionist');
-const emp=doctorCount+recepCount
-  res.render('admin_home',{user:req.user,patientCount,doctorCount,emp})
+app.get("/admin_home", auth_admin,(req, res) => {
+ // console.log(req.user)
+  res.render('admin_home',{user:req.user})
 })
 
 app.get("/admin_search_emp", auth_admin, (req, res) => {
@@ -321,11 +307,10 @@ app.get("/logout", auth, async (req, res) => {
 
     await req.user.save();
 
-  
+    
+
     // Redirect to another page (optional)
     res.redirect('/index');
-    
-    
   } catch (error) {
     res.status(500).send(error)
   }
@@ -458,7 +443,7 @@ app.post("/recep_register",async (req,res)=>{
               from: 'pradipatarsingh82@gmail.com',
               to: req.body.Email,
               subject: 'Email Confirmation',
-              text: `http://localhost:3000/confirm-email/${user._id}/${token}`
+              text: `http://baghel.onrender.com/confirm-email/${user._id}/${token}`
             };
       
             transporter.sendMail(mailOptions, function (error, info) {
@@ -567,7 +552,7 @@ app.post("/ForgotPassword", (req, res) => {
         from: 'pradipatarsingh82@gmail.com',
         to: req.body.email,
         subject: 'Reset Password',
-        text: `http://localhost:3000/reset-password/${user._id}/${token}`
+        text: `http://baghel.onrender.com/reset-password/${user._id}/${token}`
       };
 
       transporter.sendMail(mailOptions, function (error, info) {
@@ -673,7 +658,7 @@ app.post("/register", async (req, res) => {
               from: 'pradipatarsingh82@gmail.com',
               to: req.body.Email,
               subject: 'Email Confirmation',
-              text: `http://localhost:3000/confirm-email/${user._id}/${token}`
+              text: `http://baghel.onrender.com/confirm-email/${user._id}/${token}`
             };
       
             transporter.sendMail(mailOptions, function (error, info) {
@@ -708,7 +693,7 @@ app.post("/register", async (req, res) => {
   }
 })
 
-app.post("/login",auth_login,async (req, res) => {
+app.post("/login",async (req, res) => {
   try {
     const email = req.body.email;
     const password = req.body.password;
@@ -719,15 +704,11 @@ app.post("/login",auth_login,async (req, res) => {
       return res.status(400).send('<script>alert("Invalid login details."); window.location = "/login";</script>');
     }
     const isMatch = await bcrypt.compare(password, useremail.Password)
-   
-   
+    const token = await useremail.generateAuthToken();
+    res.cookie("jwt", token, { expires: new Date(Date.now() + 30000000), httponly: true })
     //console.log(token)
 
     if (isMatch) {
-      
-      const isMatch = await bcrypt.compare(password, useremail.Password)
-      const token = await useremail.generateAuthToken();
-      res.cookie("jwt", token, { expires: new Date(Date.now() + 30000000), httponly: true })
 
       if (useremail.Role == "Admin") {
         res.redirect('admin_home');
@@ -750,7 +731,7 @@ app.post("/login",auth_login,async (req, res) => {
 
   }
   catch (err) {
-    res.status(400).send('<script>alert("Invalid login details"); window.location = "/login";</script>');
+    res.status(400).send("Ivalid Login Details")
     console.log(err)
   }
 })

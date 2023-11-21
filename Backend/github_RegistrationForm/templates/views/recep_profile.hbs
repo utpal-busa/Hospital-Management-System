@@ -28,7 +28,7 @@
   <link href="HMS_CSS/bootstrap.min.css" rel="stylesheet">
 
   <!-- Admin Add Employee Stylesheet -->
-  <link href="HMS_CSS/patient_home_style.css" rel="stylesheet">
+  <link href="HMS_CSS/patient_profile_style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -51,12 +51,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav ms-auto p-4 p-lg-0">
-    <a href="/" class="nav-item nav-link ">Home</a>
-                <a href="/about" class="nav-item nav-link">About Us</a>
-                <a href="/service" class="nav-item nav-link">Services</a>
-                <a href="contact" class="nav-item nav-link">Contact Us</a>
-      <a href="patient_profile" class="nav-item nav-link">Profile</a>
-      <a href="/logout" class="nav-item nav-link">Log Out</a>
+   <a href="index" class="nav-item nav-link">Home</a>
+      <a href="about" class="nav-item nav-link">About Us</a>
+      <a href="service" class="nav-item nav-link">Services</a>
+      <a href="contact" class="nav-item nav-link">Contact Us</a>
+      <a href="recep_profile" class="nav-item nav-link">Profile</a>
+        <a href="rec_notification" class="nav-item nav-link">Notification</a>
+      <a href="logout" class="nav-item nav-link">Log Out</a>
     </div>
   </div>
 </nav>
@@ -66,29 +67,71 @@
 <div class="container-fluid side-bar">
   <div class="side-bar-top ">
     <div class="side-bar-heading">
-      <p><b>Patient</b></p>
+      <p><b>Receptionist</b></p>
     </div>
     <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
-      <i class="fa fa-user fa-3x"></i>
+      <i class="fa fa-user-plus fa-3x"></i>
     </div>
-    <p class="side-bar-top-info"><b>Name :</b> {{user.Name}} </p>
+    <p class="side-bar-top-info"><b>Name :</b> {{user.Name}}</p>
     <p class="side-bar-top-info"><b>Id :</b> {{user.ID}}</p>
   </div>
   <div class="side-bar-bottom">
     <ul>
-      <li><a href="patient_home">Dashboard</a></li>
-      <li><a href="patient_appointment">Book Appointment</a></li>
-      <li><a href="view_appointment">View and Edit Appointment</a></li>
-      <li><a href="view_prescription">View Prescriptions</a></li>
-      {{!-- <li><a href="HMS_HTML/admin_all_leaves.html">View Medical History</a></li> --}}
+    <li><a href="#">Dashboard</a></li>
+      <li><a href="receptionist_book_app">Book Appointment</a></li>
+      <li><a href="Bill">Generate Bill</a></li>
+      <li><a href="patient_visit">Update Patient Visit</a></li>
+      <li><a href="receptionist_leave">Apply for leave</a></li>
+      <li><a href="recep_view_edit_appointment">View and Edit Appointment</a></li>
     </ul>
   </div>
 </div>
 <!-- Side-bar End -->
 
-<div class="cent">
-  <h1>Welcome!</h1>
-  <h2>Aryan Vagh</h2>
+<div class="profile-box">
+  <h2>Profile</h2>
+  {{!-- <h5>Persnol Information</h5> --}}
+  <div class="profile-info">
+    <div class="info-item">
+      <label for="name"> Name:</label>
+      <span>{{user.Name}}</span>
+    </div>
+    <div class="info-item">
+      <label for="name"> ID:</label>
+      <span>{{user.ID}}</span>
+    </div>
+    <div class="info-item">
+      <label for="name">Email:</label>
+      <span>{{user.Email}}</span>
+    </div>
+   
+
+    <div class="info-item">
+      <label for="age">BirthDate:</label>
+      <span>{{user.BirthDate}}</span>
+    </div>
+    <div class="info-item">
+      <label for="gender">Gender:</label>
+      <span>{{user.Gender}}</span>
+    </div>
+     <div class="info-item">
+      <label for="name"> Blood Group:</label>
+      <span>{{user.BloodGroup}}</span>
+    </div>
+    <div class="info-item">
+      <label for="address">Address:</label>
+      <span>{{user.AddressLine1}}</span>
+      <span>{{user.AddressLine2}}</span>
+      <span>{{user.AddressPostalCode}}</span>
+    </div>
+    <div class="info-item">
+      <label for="phone">Mobile Number:</label>
+      <span>{{user.Phone}}</span>
+    </div>
+    <form action="/editProfile" method="get">
+    <button class="edit-profile-btn">Edit Profile</button>
+    </form>
+  </div>
 </div>
 
 <!-- Back to Top -->

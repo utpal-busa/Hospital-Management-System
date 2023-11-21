@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .transparent-box {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.6);
+            /* Transparent white background */
+        }
+
+        /* CSS styles from code-2 for header, footer, colors, buttons, and responsiveness */
+        .navbar {
+            background: #0463FA;
+        }
+
+        .navbar-brand {
+            color: white;
+        }
+
+        .nav-item {
+            color: white;
+        }
+
+        .footer {
+            background: #0463FA;
+            color: white;
+        }
+
+        .container {
+            background-color: #69bfc9;
+            border: 2px solid #000000;
+            border-radius: 15px;
+            margin-top: 80px;
+        }
+
+        .square-card {
+            height: 150px !important;
+            margin-top: -100px;
+        }
+
+        .text-dark {
+            color: #000 !important;
+        }
+
+        .square-card h3 {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .square-card p {
+            font-size: 16px;
+        }
+
+        .btn-margin-right {
+            margin-left: 38px;
+            width: 150px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .btn-square {
+            background: #354d85;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .btn-square:hover {
+            background: #2d3c63;
+        }
+
+        @media (max-width: 767px) {
+            .square-card {
+                height: 100px;
+            }
+
+            .square-card h3 {
+                font-size: 20px;
+            }
+
+            .square-card p {
+                font-size: 14px;
+            }
+
+            .btn-square {
+                font-size: 14px;
+            }
+        }
+    </style>
+
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Your Company</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="border p-3 mt-5">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="patient-id-input" placeholder="Search Patient ID"
+                    aria-label="Search Patient ID" aria-describedby="search-button">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" id="search-button">Search</button>
+                </div>
+            </div>
+            <!-- This is the big transparent box with a border -->
+            <!-- This is the big transparent box with a border -->
+            <div class="transparent-box">
+                <li>Start by entering the patient's ID in the text field located just below the search box.</li>
+                <li>The patient's ID is a unique identifier that allows you to quickly locate their records in our
+                    system.</li>
+                <li>Double-check the accuracy of the patient's ID to avoid any errors while searching.</li>
+                <li>Once you've entered the patient's ID, click the "Search" button to initiate the search process.</li>
+                <li>Our system will then perform a search based on the provided ID and retrieve the relevant patient
+                    information.</li>
+            </div>
+
+        </div>
+    </div>
+    <footer class="text-center bg-dark text-white p-3 fixed-bottom">
+        &copy; 2023 Your Company. All rights reserved.
+    </footer>
+
+    <!-- Add Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
+    <script>
+        // Function to check for special characters
+        function containsSpecialCharacters(inputText) {
+            var regex = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/;
+            return regex.test(inputText);
+        }
+    
+        // Add a click event handler for the search button
+        document.getElementById("search-button").addEventListener("click", function () {
+            // Get the patient ID entered by the user
+            const patientId = document.getElementById("patient-id-input").value;
+    
+            if (containsSpecialCharacters(patientId)) {
+                alert("Special characters should not be in the patient ID.");
+            } else {
+                // Construct the URL with the patient ID as a query parameter
+                const url = `D:\\Billing_Page\\Bill.html?patientId=${patientId}`;
+    
+                // Redirect to the specified URL
+                window.location.href = url;
+            }
+        });
+    </script>
+</body>
+
+</html>
