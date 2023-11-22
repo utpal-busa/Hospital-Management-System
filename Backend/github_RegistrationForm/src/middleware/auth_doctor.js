@@ -1,14 +1,14 @@
 const jwt = require('jsonwebtoken')
 const Patient = require ('../models/register')
 
-const auth = async (req,res,next)=>{
+const auth_doctor = async (req,res,next)=>{
     try{
        const token = req.cookies.jwt;
        const verifyUser = jwt.verify(token,process.env.SECRET_KEY)
       // console.log(verifyUser)
        const user = await Patient.findOne({_id:verifyUser._id})
        //console.log(user);
-       if (!user || !user.confirmed) {
+       if (!user || !user.confirmed || user.Role!="Doctor") {
          return res.status(401).send('<script>alert("Unauthorized. Please log in."); window.location = "/";</script>');
        }
        
@@ -24,4 +24,4 @@ const auth = async (req,res,next)=>{
     }
 }
 
-module.exports = auth
+module.exports = auth_doctor
