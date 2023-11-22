@@ -953,25 +953,24 @@ app.post("/patient_visit",async (req,res)=>{
   };
   
   Appointment.updateOne(filter, update)
-    .exec()
-    .then((result) => {
-      console.log(result);
-      // Check the result object for information about the update
-      if (result.nModified > 0) {
-       // console.log("Visited field updated successfully");
-      } else {
-        console.log("No matching appointment found");
-      }
-      // Do something else if needed
-    })
-    .catch((err) => {
-      console.error(err);
-      // Handle the error, e.g., return an error response
-    });
-  
+  .exec()
+  .then((result) => {
+    console.log(result);
+    // Check the result object for information about the update
+    if (result.nModified > 0) {
+      // console.log("Visited field updated successfully");
+      res.status(400).send('<script>alert("Updated successfully"); window.location = "/patient_visit"</script>');
+    } else {
+      res.status(400).send('<script>alert("Cannot Find Such Appointment"); window.location = "/patient_visit"</script>');
+      
+    }
+    // Do something else if needed
+  })
+  .catch((err) => {
+    console.error(err);
+    // Handle the error, e.g., return an error response
+  });
 
-
-res.status(400).send('<script>alert("Updated successfully"); window.location = "/patient_visit"</script>');
 
 
 
