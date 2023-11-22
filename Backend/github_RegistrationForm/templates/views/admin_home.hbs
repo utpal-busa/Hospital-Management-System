@@ -29,6 +29,7 @@
 
     <!-- Admin Home Stylesheet -->
     <link href="/HMS_CSS/admin_home_style.css" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -52,21 +53,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-<<<<<<< HEAD
                  <a href="index" class="nav-item nav-link">Home</a>
       <a href="about" class="nav-item nav-link">About Us</a>
       <a href="service" class="nav-item nav-link">Services</a>
       <a href="contact" class="nav-item nav-link">Contact Us</a>
       <a href="admin_profile" class="nav-item nav-link">Profile</a>
-      <a href="logout" class="nav-item nav-link">Log Out</a>
-=======
-                <a href="/HMS_HTML/Home/hms_index.html" class="nav-item nav-link">Home</a>
-                <a href="/HMS_HTML/Home/about.html" class="nav-item nav-link">About Us</a>
-                <a href="/HMS_HTML/Home/service.html" class="nav-item nav-link">Services</a>
-                <a href="/HMS_HTML/Home/contact.html" class="nav-item nav-link">Contact Us</a>
-                <a href="/HMS_HTML/Admin/admin_emp_details.html" class="nav-item nav-link">Profile</a>
-                <a href="/logout" class="nav-item nav-link">Log Out</a>
->>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
+      <a href="logout" class="nav-item nav-link" onclick="logoutfun()">Log Out</a>
             </div>
         </div>
     </nav>
@@ -82,13 +74,8 @@
                 class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
                 <i class="fa fa-user fa-3x"></i>
             </div>
-<<<<<<< HEAD
             <p class="side-bar-top-info"><b>Name :</b>{{user.Name}}</p>
             <p class="side-bar-top-info"><b>Id :</b> {{user.ID}}</p>
-=======
-            <p class="side-bar-top-info"><b>Name :</b> FName LName</p>
-            <p class="side-bar-top-info"><b>Id :</b> E101</p>
->>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
         </div>
         <div class="side-bar-bottom">
             <ul>
@@ -105,7 +92,7 @@
     <!-- Admin Home Dashboard Start -->
     <div class="container-fluid home-dash">
         <div class="home-heading d-flex justify-content-center wow fadeInUp">
-            <h1>Welcom <span>FName LName</span>! <br> Let's Get Started!</h1>
+            <h1>Welcome <span>{{user.Name}}</span>! <br> Let's Get Started!</h1>
         </div>
         <div class="container-xxl home-info py-5">
             <div class="container">
@@ -117,8 +104,8 @@
                                 <i class="fa fa-users text-primary fs-4"></i>
                             </div>
                             <h4 class="mb-3">Employees</h4>
-                            <p class="mb-4">51</p>
-                            <a class="btn" href="/HMS_HTML/Admin/admin_all_emp.html"><i class="fa fa-plus text-primary me-3"></i>View All</a>
+                            <p class="mb-4">{{emp}}</p>
+                            {{!-- <a class="btn" href="/HMS_HTML/Admin/admin_all_emp.html"><i class="fa fa-plus text-primary me-3"></i>View All</a> --}}
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -128,8 +115,8 @@
                                 <i class="fa fa-user-md text-primary fs-4"></i>
                             </div>
                             <h4 class="mb-3">Doctors</h4>
-                            <p class="mb-4">11</p>
-                            <a class="btn" href="/HMS_HTML/Admin/admin_all_doctor.html"><i class="fa fa-plus text-primary me-3"></i>View All</a>
+                            <p class="mb-4">{{doctorCount}}</p>
+                            {{!-- <a class="btn" href="/HMS_HTML/Admin/admin_all_doctor.html"><i class="fa fa-plus text-primary me-3"></i>View All</a> --}}
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -139,8 +126,8 @@
                                 <i class="fa fa-user-plus text-primary fs-4"></i>
                             </div>
                             <h4 class="mb-3">Patients</h4>
-                            <p class="mb-4">1001</p>
-                            <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>View All</a>
+                            <p class="mb-4">{{patientCount}}</p>
+                            {{!-- <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>View All</a> --}}
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -149,9 +136,9 @@
                                 style="width: 65px; height: 65px;">
                                 <i class="fa fa-rupee-sign text-primary fs-4"></i>
                             </div>
-                            <h4 class="mb-3">Cunsulting Fees</h4>
+                            <h4 class="mb-3">Consulting Fees</h4>
                             <p class="mb-4">Rs. 500</p>
-                            <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>View Fees</a>
+                            {{!-- <a class="btn" href="#"><i class="fa fa-plus text-primary me-3"></i>View Fees</a> --}}
                         </div>
                     </div>
                 </div>
@@ -179,4 +166,5 @@
 
     <!-- HMS Javascript -->
     <script src="/HMS_JS/main.js"></script>
+   
 </body>

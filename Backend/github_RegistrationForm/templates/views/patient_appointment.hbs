@@ -51,19 +51,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav ms-auto p-4 p-lg-0">
-<<<<<<< HEAD
      <a href="/" class="nav-item nav-link ">Home</a>
                 <a href="/about" class="nav-item nav-link">About Us</a>
                 <a href="/service" class="nav-item nav-link">Services</a>
                 <a href="contact" class="nav-item nav-link">Contact Us</a>
       <a href="patient_profile" class="nav-item nav-link">Profile</a>
-=======
-      <a href="HMS_HTML/hms_index.html" class="nav-item nav-link">Home</a>
-      <a href="HMS_HTML/about.html" class="nav-item nav-link">About Us</a>
-      <a href="HMS_HTML/service.html" class="nav-item nav-link">Services</a>
-      <a href="HMS_HTML/contact.html" class="nav-item nav-link">Contact Us</a>
-      <a href="#" class="nav-item nav-link">Profile</a>
->>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
       <a href="/logout" class="nav-item nav-link">Log Out</a>
     </div>
   </div>
@@ -79,13 +71,8 @@
     <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
       <i class="fa fa-user fa-3x"></i>
     </div>
-<<<<<<< HEAD
     <p class="side-bar-top-info"><b>Name :</b>{{user.Name}}</p>
     <p class="side-bar-top-info"><b>Id :</b> {{user.ID}}</p>
-=======
-    <p class="side-bar-top-info"><b>Name :</b> FName LName</p>
-    <p class="side-bar-top-info"><b>Id :</b> E101</p>
->>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
   </div>
   <div class="side-bar-bottom">
     <ul>
@@ -93,11 +80,7 @@
       <li><a href="patient_appointment">Book Appointment</a></li>
       <li><a href="view_appointment">View and Edit Appointment</a></li>
       <li><a href="view_prescription">View Prescriptions</a></li>
-<<<<<<< HEAD
       {{!-- <li><a href="HMS_HTML/admin_all_leaves.html">View Medical History</a></li> --}}
-=======
-      <li><a href="HMS_HTML/admin_all_leaves.html">View Medical History</a></li>
->>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
     </ul>
   </div>
 </div>
@@ -105,40 +88,23 @@
 
 <div class="appointment-form">
   <h2>Book Appointment</h2>
-<<<<<<< HEAD
  <form action="/showslots" method="post">
     {{!-- <div class="form-group">
-=======
- <form action="/appointment" method="post">
-    <div class="form-group">
->>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
       <label for="name">Patient's Name:</label>
       <input type="text" id="name" name="name" required>
     </div>
 
     <div class="form-group">
-<<<<<<< HEAD
       <label for="ID">Patient's ID:</label>
       <input type="tel" id="ID" name="ID" required>
     </div> --}}
-=======
-      <label for="phone">Phone Number:</label>
-      <input type="tel" id="phone" name="phone" required>
-    </div>
->>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
 
     <div class="form-group">
       <label for="doctor">Select Doctor:</label>
       <select id="doctor" name="doctor" required>
-<<<<<<< HEAD
         <option value="Dr.Smith">Dr.Smith</option>
         <option value="Dr.Jones">Dr.Jones</option>
         <option value="Dr.Doe">Dr.Doe</option>
-=======
-        <option value="dr_smith">Dr. Smith</option>
-        <option value="dr_jones">Dr. Jones</option>
-        <option value="dr_doe">Dr. Doe</option>
->>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
       </select>
     </div>
 
@@ -147,32 +113,18 @@
       <input type="date" id="date" name="date" required>
     </div>
 
-<<<<<<< HEAD
     {{!-- <div class="form-group">
       <label for="time">Select Time Slot:</label>
       <select id="time" name="time" required>
         <option value="9:00 AM-9:30 AM">9:00 AM-9:30 AM</option>
-=======
-    <div class="form-group">
-      <label for="time">Select Time Slot:</label>
-      <select id="time" name="time" required>
-        <option value="9:00 AM">9:00 AM</option>
->>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
         <option value="10:00 AM">10:00 AM</option>
         <option value="2:00 PM">2:00 PM</option>
         <option value="3:00 PM">3:00 PM</option>
       </select>
-<<<<<<< HEAD
     </div> --}}
 
 
     <button type="submit">Show Available Slots</button>
-=======
-    </div>
-
-
-    <button type="submit">Book Appointment</button>
->>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
   </form>
 </div>
 

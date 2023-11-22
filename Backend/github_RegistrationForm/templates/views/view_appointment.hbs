@@ -12,13 +12,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-<<<<<<< HEAD
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
     rel="stylesheet">
-=======
-  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
-  rel="stylesheet">
->>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
 
   <!-- Icon Font Stylesheet -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -39,7 +34,6 @@
 <body>
   <!-- Spinner Start -->
   <div id="spinner"
-<<<<<<< HEAD
     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
     <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
       <span class="sr-only">Loading...</span>
@@ -136,95 +130,6 @@
   <!-- Back to Top -->
   <a href="HMS_HTML/hms_index.html" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
       class="bi bi-arrow-up"></i></a>
-=======
-  class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-  <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
-</div>
-<!-- Spinner End -->
-
-<!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-primary navbar-light fixed-top p-0" data-wow-delay="0.1s">
-  <a href="HMS_HTML/hms_index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-    <h1 class="m-0 text-white"><i class="far fa-hospital me-3"></i>Care4You</h1>
-  </a>
-  <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarCollapse">
-    <div class="navbar-nav ms-auto p-4 p-lg-0">
-      <a href="HMS_HTML/hms_index.html" class="nav-item nav-link">Home</a>
-      <a href="HMS_HTML/about.html" class="nav-item nav-link">About Us</a>
-      <a href="HMS_HTML/service.html" class="nav-item nav-link">Services</a>
-      <a href="HMS_HTML/contact.html" class="nav-item nav-link">Contact Us</a>
-      <a href="#" class="nav-item nav-link">Profile</a>
-      <a href="/logout" class="nav-item nav-link">Log Out</a>
-    </div>
-  </div>
-</nav>
-<!-- Navbar End -->
-
-<!-- Side-bar Start -->
-<div class="container-fluid side-bar">
-  <div class="side-bar-top ">
-    <div class="side-bar-heading">
-      <p><b>Patient</b></p>
-    </div>
-    <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
-      <i class="fa fa-user-plus fa-3x"></i>
-    </div>
-    <p class="side-bar-top-info"><b>Name :</b> {{user.Email}} </p>
-    <p class="side-bar-top-info"><b>Id :</b> E101</p>
-  </div>
-  <div class="side-bar-bottom">
-    <ul>
-     <li><a href="patient_home">Dashboard</a></li>
-      <li><a href="patient_appointment">Book Appointment</a></li>
-      <li><a href="view_appointment">View and Edit Appointment</a></li>
-      <li><a href="view_prescription">View Prescriptions</a></li>
-      <li><a href="HMS_HTML/admin_all_leaves.html">View Medical History</a></li>
-    </ul>
-  </div>
-</div>
-<!-- Side-bar End -->
-
-<div class="abc">
-  <h2>Appointments</h2>
-  <div class="appointment-list">
-    <table>
-    <thead>
-      <tr>
-        <th>Sr No.</th>
-        <th>Doctor</th>
-        <th>Appointment Date</th>
-        <th>Time Slot</th>
-        <th>Doctor's Fee</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Replace the following rows with data from your server-side code -->
-       {{#each appointments}}
-      <tr>
-        <td>1</td>
-        <td>{{this.Doctor}}</td>
-        <td>{{this.AppointmentDate}}</td>
-        <td>{{this.AppointmentTime}}</td>
-        <td>$100</td>
-        <td><a class="action-button" href="#">Edit</a></td>
-      </tr>
-      {{/each}}
-      <!-- Add more rows for other appointments as needed -->
-    </tbody>
-  </table>
-  </div>
-</div>
-
-<!-- Back to Top -->
-<a href="HMS_HTML/hms_index.html" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
-  class="bi bi-arrow-up"></i></a>
->>>>>>> 26559a845747222170b74c3f68bf84294f057fb9
 
 
   <!-- JavaScript Libraries -->

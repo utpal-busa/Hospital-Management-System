@@ -199,7 +199,6 @@ th {
 .action-button:hover {
   color: var(--dark);
 }
-<<<<<<< HEAD
 
 .auto-index 
 { counter-reset: Serial;  /* Display the counter */
@@ -211,5 +210,3 @@ th {
   content:  counter(Serial); /* Display the counter */
 }
 
-=======
->>>>>>> 26559a845747222170b74c3f68bf84294f057fb9

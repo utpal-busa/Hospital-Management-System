@@ -29,6 +29,34 @@
 
   <!-- Admin Add Employee Stylesheet -->
   <link href="HMS_CSS/patient_profile_style.css" rel="stylesheet">
+    <style>
+        
+        .welcome
+        {
+            font-size: x-large;
+            font-weight: 600 ;
+            color: rgb(72, 63, 63);
+            /* margin: 100px; */
+            /* margin-left: 611px;
+            margin-top: 208px;
+            margin-right: 10px;
+            margin-bottom: 10px; */
+            padding-bottom: 300px;
+            padding-right: 300px;
+            padding-top: 300px;
+            padding-left: 640px;
+
+        }
+        /* .box{
+            margin-top: -40px;
+            margin-right: -1px;
+            /* margin-left: 5px; 
+            
+        }  */
+        .container-fluid {
+            background-color: skyblue;
+        }
+    </style>
 </head>
 
 <body>
@@ -110,4 +138,7 @@
 
   <!-- HMS Javascript -->
   <script src="HMS_JS/main.js"></script>
+  <div class="welcome">
+        Welcome {{user.Name}} <br> Let's Get Started!
+    </div>
 </body>
