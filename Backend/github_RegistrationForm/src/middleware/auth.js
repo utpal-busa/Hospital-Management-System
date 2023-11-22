@@ -9,7 +9,7 @@ const auth = async (req,res,next)=>{
        const user = await Patient.findOne({_id:verifyUser._id})
        //console.log(user);
        if (!user || !user.confirmed) {
-         return res.status(401).send('<script>alert("Unauthorized. Please log in."); window.location = "/";</script>');
+         return res.status(401).send('<script>alert("Unauthorized. Please log in."); window.location = "/login";</script>');
        }
        
        req.user=user;
@@ -20,7 +20,7 @@ const auth = async (req,res,next)=>{
     {
       // res.status(401).send(err)
        console.log(err)
-       return res.status(401).send('<script>alert("Unauthorized. Please log in."); window.location = "/";</script>');
+       return res.status(401).send('<script>alert("Unauthorized. Please log in."); window.location = "/login";</script>');
     }
 }
 
