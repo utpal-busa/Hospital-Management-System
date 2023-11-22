@@ -106,6 +106,13 @@
         <div class="mb-3">
           <label for="appointmentDate" class="form-label">Appointment Date:</label>
           <input type="date" class="form-control form-control-sm" id="appointmentDate" name="appointmentDate" style="width: 150px;" required>
+          <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var appointmentDateInput = document.getElementById("appointmentDate");
+    var today = new Date().toISOString().split("T")[0];
+    appointmentDateInput.setAttribute("max", today);
+  });
+</script>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

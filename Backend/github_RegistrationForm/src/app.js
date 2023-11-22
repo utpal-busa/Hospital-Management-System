@@ -1181,8 +1181,9 @@ app.post("/receptionist_leave", async (req, res) => {
   // console.log(verifyUser)
   const user = await Patient.findOne({ _id: verifyUser._id })
 
-
-  const newLeaveEntry = new Leave({
+   if(req.body.endDate>=req.body.startDate) 
+   {
+    const newLeaveEntry = new Leave({
     Employee: user.Name, // Replace with the actual employee name
     ID: user.ID, // Replace with the actual employee ID
     StartDate: req.body.startDate, // Replace with the actual start date
@@ -1193,8 +1194,13 @@ app.post("/receptionist_leave", async (req, res) => {
 
   newLeaveEntry.save();
   res.status(400).send('<script>alert("Applied successfully."); window.location = "/receptionist_leave";</script>');
+}
+else
+{
+  res.status(400).send('<script>alert("Please Enter Valid Date."); window.location = "/receptionist_leave";</script>');
+}})
 
-})
+
 app.listen(port, () => {
   console.log(`Listening to port number ${port}`)
 })
