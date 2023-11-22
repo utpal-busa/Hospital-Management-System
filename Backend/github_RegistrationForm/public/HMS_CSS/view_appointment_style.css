@@ -199,3 +199,14 @@ th {
 .action-button:hover {
   color: var(--dark);
 }
+
+.auto-index 
+{ counter-reset: Serial;  /* Display the counter */
+}
+
+.auto-index td:first-child:before
+{
+  counter-increment: Serial;      /* Increment the Serial counter */
+  content:  counter(Serial); /* Display the counter */
+}
+

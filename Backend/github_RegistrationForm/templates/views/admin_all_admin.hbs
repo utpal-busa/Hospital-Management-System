@@ -28,7 +28,7 @@
     <link href="/HMS_CSS/bootstrap.min.css" rel="stylesheet">
 
     <!-- Admin All Admins Stylesheet -->
-    <link href="/HMS_CSS/admin_all_admin_style.css" rel="stylesheet">
+    <link href="/HMS_CSS/view_appointment_style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -51,12 +51,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="/HMS_HTML/Home/hms_index.html" class="nav-item nav-link">Home</a>
-                <a href="/HMS_HTML/Home/about.html" class="nav-item nav-link">About Us</a>
-                <a href="/HMS_HTML/Home/service.html" class="nav-item nav-link">Services</a>
-                <a href="/HMS_HTML/Home/contact.html" class="nav-item nav-link">Contact Us</a>
-                <a href="/HMS_HTML/Admin/admin_emp_details.html" class="nav-item nav-link">Profile</a>
-                <a href="/logout" class="nav-item nav-link">Log Out</a>
+                <a href="index" class="nav-item nav-link">Home</a>
+      <a href="about" class="nav-item nav-link">About Us</a>
+      <a href="service" class="nav-item nav-link">Services</a>
+      <a href="contact" class="nav-item nav-link">Contact Us</a>
+      <a href="admin_profile" class="nav-item nav-link">Profile</a>
+      <a href="logout" class="nav-item nav-link">Log Out</a>
             </div>
         </div>
     </nav>
@@ -71,8 +71,8 @@
             <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
                 <i class="fa fa-user fa-3x"></i>
             </div>
-            <p class="side-bar-top-info"><b>Name :</b> FName LName</p>
-            <p class="side-bar-top-info"><b>Id :</b> E101</p>
+            <p class="side-bar-top-info"><b>Name :</b> {{user.Name}}</p>
+            <p class="side-bar-top-info"><b>Id :</b> {{user.ID}}</p>
         </div>
         <div class="side-bar-bottom">
             <ul>
@@ -87,48 +87,42 @@
     <!-- Side-bar End -->
 
     <!-- All Admins Dashboard Start -->
-    <div class="container-fluid all-admin-dash">
-        <div class="all-admin-heading d-flex justify-content-center wow fadeInUp">
-            <h1>All Admins</h1>
-        </div>
-        <div class="all-admin-info d-inline-flex">
-            <table class="table table-bordered">
-                <thead>
-                    <tr class="table-secondary">
-                        <th scope="col" class="text-center">No.</th>
-                        <th scope="col" class="text-center">ID</th>
-                        <th scope="col" class="text-center">Name</th>
-                        <th scope="col" class="text-center">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="tab-data">1</td>
-                        <td class="tab-data">E101</td>
-                        <td class="tab-data">Ranchhod Patel</td>
-                        <td><a href="/admin_emp_details" class="view-button btn">View</a></td>
-                    </tr>
-                    <tr>
-                        <td class="tab-data">2</td>
-                        <td class="tab-data">E102</td>
-                        <td class="tab-data">Ram Kumar</td>
-                        <td><a href="/admin_emp_details" class="view-button btn">View</a></td>
-                    </tr>
-                    <tr>
-                        <td class="tab-data">3</td>
-                        <td class="tab-data">E103</td>
-                        <td class="tab-data">Madhav Dhameliya</td>
-                        <td><a href="/admin_emp_details" class="view-button btn">View</a></td>
-                    </tr>
-                    <tr>
-                        <td class="tab-data">4</td>
-                        <td class="tab-data">E104</td>
-                        <td class="tab-data">Ghanshyam Patel</td>
-                        <td><a href="/admin_emp_details" class="view-button btn">View</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div class="abc">
+    <h2>All {{role}}s</h2>
+    <div class="appointment-list">
+      <table class="auto-index">
+        <thead>
+          <tr>
+            <th> No.</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Replace the following rows with data from your server-side code -->
+          {{#each patients}}
+          <tr>
+            
+            <td></td>
+            <td>{{this.ID}}</td>
+            <td>{{this.Name}}</td>
+            <td>
+              <form action="/admin_view_profile" method="post">
+              <input type="hidden" name="ID" value="{{this.ID}}">
+                {{!-- <input type="hidden" name="doctor" value="{{this.Doctor}}">
+                <input type="hidden" name="appointmentDate" value="{{this.AppointmentDate}}">
+                <input type="hidden" name="appointmentTime" value="{{this.AppointmentTime}}"> --}}
+                <button class="action-button" type="submit">View</button>
+                {{!-- <a class="action-button" type="submit">Delete</a> --}}
+              </form>
+            </td>
+          </tr>
+          {{/each}}
+          <!-- Add more rows for other appointments as needed -->
+        </tbody>
+      </table>
+    </div>
     </div>
     <!-- All Admins Dashboard End -->
 
