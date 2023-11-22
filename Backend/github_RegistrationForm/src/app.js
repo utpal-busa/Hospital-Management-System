@@ -11,17 +11,29 @@ const validator = require("email-validator");
 const verifier = require('email-verify');
 const cookieParser = require('cookie-parser');
 const auth = require('./middleware/auth')
+<<<<<<< HEAD
 const auth_admin = require('./middleware/auth_admin')
 const auth_doctor = require('./middleware/auth_doctor')
 const auth_patient = require('./middleware/auth_patient')
 const auth_recep = require('./middleware/auth_recep')
 const auth_login = require('./middleware/auth_login')
+=======
+const auth_admin=require('./middleware/auth_admin')
+const auth_doctor=require('./middleware/auth_doctor')
+const auth_patient=require('./middleware/auth_patient')
+const auth_recep=require('./middleware/auth_recep')
+const auth_login=require('./middleware/auth_login')
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 const infoCodes = verifier.infoCodes;
 // const cheerio = require('cheerio'); 
 require("./db/conn")
 const Patient = require("./models/register")
 const Appointment = require("./models/appoi")
+<<<<<<< HEAD
 const Leave = require("./models/leaves")
+=======
+const Leave=require("./models/leaves")
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 const Prescription = require("./models/prescreption")
 
 const { error, log } = require('console')
@@ -47,19 +59,33 @@ app.get("/", (req, res) => {
   res.render('index')
 })
 
+<<<<<<< HEAD
 app.get("/receptionist_base", auth_recep, async (req, res) => {
   res.render('receptionist_base', { user: req.user })
 })
 
 app.get("/recep_profile", auth_recep, async (req, res) => {
+=======
+app.get("/receptionist_base",auth_recep,async(req,res)=>{
+  res.render('receptionist_base',{user:req.user})
+})
+
+app.get("/recep_profile",auth_recep,async(req,res)=>{
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
   // console.log(verifyUser)
   const user = await Patient.findOne({ _id: verifyUser._id })
   console.log(user.Name)
+<<<<<<< HEAD
   res.render("recep_profile", { user })
 })
 app.get("/rec_notification", auth_recep, async (req, res) => {
+=======
+  res.render("recep_profile",{user})
+})
+app.get("/rec_notification",auth_recep,async (req,res)=>{
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
@@ -67,6 +93,7 @@ app.get("/rec_notification", auth_recep, async (req, res) => {
   const user = await Patient.findOne({ _id: verifyUser._id })
 
   const leavesForEmployee = await Leave.find({ ID: user.ID });
+<<<<<<< HEAD
   res.render('rec_notification', { leavesForEmployee, user })
 })
 app.get("/recep_register", auth_recep, (req, res) => {
@@ -111,10 +138,57 @@ app.get("/new_doc_patient_det", auth_doctor, (req, res) => {
 
 
 app.get("/admin_home", auth_admin, async (req, res) => {
+=======
+  res.render('rec_notification',{leavesForEmployee,user})
+})
+app.get("/recep_register",auth_recep,(req,res)=>{
+  res.render('recep_register',{user:req.user})
+})
+app.get("/admin_add_emp", auth_admin,(req, res) => {
+  res.render('admin_add_emp',{user:req.user})
+})
+
+app.get("/admin_all_admin",  auth_admin,(req, res) => {
+ // console.log("k")
+  res.render('admin_all_admin',{user:req.user})
+})
+
+app.get("/admin_all_doctor", auth_admin, (req, res) => {
+  res.render('admin_all_doctor',{user:req.user})
+})
+
+app.get("/admin_all_emp",  auth_admin,(req, res) => {
+  res.render('admin_all_emp',{user:req.user})
+})
+
+app.get("/admin_all_leaves", auth_admin, async(req, res) => {
+
+  const pendingLeaves = await Leave.find({ Approve: 'Pending' });
+ // console.log(pendingLeaves[0].ID)
+
+  res.render('admin_all_leaves',{pendingLeaves,user:req.user})
+})
+
+app.get("/admin_all_recep", auth_admin, (req, res) => {
+  res.render('admin_all_recep',{user:req.user})
+})
+
+app.get("/admin_emp_details",  auth_admin,(req, res) => {
+  res.render('admin_emp_details',{user:req.user})
+})
+
+app.get("/new_doc_patient_det",auth_doctor, (req, res) => {
+  res.render('new_doc_patient_det',{user:req.user})
+})
+
+
+app.get("/admin_home", auth_admin,async (req, res) => {
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 
 
   const countEntries = async (model, role) => {
     try {
+<<<<<<< HEAD
       const count = await model.countDocuments({ Role: role });
       return count;
     } catch (error) {
@@ -141,6 +215,34 @@ app.get("/recep_view_edit_appointment", auth_recep, (req, res) => {
 })
 
 app.get("/view_appointment", auth_patient, async (req, res) => {
+=======
+        const count = await model.countDocuments({ Role: role });
+        return count;
+    } catch (error) {
+        console.error(`Error counting ${role}s:`, error);
+    }
+};
+
+const patientCount = await countEntries(Patient, 'Patient');
+const doctorCount = await countEntries(Patient, 'Doctor');
+const recepCount = await countEntries(Patient, 'Receptionist');
+const emp=doctorCount+recepCount
+  res.render('admin_home',{user:req.user,patientCount,doctorCount,emp})
+})
+
+app.get("/admin_search_emp", auth_admin, (req, res) => {
+  res.render('admin_search_emp',{user:req.user})
+})
+app.get("/prescription",auth_patient, (req, res) => {
+  res.render('prescription',{user:req.user})
+})
+
+app.get("/recep_view_edit_appointment",auth_recep,(req,res)=>{
+    res.render('recep_view_edit_appointment',{user:req.user})
+})
+
+app.get("/view_appointment",auth_patient, async (req, res) => {
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
@@ -158,12 +260,21 @@ app.get("/view_appointment", auth_patient, async (req, res) => {
   res.render('view_appointment', { appointments, user })
 })
 
+<<<<<<< HEAD
 app.get("/patient_appointment", auth_patient, (req, res) => {
   res.render('patient_appointment', { user: req.user })
 })
 
 app.get("/view_prescription", auth_patient, async (req, res) => {
 
+=======
+app.get("/patient_appointment",auth_patient, (req, res) => {
+  res.render('patient_appointment',{user:req.user})
+})
+
+app.get("/view_prescription",auth_patient,async (req, res) => {
+   
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
   // console.log(verifyUser)
@@ -172,6 +283,7 @@ app.get("/view_prescription", auth_patient, async (req, res) => {
   const patientID = user.ID;
 
   Prescription.find({ ID: patientID })
+<<<<<<< HEAD
     .exec()
     .then((prescriptions) => {
       res.render('view_prescription', { prescriptions, user })
@@ -189,20 +301,47 @@ app.get("/editProfile", auth, (req, res) => {
 })
 
 app.get("/admin_profile", auth_admin, async (req, res) => {
+=======
+  .exec()
+  .then((prescriptions) => {
+    res.render('view_prescription',{prescriptions,user})
+      // Do something with the found prescriptions
+  })
+  .catch((err) => {
+      console.error(err);
+      // Handle the error
+  });
+  
+})
+
+app.get("/editProfile",auth,(req,res)=>{
+  res.render('editProfile')
+})
+
+app.get("/admin_profile",auth_admin,async(req,res)=>{
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
   // console.log(verifyUser)
   const user = await Patient.findOne({ _id: verifyUser._id })
   console.log(user.Name)
+<<<<<<< HEAD
   res.render("admin_profile", { user })
 })
 
 app.get("/doc_profile", auth_doctor, async (req, res) => {
+=======
+  res.render("admin_profile",{user})
+})
+
+app.get("/doc_profile",auth_doctor,async (req,res)=>{
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
   // console.log(verifyUser)
   const user = await Patient.findOne({ _id: verifyUser._id })
   console.log(user.Name)
+<<<<<<< HEAD
   res.render("doc_profile", { user })
 
 })
@@ -238,6 +377,43 @@ app.get("/new_doc_obs", auth_doctor, (req, res) => {
 
 app.get("/doc_pat_vis", auth_doctor, (req, res) => {
   res.render('doc_pat_vis', { user: req.user })
+=======
+  res.render("doc_profile",{user})
+
+})
+
+app.get("/patient_home",auth_patient, (req, res) => {
+  res.render('patient_home',{user:req.user})
+})
+
+app.get("/new_doc_home",auth_doctor, (req, res) => {
+  res.render('new_doc_home',{user:req.user})
+})
+
+
+app.get("/receptionist_leave", auth_recep,(req, res) => {
+  res.render('receptionist_leave',{user:req.user})
+})
+
+app.get("/new_me", auth_doctor,(req, res) => {
+  res.render('new_me')
+})
+
+app.get("/new_doc_visited_pat",auth_doctor, (req, res) => {
+  res.render('new_doc_visited_pat',{user:req.user})
+})
+
+app.get("/patient_visit",auth_recep,async (req,res)=>{
+  res.render('patient_visit',{user:req.user})
+})
+
+app.get("/new_doc_obs", auth_doctor,(req, res) => {
+  res.render('new_doc_obs',{user:req.user})
+})
+
+app.get("/doc_pat_vis",auth_doctor,(req,res)=>{
+  res.render('doc_pat_vis',{user:req.user})
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 })
 
 app.get("/temp_dashboard", auth, (req, res) => {
@@ -245,7 +421,11 @@ app.get("/temp_dashboard", auth, (req, res) => {
   res.render('temp_dashboard')
 })
 
+<<<<<<< HEAD
 app.get("/Register_new", auth_login, (req, res) => {
+=======
+app.get("/Register_new",auth_login, (req, res) => {
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   res.render('Register_new')
 })
 
@@ -253,10 +433,17 @@ app.get("/reset-password/:id/:token", (req, res) => {
   res.render('resetPassword')
 })
 
+<<<<<<< HEAD
 app.get("/confirm-email/:id/:token", async (req, res) => {
   const { id, token } = req.params;
   const user = await Patient.findOne({ _id: id })
   user.confirmed = "True";
+=======
+app.get("/confirm-email/:id/:token",async(req,res)=>{
+  const { id, token } = req.params;
+  const user = await Patient.findOne({ _id: id })
+  user.confirmed="True";
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   await user.save();
   res.status(400).send('<script>alert("Registered successfully."); window.location = "/login";</script>');
   // console.log(id)
@@ -277,6 +464,7 @@ app.get("/service", (req, res) => {
   res.render('service')
 })
 
+<<<<<<< HEAD
 app.get("/book_slot", auth_patient, (req, res) => {
   res.render('book_slot', { user: req.user })
 })
@@ -292,15 +480,39 @@ app.get("/index", (req, res) => {
   res.render('index')
 })
 app.get("/patient_profile", auth_patient, async (req, res) => {
+=======
+app.get("/book_slot",auth_patient, (req, res) => {
+  res.render('book_slot',{user:req.user})
+})
+app.get("/receptionist_book_app", auth_recep,(req, res) => {
+  res.render('receptionist_book_app',{user:req.user})
+})
+
+app.get("/login",auth_login, (req, res) => {
+  res.render('Login_new')
+})
+
+app.get("/index",(req,res)=>{
+  res.render('index')
+})
+app.get("/patient_profile",auth_patient,async (req, res) => {
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
   // console.log(verifyUser)
   const user = await Patient.findOne({ _id: verifyUser._id })
   console.log(user.Name)
+<<<<<<< HEAD
   res.render("patient_profile", { user })
 })
 
 app.get("/Bill", auth_recep, (req, res) => {
+=======
+  res.render("patient_profile",{user})
+})
+
+app.get("/Bill",auth_recep, (req, res) => {
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   res.render("Bill",)
 })
 app.get("/logout", auth, async (req, res) => {
@@ -321,11 +533,19 @@ app.get("/logout", auth, async (req, res) => {
 
     await req.user.save();
 
+<<<<<<< HEAD
 
     // Redirect to another page (optional)
     res.redirect('/index');
 
 
+=======
+  
+    // Redirect to another page (optional)
+    res.redirect('/index');
+    
+    
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   } catch (error) {
     res.status(500).send(error)
   }
@@ -368,7 +588,11 @@ app.post("/reset-password/:id/:token", async (req, res) => {
 })
 
 
+<<<<<<< HEAD
 app.post("/recep_register", async (req, res) => {
+=======
+app.post("/recep_register",async (req,res)=>{
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   try {
 
 
@@ -402,7 +626,11 @@ app.post("/recep_register", async (req, res) => {
     // }
 
 
+<<<<<<< HEAD
     const existingUser = await Patient.findOne({ Email: req.body.Email, confirmed: "True" });
+=======
+    const existingUser = await Patient.findOne({ Email: req.body.Email ,confirmed:"True"});
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 
     if (existingUser) {
       // If a user with the same email exists, display an error message
@@ -426,7 +654,11 @@ app.post("/recep_register", async (req, res) => {
         BloodGroup: req.body.blood_group,
         Role: "Patient",
         ID: uidWithTimestamp,
+<<<<<<< HEAD
         confirmed: "False"
+=======
+        confirmed:"False"
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
       })
 
       // console.log(req.body.password);
@@ -443,8 +675,13 @@ app.post("/recep_register", async (req, res) => {
             if (!user) {
               return res.send({ Status: "User not existed" })
             }
+<<<<<<< HEAD
 
 
+=======
+      
+      
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
             const token = jwt.sign({ _id: user._id }, process.env.SECRET_KEY)
             var transporter = nodemailer.createTransport({
               service: 'gmail',
@@ -453,32 +690,52 @@ app.post("/recep_register", async (req, res) => {
                 pass: 'voma dsnw ufqn kwvb'
               }
             });
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
             var mailOptions = {
               from: 'pradipatarsingh82@gmail.com',
               to: req.body.Email,
               subject: 'Email Confirmation',
               text: `http://localhost:3000/confirm-email/${user._id}/${token}`
             };
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
             transporter.sendMail(mailOptions, function (error, info) {
               if (error) {
                 console.log(error);
               } else {
                 console.log('Email sent: ' + info.response);
                 res.status(400).send('<script>alert("Email has sent for confirmation.Click the link for confirmation"); window.location = "/recep_register";</script>');
+<<<<<<< HEAD
 
               }
             });
           })
 
+=======
+      
+              }
+            });
+          })
+      
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 
       }
       catch (err) {
         console.log(err);
       }
       //const finalNakho = await registeredPatient.save();
+<<<<<<< HEAD
       //    res.status(400).send('<script>alert("Registered successfully"); window.location = "/"</script>');
+=======
+  //    res.status(400).send('<script>alert("Registered successfully"); window.location = "/"</script>');
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
       //res.status(201).render('login')
     }
     else {
@@ -492,8 +749,13 @@ app.post("/recep_register", async (req, res) => {
     res.status(400).send(err)
   }
 })
+<<<<<<< HEAD
 app.post("/deleteAppointment", async (req, res) => {
 
+=======
+app.post("/deleteAppointment",async(req,res)=>{
+   
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
   // console.log(verifyUser)
@@ -511,6 +773,7 @@ app.post("/deleteAppointment", async (req, res) => {
 
 })
 
+<<<<<<< HEAD
 app.post("/approve", async (req, res) => {
   let leavesForEmployee = await Leave.findOne({ ID: req.body.ID, StartDate: req.body.StartDate, EndDate: req.body.EndDate, Approve: "Pending" });
   leavesForEmployee.Approve = "Approved";
@@ -519,10 +782,21 @@ app.post("/approve", async (req, res) => {
 
   //console.log(leavesForEmployee)
   res.redirect('admin_all_leaves')
+=======
+app.post("/approve",async(req,res)=>{
+  let  leavesForEmployee = await Leave.findOne({ ID: req.body.ID,StartDate:req.body.StartDate,EndDate:req.body.EndDate,Approve:"Pending" });
+ leavesForEmployee.Approve="Approved";
+
+ leavesForEmployee.save();
+ 
+ //console.log(leavesForEmployee)
+ res.redirect('admin_all_leaves')
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 
 
 })
 
+<<<<<<< HEAD
 app.post("/disapprove", async (req, res) => {
   let leavesForEmployee = await Leave.findOne({ ID: req.body.ID, StartDate: req.body.StartDate, EndDate: req.body.EndDate, Approve: "Pending" });
   leavesForEmployee.Approve = "Disapproved";
@@ -535,6 +809,20 @@ app.post("/disapprove", async (req, res) => {
 })
 app.post("/rece_deleteAppointment", async (req, res) => {
 
+=======
+app.post("/disapprove",async(req,res)=>{
+  let  leavesForEmployee = await Leave.findOne({ ID: req.body.ID,StartDate:req.body.StartDate,EndDate:req.body.EndDate,Approve:"Pending" });
+ leavesForEmployee.Approve="Disapproved";
+
+ leavesForEmployee.save();
+ 
+ res.redirect('admin_all_leaves')
+
+
+})
+app.post("/rece_deleteAppointment",async(req,res)=>{
+   
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 
   const result = await Appointment.deleteOne({
     Doctor: req.body.doctor,
@@ -547,7 +835,11 @@ app.post("/rece_deleteAppointment", async (req, res) => {
 })
 app.post("/ForgotPassword", (req, res) => {
   const email = req.body.email
+<<<<<<< HEAD
   Patient.findOne({ Email: email, confirmed: "True" })
+=======
+  Patient.findOne({ Email: email ,confirmed:"True"})
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
     .then(user => {
       if (!user) {
         res.status(400).send('<script>alert("User not exists"); window.location = "/ForgotPassword";</script>');
@@ -618,7 +910,11 @@ app.post("/register", async (req, res) => {
     // }
 
 
+<<<<<<< HEAD
     const existingUser = await Patient.findOne({ Email: req.body.Email, confirmed: "True" });
+=======
+    const existingUser = await Patient.findOne({ Email: req.body.Email ,confirmed:"True"});
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 
     if (existingUser) {
       // If a user with the same email exists, display an error message
@@ -642,7 +938,11 @@ app.post("/register", async (req, res) => {
         BloodGroup: req.body.blood_group,
         Role: "Patient",
         ID: uidWithTimestamp,
+<<<<<<< HEAD
         confirmed: "False"
+=======
+        confirmed:"False"
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
       })
 
       // console.log(req.body.password);
@@ -659,7 +959,11 @@ app.post("/register", async (req, res) => {
             if (!user) {
               return res.send({ Status: "User not existed" })
             }
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
             const token = jwt.sign({ _id: user._id }, process.env.SECRET_KEY)
             var transporter = nodemailer.createTransport({
               service: 'gmail',
@@ -668,32 +972,52 @@ app.post("/register", async (req, res) => {
                 pass: 'voma dsnw ufqn kwvb'
               }
             });
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
             var mailOptions = {
               from: 'pradipatarsingh82@gmail.com',
               to: req.body.Email,
               subject: 'Email Confirmation',
               text: `http://localhost:3000/confirm-email/${user._id}/${token}`
             };
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
             transporter.sendMail(mailOptions, function (error, info) {
               if (error) {
                 console.log(error);
               } else {
                 console.log('Email sent: ' + info.response);
                 res.status(400).send('<script>alert("Email has sent for confirmation.Click the link for confirmation"); window.location = "/login";</script>');
+<<<<<<< HEAD
 
               }
             });
           })
 
+=======
+      
+              }
+            });
+          })
+      
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 
       }
       catch (err) {
         console.log(err);
       }
       //const finalNakho = await registeredPatient.save();
+<<<<<<< HEAD
       //    res.status(400).send('<script>alert("Registered successfully"); window.location = "/"</script>');
+=======
+  //    res.status(400).send('<script>alert("Registered successfully"); window.location = "/"</script>');
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
       //res.status(201).render('login')
     }
     else {
@@ -708,22 +1032,39 @@ app.post("/register", async (req, res) => {
   }
 })
 
+<<<<<<< HEAD
 app.post("/login", auth_login, async (req, res) => {
+=======
+app.post("/login",auth_login,async (req, res) => {
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   try {
     const email = req.body.email;
     const password = req.body.password;
 
+<<<<<<< HEAD
     const useremail = await Patient.findOne({ Email: email, confirmed: "True" })
+=======
+    const useremail = await Patient.findOne({ Email: email ,confirmed:"True"})
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
     if (!useremail) {
       // User with the specified email was not found
       return res.status(400).send('<script>alert("Invalid login details."); window.location = "/login";</script>');
     }
     const isMatch = await bcrypt.compare(password, useremail.Password)
+<<<<<<< HEAD
 
 
+=======
+   
+   
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
     //console.log(token)
 
     if (isMatch) {
+      
+      const isMatch = await bcrypt.compare(password, useremail.Password)
+      const token = await useremail.generateAuthToken();
+      res.cookie("jwt", token, { expires: new Date(Date.now() + 30000000), httponly: true })
 
       const isMatch = await bcrypt.compare(password, useremail.Password)
       const token = await useremail.generateAuthToken();
@@ -735,7 +1076,11 @@ app.post("/login", auth_login, async (req, res) => {
 
       else if (useremail.Role == "Doctor") {
         res.redirect('new_doc_home')
+<<<<<<< HEAD
         // res.render('new_doc_home')
+=======
+       // res.render('new_doc_home')
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
       }
       else if (useremail.Role == "Receptionist")
         res.redirect('receptionist_base')
@@ -757,6 +1102,7 @@ app.post("/login", auth_login, async (req, res) => {
 
 app.post("/appointment", async (req, res) => {
 
+<<<<<<< HEAD
   const doctor = req.body.doctor;
   const date = req.body.date;
   const existingAppointments = await Appointment.find({ Doctor: doctor, AppointmentDate: date });
@@ -799,11 +1145,31 @@ app.post("/appointment", async (req, res) => {
 
 
 
+=======
+  const newAppointment = new Appointment({
+    Doctor: req.body.doctor,
+    Patient: req.body.name,
+    AppointmentDate: req.body.date,
+    ID: req.body.ID,
+    AppointmentTime: req.body.time,
+    Visited:"False"
+  })
+
+  try {
+    await newAppointment.save();
+  }
+  catch (err) {
+    console.log(err);
+  }
+
+  res.status(400).send('<script>alert("Booked successfully"); window.location = "/patient_appointment"</script>');
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 
 })
 
 app.post("/recep_appointment", async (req, res) => {
 
+<<<<<<< HEAD
   const doctor = req.body.doctor;
   const date = req.body.date;
   const existingAppointments = await Appointment.find({ Doctor: doctor, AppointmentDate: date });
@@ -848,6 +1214,25 @@ app.post("/recep_appointment", async (req, res) => {
 
     res.status(400).send('<script>alert("Booked successfully"); window.location = "/receptionist_book_app"</script>');
   }
+=======
+  const newAppointment = new Appointment({
+    Doctor: req.body.doctor,
+    Patient: req.body.name,
+    AppointmentDate: req.body.date,
+    ID: req.body.ID,
+    AppointmentTime: req.body.time,
+    Visited:"False"
+  })
+
+  try {
+    await newAppointment.save();
+  }
+  catch (err) {
+    console.log(err);
+  }
+
+  res.status(400).send('<script>alert("Booked successfully"); window.location = "/receptionist_book_app"</script>');
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 
 })
 
@@ -896,9 +1281,15 @@ app.post('/submitPrescription', async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 app.post("/view_prescription", async (req, res) => {
 
 
+=======
+app.post("/view_prescription",async(req,res)=>{
+    
+  
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
   // console.log(verifyUser)
@@ -908,6 +1299,7 @@ app.post("/view_prescription", async (req, res) => {
     ID: req.body.ID,
     AppointmentDate: req.body.appointmentDate,
     Doctor: req.body.doctor
+<<<<<<< HEAD
   });
 
   //.log(prescription.ID)
@@ -916,6 +1308,16 @@ app.post("/view_prescription", async (req, res) => {
 })
 app.post("/showslots", async (req, res) => {
 
+=======
+});
+
+//.log(prescription.ID)
+
+res.render('prescription',{prescription,user})
+})
+app.post("/showslots", async (req, res) => {
+  
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
@@ -946,7 +1348,11 @@ app.post("/showslots", async (req, res) => {
     res.status(400).send('<script>alert("No Slots are available on this date"); window.location = "/patient_appointment"</script>');
   }
   else {
+<<<<<<< HEAD
     res.render('book_slot', { availableSlots, date, doctor, user })
+=======
+    res.render('book_slot', { availableSlots, date, doctor ,user})
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   }
 
 })
@@ -957,7 +1363,11 @@ app.post("/showslots", async (req, res) => {
 
 app.post("/recep_showslots", async (req, res) => {
 
+<<<<<<< HEAD
 
+=======
+  const date = req.body.date;
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   //  date=date.toDateString();
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
@@ -965,7 +1375,11 @@ app.post("/recep_showslots", async (req, res) => {
   const user = await Patient.findOne({ _id: verifyUser._id })
   //  console.log(date);
   const doctor = req.body.doctor;
+<<<<<<< HEAD
   const date = req.body.date;
+=======
+
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   const existingAppointments = await Appointment.find({ Doctor: doctor, AppointmentDate: date });
   const allSlots = ['9:00-9:30 AM', '9:30-10:00 AM', '10:00-10:30 AM', '10:30-11:00 AM', '11:00-11:30 AM', '11:30-12:00 AM',
     '3:00-3:30 PM', '3:30-4:00 PM', '4:00-4:30 PM', '4:30-5:00 PM', '5:00-5:30 PM', '5:30-6:00 PM'];
@@ -986,31 +1400,51 @@ app.post("/recep_showslots", async (req, res) => {
     res.status(400).send('<script>alert("No Slots are available on this date"); window.location = "/receptionist_book_app"</script>');
   }
   else {
+<<<<<<< HEAD
     res.render('recep_book_slot', { availableSlots, date, doctor, user })
+=======
+    res.render('recep_book_slot', { availableSlots, date, doctor,user })
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   }
 
 })
 
 
+<<<<<<< HEAD
 app.post("/patient_visit", async (req, res) => {
+=======
+app.post("/patient_visit",async (req,res)=>{
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   const filter = {
     Doctor: req.body.doctor,
     AppointmentDate: req.body.date,
     ID: req.body.ID,
     AppointmentTime: req.body.time
   };
+<<<<<<< HEAD
 
   const update = {
     Visited: "True"
   };
 
+=======
+  
+  const update = {
+    Visited: "True"
+  };
+  
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   Appointment.updateOne(filter, update)
     .exec()
     .then((result) => {
       console.log(result);
       // Check the result object for information about the update
       if (result.nModified > 0) {
+<<<<<<< HEAD
         // console.log("Visited field updated successfully");
+=======
+       // console.log("Visited field updated successfully");
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
       } else {
         console.log("No matching appointment found");
       }
@@ -1020,22 +1454,35 @@ app.post("/patient_visit", async (req, res) => {
       console.error(err);
       // Handle the error, e.g., return an error response
     });
+<<<<<<< HEAD
 
 
 
   res.status(400).send('<script>alert("Updated successfully"); window.location = "/patient_visit"</script>');
+=======
+  
+
+
+res.status(400).send('<script>alert("Updated successfully"); window.location = "/patient_visit"</script>');
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 
 
 
 });
 
+<<<<<<< HEAD
 app.post("/doc_pat_vis", async (req, res) => {
 
+=======
+app.post("/doc_pat_vis",async (req,res)=>{
+  
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
   // console.log(verifyUser)
   const user = await Patient.findOne({ _id: verifyUser._id })
   Appointment.find({ Doctor: req.body.doctorName, AppointmentDate: req.body.appointmentDate })
+<<<<<<< HEAD
     .exec()
     .then((appointments) => {
       // Do something with the found appointments
@@ -1054,10 +1501,31 @@ app.post("/doc_pat_vis", async (req, res) => {
 app.post("/admin_all_emp", async (req, res) => {
   // console.log(req.bod y.role)
 
+=======
+  .exec()
+  .then((appointments) => {
+    // Do something with the found appointments
+    console.log(appointments);
+    res.render('new_doc_visited_pat',{appointments,user})
+  })
+  .catch((err) => {
+    console.error(err);
+    // Handle the error, e.g., return an error response
+  });
+  //const x=req.body.appointmentDate
+
+  
+})
+
+app.post("/admin_all_emp",async(req,res)=>{
+  // console.log(req.bod y.role)
+  
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
   // console.log(verifyUser)
   const user = await Patient.findOne({ _id: verifyUser._id })
+<<<<<<< HEAD
   await Patient.find({ Role: req.body.role })
     .exec()
     .then((patients) => {
@@ -1075,17 +1543,45 @@ app.post("/admin_view_profile", async (req, res) => {
   const ID = req.body.ID;
   const user = await Patient.findOne({ ID: ID })
 
+=======
+ await Patient.find({ Role:req.body.role})
+  .exec()
+  .then((patients) => {
+    // Do something with the found patients
+    // console.log(patients);
+    res.render('admin_all_admin',{role:req.body.role,patients,user})
+  })
+  .catch((error) => {
+    console.error(error);
+    // Handle the error, e.g., return an error response
+  });
+})
+
+app.post("/admin_view_profile",async(req,res)=>{
+  const ID=req.body.ID;
+  const user=await Patient.findOne({ID:ID})
+   
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
   // console.log(verifyUser)
   const user2 = await Patient.findOne({ _id: verifyUser._id })
+<<<<<<< HEAD
   res.render('admin_view_profile', { user, user2 })
 })
 app.post("/editProfile", async (req, res) => {
   // console.log(req.body.role)
 
 
+=======
+    res.render('admin_view_profile',{user,user2})
+})
+app.post("/editProfile",async(req,res)=>{
+  // console.log(req.body.role)
+
+  
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
   // console.log(verifyUser)
@@ -1116,6 +1612,7 @@ app.post("/editProfile", async (req, res) => {
   // }
   if (req.body.password == req.body.confirmPassword) {
 
+<<<<<<< HEAD
 
     user.Name = req.body.Name,
       user.Email = user.Email,
@@ -1147,6 +1644,39 @@ app.post("/viewPatientDetails", async (req, res) => {
 
   const user = await Patient.findOne({ ID: req.body.ID })
 
+=======
+   
+      user.Name= req.body.Name,
+      user.Email= user.Email,
+      user.Phone= req.body.Phone,
+      user.Password= req.body.password,
+      user.BirthDate= req.body.birthdate,
+      user.AddressLine1= req.body.AddressLine1,
+      user.AddressLine2=req.body.AddressLine2,
+      user.AddressPostalCode= req.body.AddressPostalCode,
+      user.Gender= req.body.Gender,
+      user.BloodGroup= req.body.blood_group,
+      user.Role= "Patient",
+      user.ID= user.ID,
+      user.confirmed="True"
+
+  
+
+      await user.save();
+      res.status(400).send('<script>alert("Updated successfully."); window.location = "/editProfile";</script>');
+  }
+
+  else{
+    res.status(400).send('<script>alert("Passwords do not match. Please try again."); window.location = "/editProfile";</script>');
+  }
+   
+})
+
+app.post("/viewPatientDetails",async (req,res)=>{
+
+  const  user = await Patient.findOne({ ID: req.body.ID })
+ 
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
   // console.log(verifyUser)
@@ -1155,6 +1685,7 @@ app.post("/viewPatientDetails", async (req, res) => {
     ID: req.body.ID,
     AppointmentDate: req.body.AppointmentDate,
     Doctor: req.body.Doctor
+<<<<<<< HEAD
   });
   console.log(prescription.ID)
   res.render('new_doc_patient_det', { user, prescription, user2 })
@@ -1165,34 +1696,68 @@ app.post("/viewPatientDetails", async (req, res) => {
 
 app.post("/recep_view_edit_appointment", async (req, res) => {
   const date = req.body.Date;
+=======
+});
+   console.log(prescription.ID)
+  res.render('new_doc_patient_det',{user,prescription,user2})
+
+ 
+})
+
+
+app.post("/recep_view_edit_appointment", async (req,res)=>{
+  const date=req.body.Date;
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
   const allAppointmentsForDate = await Appointment.find({ AppointmentDate: date });
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
   // console.log(verifyUser)
   const user = await Patient.findOne({ _id: verifyUser._id })
 
+<<<<<<< HEAD
   res.render('recep_view_table', { allAppointmentsForDate, user })
 })
 
 app.post("/receptionist_leave", async (req, res) => {
+=======
+  res.render('recep_view_table',{allAppointmentsForDate,user})
+})
+
+app.post("/receptionist_leave",async(req,res)=>{
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 
   const token = req.cookies.jwt;
   const verifyUser = jwt.verify(token, process.env.SECRET_KEY)
   // console.log(verifyUser)
+<<<<<<< HEAD
   const user = await Patient.findOne({ _id: verifyUser._id })
 
 
   const newLeaveEntry = new Leave({
     Employee: user.Name, // Replace with the actual employee name
+=======
+  const  user = await Patient.findOne({ _id: verifyUser._id })
+
+
+  const newLeaveEntry = new Leave({
+    Employee:user.Name , // Replace with the actual employee name
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
     ID: user.ID, // Replace with the actual employee ID
     StartDate: req.body.startDate, // Replace with the actual start date
     EndDate: req.body.endDate, // Replace with the actual end date
     Reason: req.body.reason, // Replace with the actual reason
     Approve: "Pending" // Replace with the initial approval status
+<<<<<<< HEAD
   });
 
   newLeaveEntry.save();
   res.status(400).send('<script>alert("Applied successfully."); window.location = "/receptionist_leave";</script>');
+=======
+});
+
+newLeaveEntry.save();
+res.status(400).send('<script>alert("Applied successfully."); window.location = "/receptionist_leave";</script>');
+>>>>>>> 96cfbc970f57670bfcb1d507199ea346f0247e8a
 
 })
 app.listen(port, () => {
