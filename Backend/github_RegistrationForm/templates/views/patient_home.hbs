@@ -29,6 +29,34 @@
 
   <!-- Admin Add Employee Stylesheet -->
   <link href="HMS_CSS/patient_home_style.css" rel="stylesheet">
+   <style>
+        
+        .welcome
+        {
+            font-size: x-large;
+            font-weight: 600 ;
+            color: rgb(72, 63, 63);
+            /* margin: 100px; */
+            /* margin-left: 611px;
+            margin-top: 208px;
+            margin-right: 10px;
+            margin-bottom: 10px; */
+            padding-bottom: 300px;
+            padding-right: 300px;
+            padding-top: 300px;
+            padding-left: 640px;
+
+        }
+        /* .box{
+            margin-top: -40px;
+            margin-right: -1px;
+            /* margin-left: 5px; 
+            
+        }  */
+        .container-fluid {
+            background-color: skyblue;
+        }
+    </style>
 </head>
 
 <body>
@@ -86,11 +114,6 @@
 </div>
 <!-- Side-bar End -->
 
-<div class="cent">
-  <h1>Welcome!</h1>
-  <h2>Aryan Vagh</h2>
-</div>
-
 <!-- Back to Top -->
 <a href="HMS_HTML/hms_index.html" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
   class="bi bi-arrow-up"></i></a>
@@ -107,6 +130,9 @@
   <script src="HMS_Lib/tempusdominus/js/moment.min.js"></script>
   <script src="HMS_Lib/tempusdominus/js/moment-timezone.min.js"></script>
   <script src="HMS_Lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+   <div class="welcome">
+        Welcome {{user.Name}}! <br> Let's Get Started!
+    </div>
 
   <!-- HMS Javascript -->
   <script src="HMS_JS/main.js"></script>
