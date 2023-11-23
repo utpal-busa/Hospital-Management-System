@@ -450,7 +450,7 @@ app.post("/recep_register", async (req, res) => {
               service: 'gmail',
               auth: {
                 user: 'pradipatarsingh82@gmail.com',
-                pass: 'voma dsnw ufqn kwvb'
+                pass: 'abcd efgh ijkl mno'
               }
             });
 
@@ -559,7 +559,7 @@ app.post("/ForgotPassword", (req, res) => {
         service: 'gmail',
         auth: {
           user: 'pradipatarsingh82@gmail.com',
-          pass: 'voma dsnw ufqn kwvb'
+          pass: 'abcd efg hijk lmn'
         }
       });
 
@@ -665,7 +665,7 @@ app.post("/register", async (req, res) => {
               service: 'gmail',
               auth: {
                 user: 'pradipatarsingh82@gmail.com',
-                pass: 'voma dsnw ufqn kwvb'
+                pass: 'abcd efg hijk lmn'
               }
             });
 
