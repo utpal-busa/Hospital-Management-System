@@ -28,35 +28,7 @@
   <link href="HMS_CSS/bootstrap.min.css" rel="stylesheet">
 
   <!-- Admin Add Employee Stylesheet -->
-  <link href="HMS_CSS/recep_base_style.css" rel="stylesheet">
-    <style>
-        
-        .welcome
-        {
-            font-size: x-large;
-            font-weight: 600 ;
-            color: rgb(72, 63, 63);
-            /* margin: 100px; */
-            /* margin-left: 611px;
-            margin-top: 208px;
-            margin-right: 10px;
-            margin-bottom: 10px; */
-            padding-bottom: 300px;
-            padding-right: 300px;
-            padding-top: 300px;
-            padding-left: 640px;
-
-        }
-        /* .box{
-            margin-top: -40px;
-            margin-right: -1px;
-            /* margin-left: 5px; 
-            
-        }  */
-        .container-fluid {
-            background-color: skyblue;
-        }
-    </style>
+  <link href="HMS_CSS/patient_profile_style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -79,14 +51,12 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav ms-auto p-4 p-lg-0">
-      <a href="index" class="nav-item nav-link">Home</a>
-      <a href="about" class="nav-item nav-link">About Us</a>
-      <a href="service" class="nav-item nav-link">Services</a>
-      <a href="contact" class="nav-item nav-link">Contact Us</a>
-      <a href="recep_profile" class="nav-item nav-link">Profile</a>
-        <a href="rec_notification" class="nav-item nav-link">Notification</a>
+      <a href="/" class="nav-item nav-link">Home</a>
+      <a href="/about" class="nav-item nav-link">About Us</a>
+      <a href="/service" class="nav-item nav-link">Services</a>
+      <a href="/contact" class="nav-item nav-link">Contact Us</a>
+      <a href="doc_profile" class="nav-item nav-link">Profile</a>
       <a href="logout" class="nav-item nav-link">Log Out</a>
-     
     </div>
   </div>
 </nav>
@@ -96,27 +66,67 @@
 <div class="container-fluid side-bar">
   <div class="side-bar-top ">
     <div class="side-bar-heading">
-      <p><b>Receptionist</b></p>
+      <p><b>Doctor</b></p>
     </div>
     <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
-      <i class="fa fa-user-edit fa-3x"></i>
+      <i class="fa fa-user-plus fa-3x"></i>
     </div>
-    <p class="side-bar-top-info"><b>Name :</b>{{user.Name}}</p>
+    <p class="side-bar-top-info"><b>Name :</b> {{user.Name}}</p>
     <p class="side-bar-top-info"><b>Id :</b> {{user.ID}}</p>
   </div>
   <div class="side-bar-bottom">
     <ul>
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="receptionist_book_app">Book Appointment</a></li>
-      <li><a href="Bill">Generate Bill</a></li>
-      <li><a href="patient_visit">Update Patient Visit</a></li>
-      <li><a href="receptionist_leave">Apply for leave</a></li>
-      <li><a href="recep_view_edit_appointment">View and Edit Appointment</a></li>
-      
-    </ul>
+            <li><a href="/new_me">Me</a></li>
+            <!-- <li><a href="#">Edit Profile</a></li> -->
+            <li><a href="/doc_pat_vis">Visited Patients</a></li>
+            <li><a href="#">Search patient</a></li>
+            <li><a href="/new_doc_obs">Observation & Prescription</a></li>
+            <!-- <li><a href="#">View Employees</a></li> -->
+        </ul>
   </div>
 </div>
 <!-- Side-bar End -->
+
+<!-- ... (your existing HTML code) ... -->
+
+<!-- Content Start -->
+<!-- ... (your existing HTML code) ... -->
+
+<!-- ... (your existing HTML code) ... -->
+
+<!-- Content Start -->
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <form action="/doc_pat_vis" method="post" style="margin-top: 50px;"> <!-- Adjust the margin-top value as needed -->
+        <div class="mb-3">
+          <label for="doctorName" class="form-label">Doctor's Name:</label>
+          <input type="text" class="form-control form-control-sm" id="doctorName" name="doctorName" required>
+        </div>
+        <div class="mb-3">
+          <label for="appointmentDate" class="form-label">Appointment Date:</label>
+          <input type="date" class="form-control form-control-sm" id="appointmentDate" name="appointmentDate" style="width: 150px;" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Content End -->
+
+<!-- ... (your existing HTML code) ... -->
+
+
+<!-- ... (your existing HTML code) ... -->
+
+<!-- Content End -->
+
+<!-- ... (your existing HTML code) ... -->
+
+
+<!-- Content End -->
+
+<!-- ... (your existing HTML code) ... -->
 
 
 <!-- Back to Top -->
@@ -138,7 +148,4 @@
 
   <!-- HMS Javascript -->
   <script src="HMS_JS/main.js"></script>
-  <div class="welcome">
-        Welcome {{user.Name}} <br> Let's Get Started!
-    </div>
 </body>

@@ -1,5 +1,7 @@
 require('dotenv').config();
 const express = require('express')
+const bodyParser = require('body-parser'); 
+const Razorpay = require('razorpay');
 const jwt = require('jsonwebtoken')
 const ShortUniqueId = require('short-unique-id');
 const nodemailer = require('nodemailer');
@@ -24,6 +26,15 @@ const Appointment = require("./models/appoi")
 const Leave = require("./models/leaves")
 const Prescription = require("./models/prescreption")
 
+const razorpay = new Razorpay({
+  key_id: 'YOUR_RAZORPAY_KEY_ID',
+  key_secret: 'YOUR_RAZORPAY_KEY_SECRET',
+});
+app.use(bodyParser.json());
+
+
+
+
 const { error, log } = require('console')
 const port = process.env.PORT || 3000
 
@@ -42,11 +53,59 @@ app.set('views', templatePath)
 
 
 
+app.post('/createOrder', async (req, res) => {
+  const amount = 50000; // Amount in paise (100 paise = 1 INR)
+  const currency = 'INR';
+
+  const options = {
+    amount,
+    currency,
+    receipt: 'order_receipt_1',
+    payment_capture: 1, // Auto capture payment when order created
+  };
+
+  try {
+    const response = await razorpay.orders.create(options);
+    res.json(response);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.post('/verifyPayment', async (req, res) => {
+  const { razorpay_payment_id, razorpay_order_id, razorpay_signature } = req.body;
+
+  const body = razorpay_order_id + '|' + razorpay_payment_id;
+
+  const crypto = require('crypto');
+  const expectedSignature = crypto.createHmac('sha256', 'YOUR_RAZORPAY_KEY_SECRET')
+    .update(body.toString())
+    .digest('hex');
+
+  if (expectedSignature === razorpay_signature) {
+    // Payment successful
+    res.json({ status: 'success' });
+  } else {
+    // Payment failed
+    res.json({ status: 'failure' });
+  }
+});
+
+
+
+
+
+
+
+
 app.get("/", (req, res) => {
   //console.log(__dirname/..)
   res.render('index')
 })
 
+app.get("/patient_payment",(req,res)=>{
+  res.render('patient_payment')
+})
 app.get("/receptionist_base", auth_recep, async (req, res) => {
   res.render('receptionist_base', { user: req.user })
 })
@@ -593,7 +652,7 @@ app.post("/register", async (req, res) => {
       return res.status(400).send('<script>alert("Please enter a valid email adress"); window.location = "/Register_new";</script>');
       // res.render('register')
     }
-
+    
     const phoneNumber = req.body.Phone; // Assuming 'phone' is the field name in your form
 
     // Use a regular expression to validate the phone number format
@@ -930,7 +989,7 @@ app.post("/showslots", async (req, res) => {
   const allSlots = ['9:00-9:30 AM', '9:30-10:00 AM', '10:00-10:30 AM', '10:30-11:00 AM', '11:00-11:30 AM', '11:30-12:00 AM',
     '3:00-3:30 PM', '3:30-4:00 PM', '4:00-4:30 PM', '4:30-5:00 PM', '5:00-5:30 PM', '5:30-6:00 PM'];
 
-  const slotCounts = {};
+  const slotCounts = {};show
   existingAppointments.forEach(appointment => {
     const slot = appointment.AppointmentTime;
     slotCounts[slot] = (slotCounts[slot] || 0) + 1;
@@ -1183,8 +1242,9 @@ app.post("/receptionist_leave", async (req, res) => {
   // console.log(verifyUser)
   const user = await Patient.findOne({ _id: verifyUser._id })
 
-
-  const newLeaveEntry = new Leave({
+   if(req.body.endDate>=req.body.startDate) 
+   {
+    const newLeaveEntry = new Leave({
     Employee: user.Name, // Replace with the actual employee name
     ID: user.ID, // Replace with the actual employee ID
     StartDate: req.body.startDate, // Replace with the actual start date
@@ -1195,6 +1255,11 @@ app.post("/receptionist_leave", async (req, res) => {
 
   newLeaveEntry.save();
   res.status(400).send('<script>alert("Applied successfully."); window.location = "/receptionist_leave";</script>');
+}
+else
+{
+  res.status(400).send('<script>alert("Please Enter Valid Date."); window.location = "/receptionist_leave";</script>');
+}
 
 })
 app.listen(port, () => {

@@ -28,35 +28,7 @@
   <link href="HMS_CSS/bootstrap.min.css" rel="stylesheet">
 
   <!-- Admin Add Employee Stylesheet -->
-  <link href="HMS_CSS/recep_base_style.css" rel="stylesheet">
-    <style>
-        
-        .welcome
-        {
-            font-size: x-large;
-            font-weight: 600 ;
-            color: rgb(72, 63, 63);
-            /* margin: 100px; */
-            /* margin-left: 611px;
-            margin-top: 208px;
-            margin-right: 10px;
-            margin-bottom: 10px; */
-            padding-bottom: 300px;
-            padding-right: 300px;
-            padding-top: 300px;
-            padding-left: 640px;
-
-        }
-        /* .box{
-            margin-top: -40px;
-            margin-right: -1px;
-            /* margin-left: 5px; 
-            
-        }  */
-        .container-fluid {
-            background-color: skyblue;
-        }
-    </style>
+  <link href="HMS_CSS/patient_appointment_style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -79,14 +51,12 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav ms-auto p-4 p-lg-0">
-      <a href="index" class="nav-item nav-link">Home</a>
-      <a href="about" class="nav-item nav-link">About Us</a>
-      <a href="service" class="nav-item nav-link">Services</a>
-      <a href="contact" class="nav-item nav-link">Contact Us</a>
-      <a href="recep_profile" class="nav-item nav-link">Profile</a>
-        <a href="rec_notification" class="nav-item nav-link">Notification</a>
-      <a href="logout" class="nav-item nav-link">Log Out</a>
-     
+      <a href="/" class="nav-item nav-link ">Home</a>
+                <a href="/about" class="nav-item nav-link">About Us</a>
+                <a href="/service" class="nav-item nav-link">Services</a>
+                <a href="contact" class="nav-item nav-link">Contact Us</a>
+      <a href="patient_profile" class="nav-item nav-link">Profile</a>
+      <a href="/logout" class="nav-item nav-link">Log Out</a>
     </div>
   </div>
 </nav>
@@ -96,28 +66,68 @@
 <div class="container-fluid side-bar">
   <div class="side-bar-top ">
     <div class="side-bar-heading">
-      <p><b>Receptionist</b></p>
+      <p><b>Patient</b></p>
     </div>
     <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
-      <i class="fa fa-user-edit fa-3x"></i>
+      <i class="fa fa-user fa-3x"></i>
     </div>
-    <p class="side-bar-top-info"><b>Name :</b>{{user.Name}}</p>
+    <p class="side-bar-top-info"><b>Name :</b> {{user.Name}}</p>
     <p class="side-bar-top-info"><b>Id :</b> {{user.ID}}</p>
   </div>
   <div class="side-bar-bottom">
     <ul>
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="receptionist_book_app">Book Appointment</a></li>
-      <li><a href="Bill">Generate Bill</a></li>
-      <li><a href="patient_visit">Update Patient Visit</a></li>
-      <li><a href="receptionist_leave">Apply for leave</a></li>
-      <li><a href="recep_view_edit_appointment">View and Edit Appointment</a></li>
+       <li><a href="patient_home">Dashboard</a></li>
+      <li><a href="patient_appointment">Book Appointment</a></li>
+      <li><a href="view_appointment">View and Edit Appointment</a></li>
+      <li><a href="view_prescription">View Prescriptions</a></li>
       
     </ul>
   </div>
 </div>
 <!-- Side-bar End -->
 
+<div class="appointment-form">
+  <h2>Book Appointment</h2>
+ <form action="/appointment" method="post">
+    <div class="form-group">
+      <label for="name">Patient's Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="ID">Patient's ID:</label>
+      <input type="tel" id="ID" name="ID" required>
+    </div>
+
+    {{!-- <div class="form-group">
+      <label for="doctor">Select Doctor:</label>
+      <select id="doctor" name="doctor" required>
+        <option value="dr_smith">Dr. Smith</option>
+        <option value="dr_jones">Dr. Jones</option>
+        <option value="dr_doe">Dr. Doe</option>
+      </select>
+    </div> --}}
+
+    {{!-- <div class="form-group">
+      <label for="date">Appointment Date:</label>
+      <input type="date" id="date" name="date" required>
+    </div> --}}
+    
+    <input type="hidden" name="date" value="{{date}}">
+    <input type="hidden" name="doctor" value="{{doctor}}">
+    <div class="form-group">
+      <label for="time">Select Time Slot:</label>
+      <select id="time" name="time" required>
+         {{#each availableSlots}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+
+    <button type="submit">Book Appointment</button>
+  </form>
+</div>
 
 <!-- Back to Top -->
 <a href="HMS_HTML/hms_index.html" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
@@ -138,7 +148,4 @@
 
   <!-- HMS Javascript -->
   <script src="HMS_JS/main.js"></script>
-  <div class="welcome">
-        Welcome {{user.Name}} <br> Let's Get Started!
-    </div>
 </body>

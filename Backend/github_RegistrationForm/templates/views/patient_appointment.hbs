@@ -69,7 +69,7 @@
       <p><b>Patient</b></p>
     </div>
     <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
-      <i class="fa fa-user fa-3x"></i>
+      <i class="fa fa-user-plus fa-3x"></i>
     </div>
     <p class="side-bar-top-info"><b>Name :</b>{{user.Name}}</p>
     <p class="side-bar-top-info"><b>Id :</b> {{user.ID}}</p>
@@ -112,7 +112,14 @@
       <label for="date">Appointment Date:</label>
       <input type="date" id="date" name="date" required>
     </div>
-
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var dateInput = document.getElementById("date");
+      var today = new Date().toISOString().split("T")[0];
+      dateInput.setAttribute("min", today);
+    });
+  </script>
+  
     {{!-- <div class="form-group">
       <label for="time">Select Time Slot:</label>
       <select id="time" name="time" required>

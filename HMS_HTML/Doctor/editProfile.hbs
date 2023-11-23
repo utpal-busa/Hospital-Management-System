@@ -39,11 +39,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav ms-auto p-4 p-lg-0">
-          <a href="/" class="nav-item nav-link ">Home</a>
+         <a href="/" class="nav-item nav-link ">Home</a>
                 <a href="/about" class="nav-item nav-link">About Us</a>
                 <a href="/service" class="nav-item nav-link">Services</a>
                 <a href="contact" class="nav-item nav-link">Contact Us</a>
-        
+     
        
       </div>
     </div>
@@ -51,16 +51,16 @@
   <!-- Navbar End -->
 
   <div class="registration-form">
-    <h2>User Registration</h2>
-    <form action="/register" method="#" >
+    <h2>Edit Profile</h2>
+    <form action="/editProfile" method="#" >
       <label for="name">Name:</label>
       <input type="text" id="Name" name="Name" placeholder="Enter Name" required>
       
        {{!-- <label for="name">Role:</label>
       <input type="text" id="Name" name="Name" placeholder="Enter Name" required> --}}
 
-      <label for="email">Email:</label>
-      <input type="email" id="Email" name="Email" placeholder="Enter Email" required>
+      {{!-- <label for="email">Email:</label>
+      <input type="email" id="Email" name="Email" placeholder="Enter Email" required> --}}
 
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" placeholder="Enter Password" required>
@@ -73,19 +73,6 @@
 
       <label for="dob">Date of Birth:</label>
       <input type="date" id="birthdate" name="birthdate" required>
-
-     
-       <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var dateInput = document.getElementById("birthdate");
-        var currentDate = new Date();
-        var minDate = new Date();
-        minDate.setFullYear(currentDate.getFullYear() - 200);
-        var minDateStr = minDate.toISOString().split("T")[0];
-        dateInput.setAttribute("max", currentDate.toISOString().split("T")[0]);
-        dateInput.setAttribute("min", minDateStr);
-      });
-    </script>
 
 
       <label for="blood_group">Blood Group:</label>
@@ -116,7 +103,7 @@
       {{!-- <input type="text" id="city" name="city" placeholder="City" required> --}}
       <input type="text" id="AddressPostalCode" name="AddressPostalCode" placeholder="Postal Code" required>
 
-      <button type="submit" formmethod="post">Register</button>
+      <button type="submit" formmethod="post">Edit</button>
     </form>
   </div>
 </body>

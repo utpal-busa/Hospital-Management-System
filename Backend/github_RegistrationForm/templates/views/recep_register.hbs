@@ -72,7 +72,20 @@
 
       <label for="dob">Date of Birth:</label>
       <input type="date" id="birthdate" name="birthdate" required>
+   
+        <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var dateInput = document.getElementById("birthdate");
+        var currentDate = new Date();
+        var minDate = new Date();
+        minDate.setFullYear(currentDate.getFullYear() - 200);
+        var minDateStr = minDate.toISOString().split("T")[0];
+        dateInput.setAttribute("max", currentDate.toISOString().split("T")[0]);
+        dateInput.setAttribute("min", minDateStr);
+      });
+    </script>
 
+    
 
       <label for="blood_group">Blood Group:</label>
       <select id="blood_group" name="blood_group">
