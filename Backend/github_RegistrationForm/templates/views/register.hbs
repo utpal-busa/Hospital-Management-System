@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Registration Form</title>
+  <link type="text/css" rel="stylesheet" href="/register_style.css" />
+ 
+</head>
+<body>
+  <section class="container">
+    <h1>Registration Form</h1>
+    <form action="/register" method="#" class="form">
+      <div class="input-box">
+        <label>Full Name</label>
+        <div class="abc">
+          <input type="text" name="fullname" placeholder="Enter Full Name" required  />
+        </div>
+      </div>
+
+       <div class="input-box">
+        <label>Role</label>
+        <div class="abc">
+          <input type="text" name="role" placeholder="Enter Role" required  />
+        </div>
+      </div>
+
+       <div class="input-box">
+        <label>Email Address</label>
+        <div class="abc">
+          <input type="text" name="Email" placeholder="Enter Email Address" required />
+        </div>
+      </div>
+
+      <div class="input-box">
+        <label>Phone Number</label>
+        <div class="abc">
+          <input type="number" name ="Phone" placeholder="Enter Phone Number" required />
+        </div>
+      </div>
+
+      <div class="input-box">
+        <label>Password</label>
+        <div class="abc">
+          <input type="password" name="password" placeholder="Enter your Password" required />
+        </div>
+        <br>
+        <label>Confirm Password</label>
+        <div class="abc">
+          <input type="password"  name="confirmPassword"placeholder="Re-Enter your Password" required />
+        </div>
+      </div>
+
+      <div class="input-box">
+        <label>Birth Date</label>
+        <div class="abc">
+          <input type="date" name="birthdate" placeholder="Enter birth date" required />
+        </div>
+      </div>
+
+      <div class="gender-box">
+        <h3>Gender</h3>
+        <div class="gender-option" id="test">
+          <div class="gender">
+            <input type="radio" id="check-male" name="gender" value="male" />
+            <label for="check-male">Male</label>
+          </div>
+          <div class="gender">
+            <input type="radio" id="check-female" name="gender" />
+            <label for="check-female">Female</label>
+          </div>
+          <div class="gender">
+            <input type="radio" id="check-other" name="gender" />
+            <label for="check-other">Prefer not to say</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-box address">
+        <label>Address</label>
+        <div class="abc">
+          <input type="text" name="AddressLine1" placeholder="Enter street address" required />
+        </div>
+        <div class="abc">
+          <input type="text" name="AddressLine2" placeholder="Enter street address line 2" required />
+        </div>
+        <div class="abc">
+          <input type="number" name="AddressPostalCode"  placeholder="Enter Postal code" required />
+        </div>
+      </div>
+      <button type="submit" formmethod="post">Submit</button>
+    </form>
+  </section>
+  <script src="../../src/app.js"></script>
+</body>
+</html>

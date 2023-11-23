@@ -143,12 +143,14 @@
 
 /*appointment-form*/
 .appointment-form {
-  margin: 100px auto;
+  /* margin: 100px auto; */
+  margin-top: 220px;
   max-width: 600px;
   padding: 20px;
   margin-left: 600px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   background-color: white;
+  color: black;
   position: relative;
   z-index: 1;
 }

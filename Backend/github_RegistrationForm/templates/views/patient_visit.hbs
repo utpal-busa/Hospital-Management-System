@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
-  rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
+    rel="stylesheet">
 
   <!-- Icon Font Stylesheet -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -28,126 +28,133 @@
   <link href="HMS_CSS/bootstrap.min.css" rel="stylesheet">
 
   <!-- Admin Add Employee Stylesheet -->
-  <link href="HMS_CSS/recep_base_style.css" rel="stylesheet">
+  <link href="HMS_CSS/patient_visit_style.css" rel="stylesheet">
 </head>
 
 <body>
   <!-- Spinner Start -->
   <div id="spinner"
-  class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-  <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-    <span class="sr-only">Loading...</span>
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
   </div>
-</div>
-<!-- Spinner End -->
+  <!-- Spinner End -->
 
-<!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-primary navbar-light fixed-top p-0" data-wow-delay="0.1s">
-  <a href="HMS_HTML/hms_index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-    <h1 class="m-0 text-white"><i class="far fa-hospital me-3"></i>Care4You</h1>
-  </a>
-  <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarCollapse">
-    <div class="navbar-nav ms-auto p-4 p-lg-0">
-         <a href="index" class="nav-item nav-link">Home</a>
-      <a href="about" class="nav-item nav-link">About Us</a>
-      <a href="service" class="nav-item nav-link">Services</a>
-      <a href="contact" class="nav-item nav-link">Contact Us</a>
-      <a href="recep_profile" class="nav-item nav-link">Profile</a>
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg bg-primary navbar-light fixed-top p-0" data-wow-delay="0.1s">
+    <a href="HMS_HTML/hms_index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+      <h1 class="m-0 text-white"><i class="far fa-hospital me-3"></i>Care4You</h1>
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto p-4 p-lg-0">
+        <a href="index" class="nav-item nav-link">Home</a>
+        <a href="about" class="nav-item nav-link">About Us</a>
+        <a href="service" class="nav-item nav-link">Services</a>
+        <a href="contact" class="nav-item nav-link">Contact Us</a>
+        <a href="recep_profile" class="nav-item nav-link">Profile</a>
         <a href="rec_notification" class="nav-item nav-link">Notification</a>
-      <a href="logout" class="nav-item nav-link">Log Out</a>
+        <a href="logout" class="nav-item nav-link">Log Out</a>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+
+  <!-- Side-bar Start -->
+  <div class="container-fluid side-bar">
+    <div class="side-bar-top ">
+      <div class="side-bar-heading">
+        <p><b>Receptionist</b></p>
+      </div>
+      <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
+        <i class="fa fa-user-edit fa-3x"></i>
+      </div>
+      <p class="side-bar-top-info"><b>Name :</b> {{user.Name}}</p>
+      <p class="side-bar-top-info"><b>Id :</b> {{user.ID}}</p>
+    </div>
+    <div class="side-bar-bottom">
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="receptionist_book_app">Book Appointment</a></li>
+        <li><a href="Bill">Generate Bill</a></li>
+        <li><a href="patient_visit">Update Patient Visit</a></li>
+        <li><a href="receptionist_leave">Apply for leave</a></li>
+        <li><a href="recep_view_edit_appointment">View and Edit Appointment</a></li>
+
+      </ul>
     </div>
   </div>
-</nav>
-<!-- Navbar End -->
+  <!-- Side-bar End -->
 
-<!-- Side-bar Start -->
-<div class="container-fluid side-bar">
-  <div class="side-bar-top ">
-    <div class="side-bar-heading">
-      <p><b>Receptionist</b></p>
-    </div>
-    <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
-      <i class="fa fa-user-edit fa-3x"></i>
-    </div>
-    <p class="side-bar-top-info"><b>Name :</b> {{user.Name}}</p>
-    <p class="side-bar-top-info"><b>Id :</b> {{user.ID}}</p>
-  </div>
-  <div class="side-bar-bottom">
-       <ul>
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="receptionist_book_app">Book Appointment</a></li>
-      <li><a href="Bill">Generate Bill</a></li>
-      <li><a href="patient_visit">Update Patient Visit</a></li>
-      <li><a href="receptionist_leave">Apply for leave</a></li>
-      <li><a href="recep_view_edit_appointment">View and Edit Appointment</a></li>
-      
-    </ul>
-  </div>
-</div>
-<!-- Side-bar End -->
-
-<div class="appointment-form">
-  {{!-- <h2>Book Appointment</h2> --}}
- <form action="/patient_visit" method="post">
-    {{!-- <div class="form-group">
-      <label for="name">Patient's Name:</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-
-    <div class="form-group">
-      <label for="ID">Patient's ID:</label>
-      <input type="tel" id="ID" name="ID" required>
-    </div> --}}
-
-    <div class="form-group">
-      <label for="doctor">Select Doctor:</label>
-      <select id="doctor" name="doctor" required>
-        <option value="Dr.Smith">Dr.Smith</option>
-        <option value="Dr.Jones">Dr.Jones</option>
-        <option value="Dr.Doe">Dr.Doe</option>
-      </select>
-    </div>
-    
-    <div class="form-group">
-   <label for="ID">Patient ID:</label>
-      <input type="ID" id="ID" name="ID" placeholder="Enter Patient ID" required>
+  <div class="appointment-form">
+    {{!-- <h2>Book Appointment</h2> --}}
+    <form action="/patient_visit" method="post">
+      {{!-- <div class="form-group">
+        <label for="name">Patient's Name:</label>
+        <input type="text" id="name" name="name" required>
       </div>
 
-    <div class="form-group">
-      <label for="date">Appointment Date:</label>
-      <input type="date" id="date" name="date" required>
+      <div class="form-group">
+        <label for="ID">Patient's ID:</label>
+        <input type="tel" id="ID" name="ID" required>
+      </div> --}}
+
+      <div class="form-group">
+        <label for="doctor">Select Doctor:</label>
+        <select id="doctor" name="doctor" required>
+          <option value="Dr.Smith">Dr.Smith</option>
+          <option value="Dr.Jones">Dr.Jones</option>
+          <option value="Dr.Doe">Dr.Doe</option>
+        </select>
       </div>
 
-    <div class="form-group">
-      <label for="time">Select Time Slot:</label>
-      <select id="time" name="time" required>
-        <option value="9:00-9:30 AM">9:00-9:30 AM</option>
-        <option value="9:30-10:00 AM">9:30-10:00 AM</option>
-        <option value="10:00-10:30 AM">10:00-10:30 AM</option>
-        <option value="10:30-11:00 AM">10:30-11:00 AM</option>
-        <option value="11:00-11:30 AM">11:00-11:30 AM</option>
-        <option value="11:30-12:00 AM">11:30-12:00 AM</option>
-        <option value="3:00-3:30 PM">3:00-3:30 PM</option>
-        <option value="3:30-4:00 PM">3:30-4:00 PM</option>
-        <option value="4:00-4:30 PM">4:00-4:30 PM</option>
-        <option value="4:30-5:00 PM">4:30-5:00 PM</option>
-        <option value="5:00-5:30 PM">5:00-5:30 PM</option>
-        <option value="5:30-6:00 PM">5:30-6:00 PM</option>
+      <div class="form-group">
+        <label for="ID">Patient ID:</label>
+        <input type="ID" id="ID" name="ID" placeholder="Enter Patient ID" required>
+      </div>
 
-      </select>
-    </div>
+      <div class="form-group">
+        <label for="date">Appointment Date:</label>
+        <input type="date" id="date" name="date" required>
+        <script>
+          // Get today's date in the format YYYY-MM-DD
+          var today = new Date().toISOString().split('T')[0];
+
+          // Set the max attribute of the date input to today
+          document.getElementById('date').setAttribute('max', today);
+        </script>
+      </div>
+
+      <div class="form-group">
+        <label for="time">Select Time Slot:</label>
+        <select id="time" name="time" required>
+          <option value="9:00-9:30 AM">9:00-9:30 AM</option>
+          <option value="9:30-10:00 AM">9:30-10:00 AM</option>
+          <option value="10:00-10:30 AM">10:00-10:30 AM</option>
+          <option value="10:30-11:00 AM">10:30-11:00 AM</option>
+          <option value="11:00-11:30 AM">11:00-11:30 AM</option>
+          <option value="11:30-12:00 AM">11:30-12:00 AM</option>
+          <option value="3:00-3:30 PM">3:00-3:30 PM</option>
+          <option value="3:30-4:00 PM">3:30-4:00 PM</option>
+          <option value="4:00-4:30 PM">4:00-4:30 PM</option>
+          <option value="4:30-5:00 PM">4:30-5:00 PM</option>
+          <option value="5:00-5:30 PM">5:00-5:30 PM</option>
+          <option value="5:30-6:00 PM">5:30-6:00 PM</option>
+
+        </select>
+      </div>
 
 
-    <button type="submit">Update As Visited</button>
-  </form>
-</div>
+      <button type="submit">Update As Visited</button>
+    </form>
+  </div>
 
-<!-- Back to Top -->
-<a href="HMS_HTML/hms_index.html" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
-  class="bi bi-arrow-up"></i></a>
+  <!-- Back to Top -->
+  <a href="HMS_HTML/hms_index.html" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
+      class="bi bi-arrow-up"></i></a>
 
 
   <!-- JavaScript Libraries -->

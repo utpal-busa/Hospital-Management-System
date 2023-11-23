@@ -50,60 +50,65 @@
 
 /*** Side-bar ***/
 .side-bar {
-    padding: 0px;
-    width: 19%;
-    float: left;
-    margin-top: 80px;
-    position: fixed;
-    height: 100%;
-    font-size: 100%;
-    word-wrap: break-word;
+  padding: 0;
+  width: 250px;
+  height: 100%;
+  float: left;
+  position: fixed;
+  top: 0;
 }
 
 .side-bar-top {
-    height: 300px;
-    background: var(--primary);
-    color: black;
-    padding: 15px;
-}
-
-.side-bar-top .user {
-    padding: 0;
-    text-align: center;
-    margin-top: 20px;
+  height: 47%;
+  background: rgb(23, 72, 250);
+  color: black;
+  padding: 35px 13px;
+  margin-top: 55px;
 }
 
 .side-bar-heading {
-    width: 50%;
-    height: 13%;
-    text-align: center;
-    margin: 0 60px;
-    margin-bottom: 20px;
-    padding: 5px 15px;
-    border-radius: 13px;
-    color: white;
-    background: var(--dark);
-    font-weight: 700;
+  height: 35px;
+  width: 90px;
+  margin: 0 60px;
+  margin-bottom: 20px;
+  padding: 5px 20px;
+  border-radius: 13px;
+  color: white;
+  background: var(--dark);
+  font-weight: 700;
 }
 
+.side-bar-icon {
+  height: 100px;
+  width: 100px;
+  margin-left: 55px;
+}
+
+.side-bar-top-info {
+  text-align: center;
+}
 
 .side-bar-bottom {
-    border-radius: 3px;
-    padding-bottom: 30px;
-    height: 1130px;
-    padding: 0;
-    padding-top: 40px;
-    background: var(--light);
+  height: 1150px;
+  list-style: none;
+  padding-left: 10px;
+  padding-top: 30px;
+  background: var(--light);
 }
 
 .side-bar-bottom ul {
-    list-style: none;
-    font-weight: 500;
+  list-style: none;
+  font-weight: 500;
 }
 
 .side-bar-bottom ul li {
-    margin: 15px 5px;
+  margin: 15px 5px;
 }
+
+/*@media (max-width: 767px) {
+  .side-bar {
+    width: 100%;
+  }*/
 
 /*** All Employees Dashboard ***/
 .all-emp-dash {
@@ -141,87 +146,36 @@
     position: absolute;
 }
 
-/*Navabar*/
-nav{
-  background: #0082e6;
-  height: 80px;
-  width: 100%;
-  position: fixed;
-}
-label.logo{
+/*** Navbar ***/
+.navbar .navbar-nav .nav-link {
+  margin-right: 30px;
+  padding: 25px 0;
   color: white;
-  font-size: 35px;
-  line-height: 80px;
-  padding: 0 100px;
-  font-weight: bold;
-}
-nav ul{
-  float: right;
-  margin-right: 20px;
-}
-nav ul li{
-  display: inline-block;
-  line-height: 80px;
-  margin: 0 5px;
-}
-nav ul li a{
-  color: white;
-  font-size: 17px;
-  padding: 7px 13px;
-  border-radius: 3px;
+  font-size: 15px;
+  font-weight: 500;
   text-transform: uppercase;
+  outline: none;
 }
 
-.checkbtn{
-  font-size: 30px;
-  color: white;
-  float: right;
-  line-height: 80px;
-  margin-right: 40px;
-  cursor: pointer;
-  display: none;
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+  color: var(--dark);
 }
-#check{
-  display: none;
-}
-@media (max-width: 952px){
-  label.logo{
-    font-size: 30px;
-    padding-left: 50px;
+
+@media (max-width: 991.98px) {
+  .navbar .navbar-nav .nav-link {
+    margin-right: 0;
+    padding: 10px 0;
   }
-  nav ul li a{
-    font-size: 16px;
+
+  .navbar .navbar-nav {
+    border-top: 1px solid #EEEEEE;
   }
 }
-@media (max-width: 858px){
-  .checkbtn{
-    display: block;
-  }
-  ul{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #2c3e50;
-    top: 80px;
-    left: -100%;
-    text-align: center;
-    transition: all .5s;
-  }
-  nav ul li{
-    display: block;
-    margin: 50px 0;
-    line-height: 30px;
-  }
-  nav ul li a{
-    font-size: 20px;
-  }
-  nav.a:hover{
-    background: none;
-    color: #0082e6;
-  }
-  #check:checked ~ ul{
-    left: 0;
-  }
+
+.navbar .navbar-brand,
+.navbar a.btn {
+  height: 75px;
 }
 
 /*Patient Image*/

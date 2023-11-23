@@ -97,7 +97,7 @@
       <p><b>Patient</b></p>
     </div>
     <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
-      <i class="fa fa-user fa-3x"></i>
+      <i class="fa fa-user-plus fa-3x"></i>
     </div>
     <p class="side-bar-top-info"><b>Name :</b> {{user.Name}} </p>
     <p class="side-bar-top-info"><b>Id :</b> {{user.ID}}</p>
@@ -113,6 +113,10 @@
   </div>
 </div>
 <!-- Side-bar End -->
+
+<div class="welcome">
+        <h1>Welcome {{user.Name}}! <br> Let's Get Started!</h1>
+</div>
 
 <!-- Back to Top -->
 <a href="HMS_HTML/hms_index.html" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
@@ -130,9 +134,7 @@
   <script src="HMS_Lib/tempusdominus/js/moment.min.js"></script>
   <script src="HMS_Lib/tempusdominus/js/moment-timezone.min.js"></script>
   <script src="HMS_Lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-   <div class="welcome">
-        Welcome {{user.Name}}! <br> Let's Get Started!
-    </div>
+   
 
   <!-- HMS Javascript -->
   <script src="HMS_JS/main.js"></script>

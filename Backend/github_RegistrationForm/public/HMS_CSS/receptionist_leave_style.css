@@ -114,7 +114,7 @@
 .side-bar-heading {
   height: 35px;
   width: 130px;
-  margin: 0px 60px;
+  margin: 0px 45px;
   margin-bottom: 20px;
   padding: 5px 20px;
   border-radius: 13px;
@@ -157,16 +157,6 @@
 
 /*leave-form*/
 
-
-.form-group {
-  margin: 10px 0;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-}
-
 input[type="text"],
 input[type="tel"],
 select {
@@ -207,6 +197,8 @@ button:hover {
   background-color: white;
   padding: 20px;
   width: 70%;
+  margin-top: 100px;
+  margin-left: 250px;
 }
 
 .leave-box h2 {
@@ -220,14 +212,6 @@ button:hover {
 
 label {
   display: block;
-  font-weight: bold;
+  color: black;
 }
 
-input[type="text"],
-select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 5px;
-}

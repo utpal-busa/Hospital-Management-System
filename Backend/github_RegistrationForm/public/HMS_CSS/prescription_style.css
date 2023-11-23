@@ -147,11 +147,12 @@
 }
 
 table {
-  margin-top: 150px;
+  margin-top: 270px;
   margin-left: 500px;
   border-collapse: collapse;
   width: 50%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: black;
 }
 
 table, th, td {

@@ -157,10 +157,13 @@
 /*profile-box*/
 .profile-box {
   max-width: 600px;
-  margin: 100px auto;
+  /* margin: 100px auto; */
+  margin-top: 150px;
+  margin-left: 600px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   background-color: white;
+  color: black;
 }
 
 .profile-box h2 {
