@@ -94,7 +94,7 @@
     background: rgb(23, 72, 250);
     color: black;
     padding: 35px 13px;
-    margin-top: 20px;
+    margin-top: 55px;
 }
 
 .side-bar-heading {
@@ -136,6 +136,24 @@
     margin: 15px 5px;
 }
 
+@media (max-width: 991.98px) {
+    
+    .side-bar {
+        width: 210px;
+    }
+
+    .side-bar-heading {
+        margin: 0 45px;
+        margin-bottom: 20px;
+    }
+
+    .side-bar-icon {
+        height: 80px;
+        width: 80px;
+        margin-left: 45px;
+    }
+}
+
 
 /*** Admin Home Dashboard ***/
 .home-dash {
@@ -145,7 +163,7 @@
 .home-heading {
     font-size: 35px;
     color: black;
-    padding-top: 60px;
+    padding-top: 120px;
     text-align: center;
     padding-left: 250px !important;
 }
@@ -185,4 +203,25 @@
 
 .home-info-item:hover .btn {
     width: 140px;
+}
+
+@media (max-width: 991.98px) {
+
+    .home-heading {
+        font-size: 25px;
+        padding-left: 210px !important;
+    }
+
+    .home-info {
+        padding-left: 240px;
+    }
+
+    .home-info-item {
+        width: 100%;
+        padding: 30px 30px;
+    }
+    
+    .home-info-item:hover {
+        padding: 30px 30px;
+    }
 }
