@@ -1,4 +1,4 @@
-/********** Admin Add Employee CSS **********/
+/********** Register CSS **********/
 * {
   margin: 0;
   padding: 0;
@@ -78,15 +78,15 @@
   height: 75px;
 }
 
-.navbar.sticky-top {
+/* .navbar.sticky-top {
   top: -100px;
   transition: .5s;
-}
+} */
 
-/* Form container styles */
+/*** Register ***/
 .registration-form {
   max-width: 60%;
-  margin: 50px auto 20px auto;
+  margin: 100px auto;
   background-color: #ffffff;
   padding: 20px;
   border: 1px solid #ccc;
@@ -94,7 +94,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.registration-form h2 {
+.registration-form h1 {
   text-align: center;
 }
 
@@ -131,5 +131,5 @@
 
 .registration-form button:hover {
   background-color: blue; /* Background color on hover */
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
 }
