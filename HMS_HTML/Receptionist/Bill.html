@@ -88,6 +88,26 @@
             width: 45%;
         }
 
+        .button.save-button,
+        .button.add-item-button {
+            display: inline-block;
+            justify-content: center;
+            padding: 10px 20px;
+            background-color: #2D6CA8;
+            color: white;
+            text-decoration: none;
+            border: none;
+            margin-top: 20px;
+            border-radius: 5px;
+            margin-right: 10px;
+            /* Adjust spacing between buttons */
+        }
+
+        .button.save-button:hover,
+        .button.add-item-button:hover {
+            background-color: #2D6CA8;
+        }
+
         .info-box {
             background: #ffffff;
             padding: 10px;
@@ -120,6 +140,27 @@
             color: white;
             font-size: 17px;
         }
+
+        /* Style for the Delete Last Row button */
+        .delete-row-button {
+            /* Copy styles from the button class */
+            display: inline-block;
+            justify-content: center;
+            padding: 10px 20px;
+            background-color: #2D6CA8;
+            color: white;
+            text-decoration: none;
+            border: none;
+            margin-top: 20px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        /* Hover effect for the Delete Last Row button */
+        .delete-row-button:hover {
+            background-color: #2D6CA8;
+        }
+
 
         .button.print-button {
             display: inline-block;
@@ -258,7 +299,7 @@
     <!-- Side-bar End -->
 
     <div class="container">
-        <img src="https://www.seniormotif.com/wp-content/uploads/2013/11/Medical-symbol.jpg" class="bg-image" alt="">
+        <!-- <img src="https://www.seniormotif.com/wp-content/uploads/2013/11/Medical-symbol.jpg" class="bg-image" alt=""> -->
         <h1>MEDICAL BILLING INVOICE</h1>
         <div class="invoice-details">
             <div class="patient-info">
@@ -295,12 +336,14 @@
                     <td id="patient-id-display"></td> <!-- Add Patient ID here -->
                     <td id="current-date"> <!-- The date will be set here -->
                     </td>
-                    <td>$1,902.05</td>
+                    <td id="grand_total"></td>
                 </tr>
             </tbody>
         </table>
 
-        <table class="table">
+        <!-- ... (Previous HTML code) ... -->
+
+        <table class="table" id="billing-table">
             <thead>
                 <tr>
                     <th>Item</th>
@@ -310,118 +353,176 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Check Up</td>
-                    <td>Full body checkup</td>
-                    <td>$745.00</td>
+                    <td contenteditable="true">New Item</td>
+                    <td contenteditable="true">Description</td>
+                    <td contenteditable="true">$0.00</td>
                 </tr>
-                <tr>
-                    <td>Laboratory</td>
-                    <td>Blood test</td>
-                    <td>$1800.00</td>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td><!-- Add Amount here --></td>
-                    <td>$1,902.05</td>
-                </tr>
-                <tr>
-                    <td>B</td>
-                    <td><!-- Add Tax Rate here --></td>
-                    <td>$0.00</td>
-                </tr>
-                <tr>
-                    <td>C</td>
-                    <td><!-- Add Final Amount here --></td>
-                    <td>$1,902.05</td>
-                </tr>
+                <!-- Additional rows will be added dynamically -->
             </tbody>
         </table>
+
         <div class="attributes">
             <div class="attribute">
-                <span>Amount</span>
-                <span>$1,902.05</span>
-            </div>
-            <div class="attribute">
-                <span>Tax Rate</span>
-                <span>$0.00</span>
-            </div>
-            <div class="attribute">
-                <span>Total Amount</span>
+                <span>Total-Amount</span>
                 <span id="total-amount"></span>
             </div>
         </div>
         <br><br><br><br>
         <a class="button print-button" href="#" onclick="printInvoice()">Print</a>
-    </div>
+        <button class="button save-button" onclick="saveChanges()">Save</button>
+        <button class="button add-item-button" onclick="addNewItem()">Add New Item</button>
+        <button class="button print-button delete-row-button" onclick="deleteLastRow()">Delete Last Row</button>
 
-    <script>
-        // Function to get the current date and set it in the "Date" column
-        function setCurrentDate() {
-            const currentDate = new Date();
-            const currentDateString = currentDate.toLocaleDateString();
-            document.getElementById('current-date').textContent = currentDateString;
-        }
 
-        // Set the current date when the page loads
-        window.onload = function () {
-            setCurrentDate();
-        }
 
-        // Function to print the invoice
-        function printInvoice() {
-            // Hide the print button when printing
-            const printButton = document.querySelector('.print-button');
-            if (printButton) {
-                printButton.style.display = 'none';
+        <script>
+
+            function addNewItem() {
+                const tableBody = document.querySelector('#billing-table tbody');
+
+                // Create a new row and its cells
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+        <td contenteditable="true">New Item</td>
+        <td contenteditable="true">Description</td>
+        <td contenteditable="true">$0.00</td>
+    `;
+
+                // Append the new row to the table
+                tableBody.appendChild(newRow);
             }
 
-            // Print the invoice
-            window.print();
+            // Function to calculate the total amount including tax
 
-            // Show the print button after printing
-            if (printButton) {
-                printButton.style.display = 'block';
+
+
+            // Function to remove the "New Item Added" button from the new row
+            function removeNewItem(button) {
+                const row = button.parentNode.parentNode;
+                row.removeChild(button.parentNode);
             }
-        }
 
-        // Function to extract the patient ID from the URL query parameter
-        function getPatientIdFromUrl() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get("patientId");
-        }
+            // Function to calculate the Total Amount in the invoice table
+            function calculateTotalAmount() {
+                // Get all the rows in the billing table body
+                const rows = document.querySelectorAll('#billing-table tbody tr');
 
-        // Get the patient ID and display it in an element with a specific ID (e.g., "patient-id-display")
-        const patientId = getPatientIdFromUrl();
-        if (patientId) {
-            document.getElementById("patient-id-display").textContent = patientId;
-        }
+                // Initialize total amount
+                let totalAmount = 0;
 
-        // Function to calculate the Total Amount in the invoice table
-        function calculateTotalAmount() {
-            // Get all the rows in the invoice table body
-            const rows = document.querySelectorAll('.invoice-table tbody tr');
+                // Iterate through each row
+                rows.forEach(row => {
+                    // Get the amount from the third column of the row
+                    const amount = parseFloat(row.cells[2].textContent.replace('$', '').trim()) || 0;
 
-            // Initialize total amount
-            let totalAmount = 0;
+                    // Add the amount to the total
+                    totalAmount += amount;
+                });
 
-            // Iterate through each row
-            rows.forEach(row => {
-                // Get the amount from the third column of the row
-                const amount = parseFloat(row.cells[2].textContent.replace('$', '').trim()) || 0;
+                // Display the total amount in the Total Amount span
+                document.getElementById('total-amount').textContent = `$${totalAmount.toFixed(2)}`;
+            }
 
-                // Add the amount to the total
-                totalAmount += amount;
-            });
 
-            // Display the total amount in the Total Amount column of the invoice table
-            document.getElementById('total-amount').textContent = `$${totalAmount.toFixed(2)}`;
-        }
+            window.onload = function () {
+                calculateTotalAmount();
+            };
+            function calculateTotalWithTax() {
+                const amountText = document.getElementById('total-amount').textContent.trim().replace('$', '');
+                const amount = parseFloat(amountText) || 0;
+                const taxRateText = document.getElementById('tax-rate').textContent.trim().replace('%', '');
+                const taxRate = parseFloat(taxRateText) || 0;
 
-        // Call the calculateTotalAmount function when the page loads
-        window.onload = function () {
-            calculateTotalAmount();
-        };
-    </script>
+                const taxAmount = (amount * taxRate) / 100;
+                const totalAmount = amount + taxAmount;
+
+                document.getElementById('grand_total').textContent = `$${totalAmount.toFixed(2)}`;
+            }
+
+            // Call the function to calculate total amount with tax when the window loads
+            window.onload = function () {
+                calculateTotalWithTax();
+                // Other functions or setups you might have on window load
+            };
+
+            // Call the calculateTotalAmount function when the page loads
+
+
+            // Listen for changes in the table and recalculate the total amount
+            document.getElementById('billing-table').addEventListener('input', calculateTotalAmount);
+
+            function saveChanges() {
+                const rows = document.querySelectorAll('#billing-table tbody tr');
+
+                rows.forEach(row => {
+                    const description = row.cells[1].textContent.trim(); // Get the description from the second cell
+                    const amount = row.cells[2].textContent.trim(); // Get the amount from the third cell
+                    // Save the description and amount values as needed
+                    console.log(`Description: ${description}, Amount: ${amount}`);
+                });
+
+                // Add functionality to save changes here
+                alert("Details saved!"); // Display an alert confirming that details are saved
+            }
+
+
+            // Function to print the invoice
+            function printInvoice() {
+                // Hide the print button when printing
+                const printButton = document.querySelector('.print-button');
+                if (printButton) {
+                    printButton.style.display = 'none';
+                }
+
+                // Print the invoice
+                window.print();
+
+                // Show the print button after printing
+                if (printButton) {
+                    printButton.style.display = 'block';
+                }
+            }
+
+            // Function to extract the patient ID from the URL query parameter
+            function getPatientIdFromUrl() {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get("patientId");
+            }
+
+            // Get the patient ID and display it in an element with a specific ID (e.g., "patient-id-display")
+            const patientId = getPatientIdFromUrl();
+            if (patientId) {
+                document.getElementById("patient-id-display").textContent = patientId;
+            }
+
+
+
+
+            // Function to set the current date
+            function setCurrentDate() {
+                const currentDate = new Date();
+                const currentDateString = currentDate.toLocaleDateString();
+                document.getElementById('current-date').textContent = currentDateString;
+            }
+
+            // Call setCurrentDate function when the page loads
+            window.onload = function () {
+                setCurrentDate();
+            };
+            function deleteLastRow() {
+                const tableBody = document.querySelector('#billing-table tbody');
+                const rows = tableBody.querySelectorAll('tr');
+
+                // Check if there's any row to delete
+                if (rows.length > 1) { // Ensure there's at least one initial row that shouldn't be deleted
+                    tableBody.removeChild(rows[rows.length - 1]); // Remove the last row
+                    calculateTotalAmount(); // Recalculate total amount after deletion
+                } else {
+                    alert("Can't delete the last row!"); // Alert if trying to delete the last row when there's only one row
+                }
+            }
+
+        </script>
 </body>
 
 </html>
