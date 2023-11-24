@@ -1,10 +1,4 @@
 /********** Admin Add Employee CSS **********/
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 :root {
     --primary: #0463FA;
     --light: #EFF5FF;
@@ -139,6 +133,24 @@
 
 .side-bar-bottom ul li {
     margin: 15px 5px;
+}
+
+@media (max-width: 991.98px) {
+    
+    .side-bar {
+        width: 210px;
+    }
+
+    .side-bar-heading {
+        margin: 0 45px;
+        margin-bottom: 20px;
+    }
+
+    .side-bar-icon {
+        height: 80px;
+        width: 80px;
+        margin-left: 45px;
+    }
 }
 
 
