@@ -7,7 +7,7 @@ Dipak Baghel: Backend (Registration)
 
 Mayur Suthar: Frontend (Receptionist Pages)
 
-Utpal Busa: Frontend (Admin Pages)
+Utpal Busa: Frontend (Admin Pages, Home Pages)
 
 Ramya Patel: Backend (Database)
 
