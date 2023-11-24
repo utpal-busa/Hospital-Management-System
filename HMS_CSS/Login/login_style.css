@@ -1,25 +1,74 @@
+/********** Login CSS **********/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #0463FA;
+  --light: #EFF5FF;
+  --dark: #1B2C51;
+}
+
 body {
-font-family: Arial, sans-serif;
-margin: 0;
-padding: 0;
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-background-color: #f0f0f0;
-background-repeat: no-repeat;
-background-attachment: fixed;
-background-size: 100% 100%;
-background-image: url("/HMS_Images/back.jpg");
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-image: url(file:///D:/Programming/HMS/HMS_Images/back.jpg);
+}
+
+.fw-medium {
+  font-weight: 500 !important;
+}
+
+.fw-bold {
+  font-weight: 700 !important;
+}
+
+.fw-black {
+  font-weight: 900 !important;
+}
+
+.back-to-top {
+  position: fixed;
+  display: none;
+  right: 45px;
+  bottom: 45px;
+  z-index: 99;
 }
 
 
+/*** Spinner ***/
+#spinner {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s ease-out, visibility 0s linear .5s;
+  z-index: 99999;
+}
+
+#spinner.show {
+  transition: opacity .5s ease-out, visibility 0s linear 0s;
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/*** Login ***/
 .login-container {
   margin-left: 35%;
   background-color: #fff;
   padding: 60px;
   border-radius: 8px;
-/*  box-shadow: 10px 10px 5px gray;*/
+  box-shadow: 10px 10px 5px gray;
   max-width: 450px;
   width: 100%;
   text-align: center;
@@ -30,6 +79,10 @@ background-image: url("/HMS_Images/back.jpg");
   color: blue;
 }
 
+.login-container a:hover {
+  color: var(--dark);
+}
+
 h1 {
   margin-bottom: 20px;
   color: black;
@@ -37,14 +90,14 @@ h1 {
 
 .form-group {
   margin-bottom: 10px;
-  margin-right: 32px;
   text-align: left;
+  color: black;
 }
 
-label {
+/* label {
   display: block;
   margin-bottom: 0;
-}
+} */
 
 input {
   position: relative;
@@ -72,5 +125,11 @@ button {
 }
 
 button:hover {
-  background: limegreen;
+  background-color: blue; /* Background color on hover */
+  /* transform: scale(1.05); */
+}
+
+p {
+  margin-top: 10px;
+  color: black;
 }
