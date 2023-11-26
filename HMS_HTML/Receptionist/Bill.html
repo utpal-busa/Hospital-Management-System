@@ -32,6 +32,20 @@
             background-attachment: fixed;
         }
 
+        td[contenteditable="true"]:focus {
+            /* Add specific styles for the editable cells when focused */
+            outline: 1px solid #2D6CA8;
+            /* Example outline when focused */
+            background-color: #f2f2f2;
+            /* Example background color when focused */
+        }
+
+        td[contenteditable="true"] {
+            /* Ensure other editable cells remain editable without additional styles */
+            cursor: text;
+            /* Example cursor style for editable cells */
+        }
+
         .container {
             max-width: 800px;
             margin: 0 5 0 auto;
@@ -304,20 +318,22 @@
         <div class="invoice-details">
             <div class="patient-info">
                 <div class="info-box">
-                    <h2>Patient Information</h2>
-                    <p>Kemba Harris</p>
-                    <p>(555) 595-5999</p>
-                    <p>11 Rosewood Drive,</p>
-                    <p>Collingwood, NY 33580</p>
+                    <h2 contenteditable="false">Patient Information</h2>
+                    <p contenteditable="true">Name: </p>
+                    <p contenteditable="true">ID: </p>
+                    <p contenteditable="true">Mobile Number: </p>
+                    <p contenteditable="true">Address: </p>
+                    <p contenteditable="true">Pincode: </p>
                 </div>
             </div>
             <div class="physician-info">
                 <div class="info-box">
-                    <h2>Physician Information</h2>
-                    <p>Dr. Alanah Gomez</p>
-                    <p>(555) 505-5000</p>
-                    <p>102 Trope Street,</p>
-                    <p>New York, NY 45568</p>
+                    <h2 contenteditable="false">Physician Information</h2>
+                    <p contenteditable="true">Name: </p>
+                    <p contenteditable="true">ID: </p>
+                    <p contenteditable="true">Mobile number: </p>
+                    <p contenteditable="true">Address: </p>
+                    <p contenteditable="true">Pincode: </p>
                 </div>
             </div>
         </div>
@@ -333,10 +349,10 @@
             <tbody>
                 <tr>
                     <td>12245</td>
-                    <td id="patient-id-display"></td> <!-- Add Patient ID here -->
+                    <td contenteditable="true"></td> <!-- Add Patient ID here -->
                     <td id="current-date"> <!-- The date will be set here -->
                     </td>
-                    <td id="grand_total"></td>
+                    <td contenteditable="true""></td>
                 </tr>
             </tbody>
         </table>
