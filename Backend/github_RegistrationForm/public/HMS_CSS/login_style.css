@@ -1,3 +1,16 @@
+/********** Login CSS **********/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #0463FA;
+  --light: #EFF5FF;
+  --dark: #1B2C51;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -11,66 +24,112 @@ body {
   background-attachment: fixed;
   background-size: 100% 100%;
   background-image: url("/HMS_Images/back.jpg");
-  }
-  
-  
-  .login-container {
-    margin-left: 35%;
-    background-color: #fff;
-    padding: 60px;
-    border-radius: 8px;
-  /*  box-shadow: 10px 10px 5px gray;*/
-    max-width: 450px;
-    width: 100%;
-    text-align: center;
-  }
-  
-  .login-container a {
-    text-decoration: none;
-    color: blue;
-  }
-  
-  h1 {
-    margin-bottom: 20px;
-    color: black;
-  }
-  
-  .form-group {
-    margin-bottom: 10px;
-    margin-right: 32px;
-    text-align: left;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 0;
-  }
-  
-  input {
-    position: relative;
-    height: 40px;
-    width: 100%;
-    outline: none;
-    font-size: 1rem;
-    color: #707070;
-    margin-top: 8px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 0 15px;
-  }
-  
-  button {
-    height: 45px;
-    width: 100%;
-    padding: 10px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  button:hover {
-    background: limegreen;
-  }
+}
+
+.fw-medium {
+  font-weight: 500 !important;
+}
+
+.fw-bold {
+  font-weight: 700 !important;
+}
+
+.fw-black {
+  font-weight: 900 !important;
+}
+
+.back-to-top {
+  position: fixed;
+  display: none;
+  right: 45px;
+  bottom: 45px;
+  z-index: 99;
+}
+
+
+/*** Spinner ***/
+#spinner {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s ease-out, visibility 0s linear .5s;
+  z-index: 99999;
+}
+
+#spinner.show {
+  transition: opacity .5s ease-out, visibility 0s linear 0s;
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/*** Login ***/
+.login-container {
+  margin-left: 35%;
+  background-color: #fff;
+  padding: 60px;
+  border-radius: 8px;
+  box-shadow: 10px 10px 5px gray;
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-container a {
+  text-decoration: none;
+  color: blue;
+}
+
+.login-container a:hover {
+  color: var(--dark);
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: black;
+}
+
+.form-group {
+  margin-bottom: 10px;
+  text-align: left;
+  color: black;
+}
+
+/* label {
+  display: block;
+  margin-bottom: 0;
+} */
+
+input {
+  position: relative;
+  height: 40px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 15px;
+}
+
+button {
+  height: 45px;
+  width: 100%;
+  padding: 10px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: blue; /* Background color on hover */
+  /* transform: scale(1.05); */
+}
+
+p {
+  margin-top: 10px;
+  color: black;
+}

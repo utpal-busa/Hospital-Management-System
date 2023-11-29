@@ -148,7 +148,7 @@
 }
 
 .all-leaves-info {
-    padding-left: 400px;
+    padding-left: 300px;
     padding-top: 20px;
     color: black;
     font-weight:400;
@@ -156,8 +156,8 @@
 
 .all-leaves-info table {
     height: 235px;
-    width: 800px;
-    color: black;
+    width: 1150px !important;
+    color: black !important;
 }
 
 .tab-data{
@@ -167,9 +167,20 @@
 
 .all-leaves-btn
 {
-    margin-left: 70px;
+    margin-left: 10px;
 }
 
 .all-leaves-info button:hover {
     color: var(--dark) !important;
 }
+
+.auto-index 
+  { counter-reset: Serial;  /* Display the counter */
+  }
+  
+  .auto-index td:first-child:before
+  {
+    counter-increment: Serial;      /* Increment the Serial counter */
+    content:  counter(Serial); /* Display the counter */
+  }
+  

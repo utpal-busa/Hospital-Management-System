@@ -156,10 +156,7 @@
   
     
     /*** patient visited ***/
-    body {
-        /* background-color: #e3eee6; */
-    }
-
+   
     .opd-queue {
         margin-top: 50px;
         width: 500px;
@@ -196,10 +193,7 @@
         background-color: skyblue;
     }
 
-    tr:hover {
-        /* background-color: #c8d7ed; */
-
-    }
+    
 
     th{
         background-color: #cecece;

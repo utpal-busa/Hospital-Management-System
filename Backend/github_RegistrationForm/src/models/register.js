@@ -56,28 +56,12 @@ const patientSchema = new mongoose.Schema({
         required:true
         
     },
-    // leaveRequest:[{
-    //     reason: {
-    //         type: String,
-    //         required: 'true'
-    //     },
-    //     startDate: {
-    //         type: String,
-    //         required: 'true'
-    //     },
-    //     endDate: {
-    //         type: String,
-    //         required: 'true'
-    //     },
-    //     status: {
-    //         type: String,
-    //         required: 'true'
-    //     },
-    //     ID: {
-    //         type: String,
-    //         required: 'true'
-    //     }  
-    // }],
+    Qualification:{
+        type:String,
+    },
+    Specialization:{
+        type:String,
+    },
     tokens: [{
         token: {
             type: String,

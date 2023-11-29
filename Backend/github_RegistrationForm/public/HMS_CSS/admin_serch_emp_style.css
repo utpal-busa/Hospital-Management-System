@@ -145,13 +145,13 @@
 .search-emp-heading {
     margin: 20px 0;
     margin-left: 250px !important;
-    padding-top: 100px;
+    padding-top: 150px;
 }
 
 .search-emp-opt {
     width: 700px;
-    margin: 10px;
-    margin-left: 435px;
+    margin: 50px;
+    margin-left: 520px;
     background: rgb(239, 239, 239);
     color: black;
     border: 1px solid rgb(14, 139, 255);

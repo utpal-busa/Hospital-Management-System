@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!---Coding By CodingLab | www.codinglabweb.com--->
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
-  rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
+    rel="stylesheet">
 
   <!-- Icon Font Stylesheet -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -27,6 +28,7 @@
   <!-- Customized Bootstrap Stylesheet -->
   <link href="HMS_CSS/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body style="background-color: #f0f8ff ">
 
   <!-- Navbar Start -->
@@ -39,11 +41,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav ms-auto p-4 p-lg-0">
-        {{!-- <a href="HMS_HTML/hms_index.html" class="nav-item nav-link">Home</a>
-        <a href="HMS_HTML/about.html" class="nav-item nav-link">About Us</a>
-        <a href="HMS_HTML/service.html" class="nav-item nav-link">Services</a>
-        <a href="HMS_HTML/contact.html" class="nav-item nav-link">Contact Us</a> --}}
        
+
       </div>
     </div>
   </nav>
@@ -51,45 +50,51 @@
 
   <div class="registration-form">
     <h2>User Registration</h2>
-    <form action="/recep_register" method="#" >
+    <form action="/recep_register" method="#">
       <label for="name">Name:</label>
-      <input type="text" id="Name" name="Name" placeholder="Enter Name" required>
-      
-       {{!-- <label for="name">Role:</label>
+      <input type="text" id="Name" name="Name"  placeholder="Enter Name" oninput="validateName()" required>
+
+      <p id="nameError" style="color: red;"></p>
+
+     
+
+      {{!-- <label for="name">Role:</label>
       <input type="text" id="Name" name="Name" placeholder="Enter Name" required> --}}
 
       <label for="email">Email:</label>
       <input type="email" id="Email" name="Email" placeholder="Enter Email" required>
 
       <label for="password">Password:</label>
-      <input type="password" id="password" name="password" placeholder="Enter Password" required>
+      <input type="password" id="password" name="password" placeholder="Enter Password" oninput="validatePassword()" required>
+        <p id="passwordError" style="color: red;"></p>
 
       <label for="confirm_password">Re-enter Password:</label>
       <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-Enter Password" required>
 
       <label for="phone">Phone Number:</label>
-      <input type="tel" id="Phone" name="Phone" placeholder="Enter Phone Number" required>
+      <input type="tel" id="Phone" name="Phone" placeholder="Enter Phone Number" oninput="validatePhone()" required>
+       <p id="phoneError" style="color: red;"></p>
 
       <label for="dob">Date of Birth:</label>
       <input type="date" id="birthdate" name="birthdate" required>
-   
-        <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var dateInput = document.getElementById("birthdate");
-        var currentDate = new Date();
-        var minDate = new Date();
-        minDate.setFullYear(currentDate.getFullYear() - 200);
-        var minDateStr = minDate.toISOString().split("T")[0];
-        dateInput.setAttribute("max", currentDate.toISOString().split("T")[0]);
-        dateInput.setAttribute("min", minDateStr);
-      });
-    </script>
+        
 
-    
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          var dateInput = document.getElementById("birthdate");
+          var currentDate = new Date();
+          var minDate = new Date();
+          minDate.setFullYear(currentDate.getFullYear() - 200);
+          var minDateStr = minDate.toISOString().split("T")[0];
+          dateInput.setAttribute("max", currentDate.toISOString().split("T")[0]);
+          dateInput.setAttribute("min", minDateStr);
+        });
+      </script>
+
 
       <label for="blood_group">Blood Group:</label>
       <select id="blood_group" name="blood_group">
-        <option value="none" selected disabled hidden>Select</option> 
+        <option value="none" selected disabled hidden>Select</option>
         <option value="A+">A+</option>
         <option value="A-">A-</option>
         <option value="B+">B+</option>
@@ -100,9 +105,9 @@
         <option value="O-">O-</option>
       </select>
 
-       <label for="Gender">Gender:</label>
+      <label for="Gender">Gender:</label>
       <select id="Gender" name="Gender">
-        <option value="none" selected disabled hidden>Select</option> 
+        <option value="none" selected disabled hidden>Select</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         <option value="Other">Other</option>
@@ -113,10 +118,115 @@
       <input type="text" id="AddressLine1" name="AddressLine1" placeholder="Line 1" required>
       <input type="text" id="AddressLine2" name="AddressLine2" placeholder="Line 2">
       {{!-- <input type="text" id="city" name="city" placeholder="City" required> --}}
-      <input type="text" id="AddressPostalCode" name="AddressPostalCode" placeholder="Postal Code" required>
-
+      <input type="text" id="AddressPostalCode" name="AddressPostalCode" placeholder="Postal Code" oninput="validatePostalCode()" required>
+       <p id="postalCodeError" style="color: red;"></p>
       <button type="submit" formmethod="post">Register</button>
     </form>
   </div>
+
+
+  
+     <script>
+    function validateName() {
+  var nameInput = document.getElementById('Name');
+  var nameValue = nameInput.value.trim();
+
+  // Regular expression to check if the value contains only alphabets and spaces
+  var regex = /^[A-Za-z\s]+$/;
+
+  // Check if the value matches the regular expression
+  if (!regex.test(nameValue)) {
+    document.getElementById('nameError').textContent = 'Name should contain only alphabets and spaces.';
+    nameInput.setCustomValidity('Invalid name'); // Set custom validity to prevent form submission
+  } else {
+    document.getElementById('nameError').textContent = '';
+    nameInput.setCustomValidity(''); // Reset custom validity
+  }
+}
+
+    function validatePhone() {
+      var phoneInput = document.getElementById('Phone');
+      var phoneValue = phoneInput.value.trim();
+
+      // Regular expression to check if the value is a 10-digit number
+      var regex = /^\d{10}$/;
+
+      // Check if the value matches the regular expression
+      if (!regex.test(phoneValue)) {
+        document.getElementById('phoneError').textContent = 'Phone number should be a 10-digit number.';
+        phoneInput.setCustomValidity('Invalid phone number'); // Set custom validity to prevent form submission
+      } else {
+        document.getElementById('phoneError').textContent = '';
+        phoneInput.setCustomValidity(''); // Reset custom validity
+      }
+    }
+
+    function validatePostalCode() {
+      var postalCodeInput = document.getElementById('AddressPostalCode');
+      var postalCodeValue = postalCodeInput.value.trim();
+
+      // Regular expression to check if the value is a 6-digit number
+      var regex = /^\d{6}$/;
+
+      // Check if the value matches the regular expression
+      if (!regex.test(postalCodeValue)) {
+        document.getElementById('postalCodeError').textContent = 'Postal code should be a 6-digit number.';
+        postalCodeInput.setCustomValidity('Invalid postal code'); // Set custom validity to prevent form submission
+      } else {
+        document.getElementById('postalCodeError').textContent = '';
+        postalCodeInput.setCustomValidity(''); // Reset custom validity
+      }
+    }
+
+    function validatePassword() {
+      var passwordInput = document.getElementById('password');
+      var passwordValue = passwordInput.value;
+
+      // Define password constraints
+      var minLength = 8;
+      var hasUppercase = /[A-Z]/.test(passwordValue);
+      var hasLowercase = /[a-z]/.test(passwordValue);
+      var hasNumber = /\d/.test(passwordValue);
+      var hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(passwordValue);
+
+      // Check if password meets the criteria
+      if (
+        passwordValue.length < minLength ||
+        !hasUppercase ||
+        !hasLowercase ||
+        !hasNumber ||
+        !hasSpecialChar
+      ) {
+        document.getElementById('passwordError').textContent = 'Password should be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.';
+        passwordInput.setCustomValidity('Invalid password'); // Set custom validity to prevent form submission
+      } else {
+        document.getElementById('passwordError').textContent = '';
+        passwordInput.setCustomValidity(''); // Reset custom validity
+      }
+    }
+
+    function validateForm() {
+      // Additional validation logic can be added here
+      // If all validations pass, return true to allow form submission
+      // If any validation fails, return false to prevent form submission
+      validateName();
+      validatePhone();
+      validatePostalCode();
+      validatePassword();
+
+      // Check if there are any custom validity messages set
+      var inputs = document.getElementsByTagName('input');
+      for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].checkValidity() === false) {
+          return false; // Prevent form submission if any input has a custom validity message
+        }
+      }
+
+      return true; // Allow form submission if all validations pass
+    }
+  </script>
+ 
+  
 </body>
+
 </html>

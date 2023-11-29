@@ -30,121 +30,65 @@
     <link href="/HMS_CSS/bootstrap.min.css" rel="stylesheet">
 
     <!-- Admin All Employees Stylesheet -->
-    <link href="/HMS_CSS/patient_home_style.css" rel="stylesheet">
+    <link href="/HMS_CSS/new_doc_obs_style.css" rel="stylesheet">
 
-    <style>
-        .obs_pres {
-            width: 500px;
-            margin-left: 500px;
-            background-color: chartreuse;
-            border-radius: 10px;
-            border-style: dashed;
-            text-align: center;
-        }
-
-        .container-fluid {
-            background-color: skyblue;
-        }
-        .obs{
-            margin-right: 10px;
-            font-size:x-large;
-        }
-        .box{
-            border: 1px solid;
-            /* margin-bottom: 300px; */
-            /* margin-top: -10px; */
-            margin-left: 400px;
-            margin-right: 148px;
-            border-radius: 10px;
-            background-color: rgb(246, 251, 255);
-            /* width: 50px; */
-            /* height: 10px; */
-            padding-bottom: 20px;
-            border-color: blue;
-        }
-
-        .sym,.txt,.dig1,.med1,.do1,.ndo1,.inv1,.date1,.fee1{
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-        .dig,.sym1,.ent,.do,.ndo,.inv,.date,.fee{
-            margin-left: 10px;
-        }
-        .med{
-            margin-left: 10px;
-            display:inline;
-        }
-        .Note,.Note1{
-            display: inline;
-            color: red;
-            font-size: small;
-        }
-
-        .sub{
-            margin-left: 730px;
-        }
-        body {
-            background-color: #e3eee6;
-        }
-        /* .box{
-            margin-top: -40px;
-            margin-right: -1px;
-            /* margin-left: 5px; 
-            
-        }  */
-
-    </style>
 
 
 
 </head>
 <body>
-    <div id="spinner"
-    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-    <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-        <span class="sr-only">Loading...</span>
-    </div>
+    !-- Spinner Start -->
+  <div id="spinner"
+  class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+  <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
 </div>
 <!-- Spinner End -->
 
 <!-- Navbar Start -->
-<nav>
-  <input type="checkbox" id="check">
-  <label for="check" class="checkbtn">
-    <i class="fas fa-bars"></i>
-</label>
-<label class="logo"><i class="far fa-hospital me-3"></i>Care4You</label>
-<ul>
-     <li><a href="/">Home</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/service">Services</a></li>
-    <li><a href="/contact">Contact</a></li>
-    <li><a href="doc_profile">Profile</a></li>
-    <li><a href="/logout">Log Out</a></li>
-</ul>
+<nav class="navbar navbar-expand-lg bg-primary navbar-light fixed-top p-0" data-wow-delay="0.1s">
+  <a href="HMS_HTML/hms_index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+    <h1 class="m-0 text-white"><i class="far fa-hospital me-3"></i>Care4You</h1>
+  </a>
+  <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto p-4 p-lg-0">
+        <a href="/home2" class="nav-item nav-link">Home</a>
+      <a href="/about2" class="nav-item nav-link">About Us</a>
+      <a href="/service2" class="nav-item nav-link">Services</a>
+      <a href="/contact2" class="nav-item nav-link">Contact Us</a>
+      <a href="doc_profile" class="nav-item nav-link">Profile</a>
+      <a href="logout" class="nav-item nav-link">Log Out</a>
+    </div>
+  </div>
 </nav>
 <!-- Navbar End -->
 
 <!-- Side-bar Start -->
-<div class="side-bar">
-    <div class="side-bar-top">
-        <div class="side-bar-heading">
-            <p><b>Doctor</b></p>
-        </div>
-        <img class="pat" src="/HMS_Images/patient.jpg">
-        <p class="user"><b>USERNAME:</b> {{user.Name}}</p>
-        <p class="user"><b>ID:</b> {{user.ID}}</p>
+<div class="container-fluid side-bar">
+  <div class="side-bar-top ">
+    <div class="side-bar-heading">
+      <p><b>Doctor</b></p>
     </div>
-    <div class="side-bar-bottom">
-          <ul>
-            <li><a href="/new_me">Me</a></li>
+    <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
+      <i class="fa fa-user-md fa-3x"></i>
+    </div>
+    <p class="side-bar-top-info"><b>Name :</b> {{user.Name}}</p>
+    <p class="side-bar-top-info"><b>Id :</b> {{user.ID}}</p>
+  </div>
+  <div class="side-bar-bottom">
+    <ul>
+             <li><a href="/new_doc_home">Dashboard</a></li>
             <!-- <li><a href="#">Edit Profile</a></li> -->
             <li><a href="/doc_pat_vis">Visited Patients</a></li>
-            <li><a href="#">Search patient</a></li>
+            <li><a href="/doc_search_patient">Search patient</a></li>
             <li><a href="/new_doc_obs">Observation & Prescription</a></li>
             <!-- <li><a href="#">View Employees</a></li> -->
         </ul>
-    </div>
+  </div>
 </div>
 <!-- Side-bar End -->
 
@@ -200,7 +144,7 @@
         <div class="sym1">Symptoms:
             <div class="Note1">*NOTE: use , for separation </div>
         </div> 
-        <textarea class="sym" name="Symptoms" id="Symptoms" cols="50" rows="3" placeholder="eg: #fever #headache #bodypain" style="width:300px;"></textarea>
+        <textarea class="sym" name="Symptoms" id="Symptoms" cols="50" rows="3" placeholder="eg: fever, headache ,bodypain" style="width:300px;"></textarea>
         <br>
 
         <br>
@@ -211,16 +155,16 @@
         <div class="med">Medinice and Dosage:    
             <div class="Note">*NOTE: use @ to mention dose in a day</div>
         </div> 
-        <textarea class="med1" name="Medicines" id="Medicines" cols="50" rows="3" placeholder="#paracetamol@2" style="width: 300px;"></textarea>
+        <textarea class="med1" name="Medicines" id="Medicines" cols="50" rows="3" placeholder="paracetamol@2" style="width: 300px;"></textarea>
         <br>
         <br>
         <div class="do">Do's:</div> 
-        <textarea class="do1" name="Dos" id="Dos" cols="50" rows="3" placeholder="eg. #do1#do2" style="width: 300px;"></textarea>
+        <textarea class="do1" name="Dos" id="Dos" cols="50" rows="3" placeholder="eg. do1,do2" style="width: 300px;"></textarea>
 
         <br>
         <br>
         <div class="ndo">Not Do's:</div> 
-        <textarea class="ndo1" name="NotDos" id="NotDos" cols="50" rows="3" placeholder="eg. #notdo1#notdo2" style="width: 300px;"></textarea>
+        <textarea class="ndo1" name="NotDos" id="NotDos" cols="50" rows="3" placeholder="eg. notdo1,notdo2" style="width: 300px;"></textarea>
 
         <br>
         <br>
@@ -250,7 +194,8 @@
     
 <br> 
     
-    <button class="sub" style="width: 100px; height: 40px;">Submit</button>
+    {{!-- <button class="sub" style="width: 100px; height: 40px;">Submit</button> --}}
+    <button type="submit" class="btn btn-primary sub">Submit</button>
     </form>
 <br>
 <br>    

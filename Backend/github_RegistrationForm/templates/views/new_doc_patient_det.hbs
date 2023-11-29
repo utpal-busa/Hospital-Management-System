@@ -1,216 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <title>Care4You Hospital</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+  <meta charset="utf-8">
+  <title>Care4You Hospital</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
 
-    <!-- Favicon -->
-    <link href="/HMS_Images/favicon.icon" rel="icon">
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
+  rel="stylesheet">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap"
-    rel="stylesheet">
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Libraries Stylesheet -->
+  <link href="HMS_Lib/animate/animate.min.css" rel="stylesheet">
+  <link href="HMS_Lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="HMS_Lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
-    <!-- Libraries Stylesheet -->
-    <link href="/HMS_Lib/animate/animate.min.css" rel="stylesheet">
-    <link href="/HMS_Lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="/HMS_Lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="HMS_CSS/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="/HMS_CSS/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Admin All Employees Stylesheet -->
-    <link href="/HMS_CSS/patient_home_style.css" rel="stylesheet">
-
-    <style>
-        .Patient_det {
-            /* padding-top: 20px; */
-            margin-top: 0px;
-            width: 500px;
-            margin-left: 220px;
-            /* background-color: chartreuse; */
-            /* border-radius: 10px; */
-            /* border-style: dashed; */
-            text-align: center;
-        }
-
-        table,
-        th,
-        tr,
-        td {
-
-            border: 1px #06090f solid;
-            /* padding-left: 100px; */
-            border-collapse: collapse;
-            text-align: center;
-            background-color: #c8d7ed;
-            color: black;
-
-        }
-        /* th{
-            background-color: #94bdfc;
-        }
-        td{
-            background-color: #94bdfc
-        } */
-
-        table {
-            margin-left: 150px;
-            width: 700px;
-            background-color: #c8d7ed;
-        }
-
-        /* .container-fluid {
-            background-color: skyblue;
-        } */
-
-        tr:hover {
-            background-color: #c8d7ed;
-
-        }
-        
-
-        /* body {
-            background-color: #17ac41;
-        } */
-
-        .box
-        {
-            margin-left: 300px;
-            /* width: 100px; */
-            /* border: solid blue; */
-        }
-        body {
-            background-color: #e3eee6;
-        }
-    </style>
-
-
+  <!-- Admin Add Employee Stylesheet -->
+  <link href="HMS_CSS/patient_profile_style.css" rel="stylesheet">
 </head>
+
 <body>
-    <div id="spinner"
-    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-    <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-        <span class="sr-only">Loading...</span>
-    </div>
+  <!-- Spinner Start -->
+  <div id="spinner"
+  class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+  <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
 </div>
 <!-- Spinner End -->
 
 <!-- Navbar Start -->
-<nav>
-  <input type="checkbox" id="check">
-  <label for="check" class="checkbtn">
-    <i class="fas fa-bars"></i>
-</label>
-<label class="logo"><i class="far fa-hospital me-3"></i>Care4You</label>
-<ul>
-     <li><a href="/">Home</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/service">Services</a></li>
-    <li><a href="/contact">Contact</a></li>
-    <li><a href="doc_profile">Profile</a></li>
-    <li><a href="/logout">Log Out</a></li>
-</ul>
+<nav class="navbar navbar-expand-lg bg-primary navbar-light fixed-top p-0" data-wow-delay="0.1s">
+  <a href="HMS_HTML/hms_index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+    <h1 class="m-0 text-white"><i class="far fa-hospital me-3"></i>Care4You</h1>
+  </a>
+  <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto p-4 p-lg-0">
+    <a href="/home2" class="nav-item nav-link">Home</a>
+      <a href="/about2" class="nav-item nav-link">About Us</a>
+      <a href="/service2" class="nav-item nav-link">Services</a>
+      <a href="/contact2" class="nav-item nav-link">Contact Us</a>
+      <a href="doc_profile" class="nav-item nav-link">Profile</a>
+      <a href="logout" class="nav-item nav-link">Log Out</a>
+    </div>
+  </div>
 </nav>
 <!-- Navbar End -->
 
 <!-- Side-bar Start -->
-<div class="side-bar">
-    <div class="side-bar-top">
-        <div class="side-bar-heading">
-            <p><b>Doctor</b></p>
-        </div>
-        <img class="pat" src="/HMS_Images/patient.jpg">
-        <p class="user"><b>USERNAME:</b> {{user2.Name}}</p>
-        <p class="user"><b>ID:</b> {{user2.ID}}</p>
+<div class="container-fluid side-bar">
+  <div class="side-bar-top ">
+    <div class="side-bar-heading">
+      <p><b>Doctor</b></p>
     </div>
-    <div class="side-bar-bottom">
-          <ul>
-            <li><a href="/new_me">Me</a></li>
+    <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
+      <i class="fa fa-user-md  fa-3x"></i>
+    </div>
+    <p class="side-bar-top-info"><b>Name :</b> {{user2.Name}}</p>
+    <p class="side-bar-top-info"><b>Id :</b>{{user2.ID}} </p>
+  </div>
+  <div class="side-bar-bottom">
+  <ul>
+            <li><a href="/new_doc_home">Dashboard</a></li>
             <!-- <li><a href="#">Edit Profile</a></li> -->
             <li><a href="/doc_pat_vis">Visited Patients</a></li>
-            <li><a href="#">Search patient</a></li>
+            <li><a href="/doc_search_patient">Search patient</a></li>
             <li><a href="/new_doc_obs">Observation & Prescription</a></li>
             <!-- <li><a href="#">View Employees</a></li> -->
-        </ul>
-    </div>
-</div>
-
-<br><br>
-<br>
-<br>
-<div class="box">
-    <div class="Patient_det">
-        <h1 style="text-align: center; font-style: italic;">Patient Details</h1>
-    </div>
-    <br><br>
-    <table>
-        <tr>
-            <th>Id</th>
-            <td>{{user.ID}}</td>
-        </tr>
-        <tr>
-            <th>Name</th>
-            <td>{{user.Name}}</td>
-        </tr>
-        <tr>
-            <th>Gender</th>
-            <td>{{user.Gender}}</td>
-        </tr>
-        <tr>
-            <th>blood group</th>
-            <td>{{user.BloodGroup}}</td>
-        </tr>
-        <tr>
-            <th>Email id</th>
-            <td>{{user.Email}}</td>
-        </tr>
-
-        <tr>
-            <th>MObile Number</th>
-            <td>{{user.Phone}}</td>
-        </tr>
-
-        {{!-- <tr>
-            <th>City</th>
-            <td>eihfu</td>
-        </tr> --}}
-        <tr>
-            <th>Follow up Date</th>
-            <td>{{prescription.FollowUpDate}}</td>
-        </tr>
-    </table>
+        </ul>   
+  </div>
 </div>
 <!-- Side-bar End -->
 
+<div class="profile-box">
+  <h2>Profile</h2>
+  {{!-- <h5>Persnol Information</h5> --}}
+  <div class="profile-info">
+    <div class="info-item">
+      <label for="name"> Name:</label>
+      <span>{{user.Name}}</span>
+    </div>
+    <div class="info-item">
+      <label for="name"> ID:</label>
+      <span>{{user.ID}}</span>
+    </div>
+    <div class="info-item">
+      <label for="name">Email:</label>
+      <span>{{user.Email}}</span>
+    </div>
+   
+
+    <div class="info-item">
+      <label for="age">BirthDate:</label>
+      <span>{{user.BirthDate}}</span>
+    </div>
+    <div class="info-item">
+      <label for="gender">Gender:</label>
+      <span>{{user.Gender}}</span>
+    </div>
+     <div class="info-item">
+      <label for="name"> Blood Group:</label>
+      <span>{{user.BloodGroup}}</span>
+    </div>
+    <div class="info-item">
+      <label for="address">Address:</label>
+      <span>{{user.AddressLine1}}</span>
+      <span>{{user.AddressLine2}}</span>
+      <span>{{user.AddressPostalCode}}</span>
+    </div>
+    <div class="info-item">
+      <label for="phone">Mobile Number:</label>
+      <span>{{user.Phone}}</span>
+    </div>
+
+      <div class="info-item">
+      <label for="phone">Follow Up Date:</label>
+      <span>{{prescription.FollowUpDate}}</span>
+    </div>
+   
+  </div>
+</div>
+
 <!-- Back to Top -->
-<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
-    class="bi bi-arrow-up"></i></a>
+<a href="HMS_HTML/hms_index.html" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
+  class="bi bi-arrow-up"></i></a>
 
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/HMS_Lib/wow/wow.min.js"></script>
-    <script src="/HMS_Lib/easing/easing.min.js"></script>
-    <script src="/HMS_Lib/waypoints/waypoints.min.js"></script>
-    <script src="/HMS_Lib/counterup/counterup.min.js"></script>
-    <script src="/HMS_Lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="/HMS_Lib/tempusdominus/js/moment.min.js"></script>
-    <script src="/HMS_Lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="/HMS_Lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="HMS_Lib/wow/wow.min.js"></script>
+  <script src="HMS_Lib/easing/easing.min.js"></script>
+  <script src="HMS_Lib/waypoints/waypoints.min.js"></script>
+  <script src="HMS_Lib/counterup/counterup.min.js"></script>
+  <script src="HMS_Lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="HMS_Lib/tempusdominus/js/moment.min.js"></script>
+  <script src="HMS_Lib/tempusdominus/js/moment-timezone.min.js"></script>
+  <script src="HMS_Lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-    <!-- HMS Javascript -->
-    <script src="/HMS_JS/main.js"></script>
+  <!-- HMS Javascript -->
+  <script src="HMS_JS/main.js"></script>
 </body>
-</html>

@@ -28,7 +28,7 @@
   <link href="HMS_CSS/bootstrap.min.css" rel="stylesheet">
 
   <!-- Admin Add Employee Stylesheet -->
-  <link href="HMS_CSS/patient_profile_style.css" rel="stylesheet">
+  <link href="HMS_CSS/admin_view_profile_style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -51,12 +51,12 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <div class="navbar-nav ms-auto p-4 p-lg-0">
-      <a href="index" class="nav-item nav-link">Home</a>
-      <a href="about" class="nav-item nav-link">About Us</a>
-      <a href="service" class="nav-item nav-link">Services</a>
-      <a href="contact" class="nav-item nav-link">Contact Us</a>
+         <a href="home2" class="nav-item nav-link">Home</a>
+                <a href="about2" class="nav-item nav-link">About Us</a>
+                <a href="service2" class="nav-item nav-link">Services</a>
+                <a href="contact2" class="nav-item nav-link">Contact Us</a>
       <a href="admin_profile" class="nav-item nav-link">Profile</a>
-      <a href="logout" class="nav-item nav-link">Log Out</a>
+      <a href="logout" class="nav-item nav-link" >Log Out</a>
     </div>
   </div>
 </nav>
@@ -69,18 +69,20 @@
       <p><b>Admin</b></p>
     </div>
     <div class="side-bar-icon d-inline-flex align-items-center justify-content-center bg-white rounded-circle mb-4">
-      <i class="fa fa-user-plus fa-3x"></i>
+      <i class="fa fa-user fa-3x"></i>
     </div>
     <p class="side-bar-top-info"><b>Name :</b> {{user2.Name}}</p>
     <p class="side-bar-top-info"><b>Id :</b> {{user2.ID}}</p>
   </div>
   <div class="side-bar-bottom">
       <ul>
-              <li><a href="/admin_home">Dashboard</a></li>
+                <li><a href="/admin_home">Dashboard</a></li>
                 <li><a href="/admin_add_emp">Add Employee</a></li>
                 <li><a href="/admin_search_emp">Search Employee</a></li>
                 <li><a href="/admin_all_emp">All Employees</a></li>
+                 <li><a href="/admin_all_patient">All Patients</a></li>
                 <li><a href="/admin_all_leaves">All Leaves</a></li>
+                <li><a href="/admin_analysis">Analysis</a></li>
             </ul>
   </div>
 </div>
@@ -125,6 +127,16 @@
     <div class="info-item">
       <label for="phone">Mobile Number:</label>
       <span>{{user.Phone}}</span>
+    </div>
+
+     <div class="info-item">
+      <label for="phone"> Qualification:</label>
+      <span>{{user.Qualification}}</span>
+    </div>
+
+     <div class="info-item">
+      <label for="phone">Specialization:</label>
+      <span>{{user.Specialization}}</span>
     </div>
  
   </div>

@@ -124,6 +124,12 @@
     transition: .5s;
 }
 
+.login2 {
+    border: none !important; /* Remove button border */
+    background: none !important; /* Remove button background */
+    padding: 0 !important; /* Remove padding */
+}
+
 
 /*** Header ***/
 .header-carousel .owl-carousel-text {
@@ -211,7 +217,7 @@
 }
 
 .page-header {
-    background: url(../HMS_Images/header-page.jpg) top center no-repeat;
+    background: url(../HMS_Images/header_back.jpg) top center no-repeat;
     background-size: cover;
     text-shadow: 0 0 30px rgba(0, 0, 0, .1);
 }
