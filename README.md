@@ -1,7 +1,7 @@
 # Description
 Our goal in this project is to address the conventional problems in hospital administration. The current system provides doctors, receptionists, and administrators too much work because it uses paper to retain OPD records of patients and hospital employees. The primary problems included improper data handling, time wastage during storage and retrieval, patients' incapacity to comprehend the prescription, etc. By giving physicians and other staff members individual user accounts, these problems are resolved. separating the data for each patient and tracking past visits with a simple click.
 
-This project uses MongoDB in backend and nodejs as it providesplatform independence, high performance and security.It provides some enhanced features such as: an easy interface to add, remove employees as well as it provides PDF of prescription.
+This project uses MongoDB in backend and nodejs as it provides platform independence, high performance and security.It provides some enhanced features such as: an easy interface to add, remove employees as well as it provides PDF of prescription.
 
 ### PPT presentation : [click here](https://www.canva.com/design/DAF2IZCkUyE/ZB9qvZ4X8-dheokyuQUOCw/edit)
 ### YouTube video link: [click here](https://www.youtube.com/watch?v=Gjpq7TX3QuQ&ab_channel=VaidikPatel)
